@@ -44,7 +44,7 @@ const baseSort = (items) => {
  */
 export const getCurItems = (_path, isSort = false, isEvery = false, items = [],) => {
   // path === 'web/webpack'
-  const mdPath = path.resolve(process.cwd(), 'docs/article', _path)
+  const mdPath = path.resolve(process.cwd(), 'docs', _path.slice(1))
   fs.readdirSync(mdPath).forEach(file => {
     if (file === 'index.md' || !file.includes('md')) {
       return
