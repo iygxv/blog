@@ -1,6 +1,6 @@
 import { getCurItems } from `../../../utils`
 const commonPath = `/article/daily-study/2023`
-const JanuaryDate = getCurItems(`${commonPath}/January`)
+const JanuaryDate = getCurItems(`${commonPath}/January`, true)
 
 const itemsJanuary = JanuaryDate.map(item => ({
   text: item,
