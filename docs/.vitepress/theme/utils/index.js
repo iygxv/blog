@@ -12,18 +12,11 @@ const earlyMorning = ref([
 const exercise = ref([
   [
     '多一份运动、多一份健康、多一份快乐。',
-    '我生平喜欢步行，运动给我带来了无穷的乐趣。',
-    '身体的健康因静止不动而破坏，因运动练习而长期保持。',
-    '健康是智慧的条件，是愉快的标志。',
-    '坚实在于锻炼，锻炼在于自觉。',
-    '身心健康，一路顺畅，爱护自己，人生无穷。'
   ]
 ])
 
 const write = ref([
   [
-    '长风破浪会有时，直挂云帆济沧海。',
-    '做一件事，无论大小，倘无恒心，是很不好的。',
     '写作是一条认识自己，认识真理的路，你只要喜欢写，应该随时动笔去写。'
   ]
 ])
@@ -36,19 +29,24 @@ const muse = ref([
 
 const read = ref([
   [
-    '我们之所以阅读，是希望人生在世有更多自由和可能。',
     '阅读永远是获取知识面最为廉价的方法，没有之一！'
   ]
 ])
 
-const dictums = {
-  1: earlyMorning,
-  2: exercise,
-  3: write,
-  4: muse,
-  5: read
-}
+// const dictums = {
+//   1: earlyMorning,
+//   2: exercise,
+//   3: write,
+//   4: muse,
+//   5: read
+// }
 
-const randomNum = Math.floor(1 + Math.random() * 5)
+// const randomNum = Math.floor(1 + Math.random() * 5)
 
-export default dictums[randomNum]
+// export default dictums[randomNum]
+
+const dictums = ref([
+  ['不管你在外面经历了什么，天黑了，我带你回家。']
+])
+
+export default dictums
