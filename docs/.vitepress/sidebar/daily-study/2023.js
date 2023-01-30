@@ -9,7 +9,7 @@ const itemsJanuary = JanuaryDate.map(item => ({
 
 export default [
   {
-    text: `1月`,
+    text: `一月`,
     collapsible: true,
     collapsed: false,
     items: itemsJanuary
