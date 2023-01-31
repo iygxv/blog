@@ -4,6 +4,7 @@ const booksDate = getCurItems(`${commonPath}/i-know`, true, false)
 const studyNotesDate = getCurItems(`${commonPath}/study-notes`, true, false)
 const studyDifficultyDate = getCurItems(`${commonPath}/difficulty`, true, false)
 const gitDate = getCurItems(`${commonPath}/git`, true, false)
+const linkDate = getCurItems(`${commonPath}/link`, true, false)
 
 const items = booksDate.map(item => ({
   text: item,
@@ -21,7 +22,17 @@ const gitItems = gitDate.map(item => ({
   text: item,
   link: `${commonPath}/git/${item}.md`
 }))
+const linkItems = linkDate.map(item => ({
+  text: item,
+  link: `${commonPath}/link/${item}.md`
+}))
 export default [
+  {
+    text: `文章收集`,
+    collapsible: true,
+    collapsed: false,
+    items: linkItems
+  },
   {
     text: `杂七杂八`,
     collapsible: true,
