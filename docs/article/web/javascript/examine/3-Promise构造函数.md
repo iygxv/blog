@@ -1,9 +1,9 @@
-# promise
-今天先来实现promise构造函数以及then方法基础使用
+# Promise
+如何写Promise呢, 我们必须要写对它有一定的了解
 ## 描述
-1. promise共有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）
-2. Promise构造函数接受一个函数执行器(executor)作为参数, 该函数的两个参数分别是resolve和reject
-3. then接受俩个函数 一个是成功的 一个失败的
+- promise共有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）
+- Promise构造函数接受一个函数执行器(executor)作为参数, 该函数的两个参数分别是resolve和reject
+- then接受俩个函数 一个是成功的 一个失败的
 
 ## 实现promise构造函数
 

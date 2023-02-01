@@ -6,7 +6,6 @@ const dailyStudySeptemberDate = getCurItems(`${commonPath}/september`, false, tr
 const dailyStudyOctoberDate = getCurItems(`${commonPath}/October`)
 const dailyStudyNovemberDate = getCurItems(`${commonPath}/November`)
 
-const dailyStudyHardDate = getCurItems(`${commonPath}/hard`, true)
 
 const items = dailyStudyDate.map(item => ({
   text: item,
@@ -29,10 +28,6 @@ const itemNovember = dailyStudyNovemberDate.map(item => ({
   link: `${commonPath}/November/${item}.md`
 }))
 
-const itemHards = dailyStudyHardDate.map(item => ({
-  text: item,
-  link: `${commonPath}/hard/${item}.md`
-}))
 export default [
   {
     text: `七月手写 (${dailyStudyDate.length})`,
@@ -63,11 +58,5 @@ export default [
     collapsible: true,
     collapsed: false,
     items: itemNovember,
-  },
-  {
-    text: `手写(难)`,
-    collapsible: true,
-    collapsed: true,
-    items: itemHards,
   }
 ]
