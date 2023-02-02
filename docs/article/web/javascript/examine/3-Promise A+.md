@@ -194,8 +194,11 @@ Promise.deferred = function () {
 
 module.exports = Promise
 ````
-
 ## 总结
+-  promise状态一旦改变就不能再变化了
+-  then中回调使用异步的原因是: 当new Promise的时候, 返回的值并没有返回
+-  then的参数如果是非函数,就发生值穿透
+## 扩展
 
 ### 1.什么是promise
 
@@ -257,3 +260,14 @@ promise.finally方法用于指定不管 Promise 对象最后状态如何，都�
 ### 11.promise如果不用catch那怎么捕获错误
 
 使用unhandleRejection统一捕获
+```js
+new Promise((resolve, reject) => {
+  reject('发生错误1')
+})
+new Promise((resolve, reject) => {
+  reject('发生错误2')
+})
+window.onunhandledrejection = event => {
+  console.warn(`UNHANDLED PROMISE REJECTION: ${event.reason}`);
+};
+```
