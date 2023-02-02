@@ -4,7 +4,7 @@
 
 ##  介绍
 
-专门记录自己学到、见到、了解到的知识
+专门记录自己所见所学
 
 ## 与我相关
 
@@ -15,11 +15,3 @@
 [个人博客](https://codevity.top/)
 
 [github](https://github.com/iygxv)
-
-## 我的项目
-
-[interface生成](https://codevity.top/interfaceCreate/)
-
-[文章图片生成](https://codevity.top/create_pic.html)
-
-正在学习...

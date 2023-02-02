@@ -37,19 +37,19 @@
  * Promise.resolve()
  * @param {[type]} value 要解析为 Promise 对象的值 
  */
-_Promise.resolve = function (value) {
+Promise.resolve = function (value) {
   // 如果这个值是一个 promise ，那么将返回这个 promise 
-  if (value instanceof _Promise) {
+  if (value instanceof Promise) {
     return value;
   } else if (value instanceof Object && 'then' in value) {
     // 如果这个值是thenable（即带有`"then" `方法），返回的promise会“跟随”这个thenable的对象，采用它的最终状态；
-    return new _Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       value.then(resolve, reject);
     })
   }
 
   // 否则返回的promise将以此值完成，即以此值执行`resolve()`方法 (状态为fulfilled)
-  return new _Promise((resolve) => {
+  return new Promise((resolve) => {
     resolve(value)
   })
 }
@@ -69,8 +69,8 @@ _Promise.resolve = function (value) {
 一个给定原因了的被拒绝的 [`Promise`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ```js
-_Promise.reject = function(reason) {
-  return new _Promise((resolve, reject) => {
+Promise.reject = function(reason) {
+  return new Promise((resolve, reject) => {
     reject(reason)
   })
 }
@@ -89,7 +89,7 @@ _Promise.reject = function(reason) {
 `Promise.prototype.catch()`方法是`.then(null, rejection)`或`.then(undefined, rejection)`的别名，用于指定发生错误时的回调函数。
 
 ```js
-_Promise.prototype.catch = function(onRejected) {
+Promise.prototype.catch = function(onRejected) {
   return this.then(undefined, onRejected)
 }
 ```
@@ -108,7 +108,7 @@ _Promise.prototype.catch = function(onRejected) {
 **由于无法知道promise的最终状态，所以`finally`的回调函数中不接收任何参数，它仅用于无论最终结果如何都要执行的情况。**
 
 ```js
-_Promise.prototype.finally = function(callBack) {
+Promise.prototype.finally = function(callBack) {
    return this.then(callBack, callBack)
 }
 ```
@@ -141,8 +141,8 @@ _Promise.prototype.finally = function(callBack) {
 - 其它情况下返回一个**处理中（pending）**的[`Promise`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)。这个返回的 `promise` 之后会在所有的 `promise` 都完成或有一个 `promise` 失败时**异步**地变为完成或失败。 见下方关于“Promise.all 的异步或同步”示例。返回值将会按照参数内的 `promise` 顺序排列，而不是由调用 `promise` 的完成顺序决定。
 
 ```js
-_Promise.all = function(promises) {
-  return new _Promise((resolve, reject) => {
+Promise.all = function(promises) {
+  return new Promise((resolve, reject) => {
     // 参数校验
     if (Array.isArray(promises)) {
       let result = []; // 存储结果
@@ -154,8 +154,8 @@ _Promise.all = function(promises) {
       }
 
       promises.forEach((item, index) => {
-        // _Promise.resolve方法中已经判断了参数是否为promise与thenable对象，所以无需在该方法中再次判断
-        _Promise.resolve(item).then(
+        // Promise.resolve方法中已经判断了参数是否为promise与thenable对象，所以无需在该方法中再次判断
+        Promise.resolve(item).then(
           value => {
             count++;
             // 每个promise执行的结果存储在result中
@@ -200,8 +200,8 @@ _Promise.all = function(promises) {
 对于每个结果对象，都有一个 `status` 字符串。如果它的值为 `fulfilled`，则结果对象上存在一个 `value` 。如果值为 `rejected`，则存在一个 `reason` 。value（或 reason ）反映了每个 promise 决议（或拒绝）的值。
 
 ```js
-_Promise.allSettled = function(promises) {
-  return new _Promise((resolve, reject) => {
+Promise.allSettled = function(promises) {
+  return new Promise((resolve, reject) => {
     // 参数校验
     if (Array.isArray(promises)) {
       let result = []; // 存储结果
@@ -212,7 +212,7 @@ _Promise.allSettled = function(promises) {
 
       promises.forEach((item, index) => {
         // 非promise值，通过Promise.resolve转换为promise进行统一处理
-        _Promise.resolve(item).then(
+        Promise.resolve(item).then(
           value => {
             count++;
             // 对于每个结果对象，都有一个 status 字符串。如果它的值为 fulfilled，则结果对象上存在一个 value 。
@@ -266,8 +266,8 @@ _Promise.allSettled = function(promises) {
 - 其他情况下都会返回一个**处理中（pending）** 的 [Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)。 只要传入的迭代对象中的任何一个 `promise` 变成成功（resolve）状态，或者其中的所有的 `promises` 都失败，那么返回的 `promise` 就会 **异步地**（当调用栈为空时） 变成成功/失败（resolved/reject）状态。
 
 ```js
-_Promise.any = function(promises) {
-  return new _Promise((resolve, reject) => {
+Promise.any = function(promises) {
+  return new Promise((resolve, reject) => {
     // 参数校验
     if (Array.isArray(promises)) {
       let errors = []; // 
@@ -278,7 +278,7 @@ _Promise.any = function(promises) {
 
       promises.forEach(item => {
         // 非Promise值，通过Promise.resolve转换为Promise
-        _Promise.resolve(item).then(
+        Promise.resolve(item).then(
           value => {
             // 只要其中的一个 promise 成功，就返回那个已经成功的 promise 
             resolve(value);
@@ -321,8 +321,8 @@ _Promise.any = function(promises) {
 一个**待定的** [`Promise`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise) 只要给定的迭代中的一个 promise 解决或拒绝，就采用第一个 promise 的值作为它的值，从而**异步**地解析或拒绝（一旦堆栈为空）。
 
 ```js
-_Promise.race = function() {
-  return new _Promise((resolve, reject) => {
+Promise.race = function() {
+  return new Promise((resolve, reject) => {
     // 参数校验
     if (Array.isArray(promises)) {
       // 如果传入的迭代promises是空的，则返回的 promise 将永远等待。
@@ -332,7 +332,7 @@ _Promise.race = function() {
            * 如果迭代包含一个或多个非承诺值和/或已解决/拒绝的承诺，
            * 则 Promise.race 将解析为迭代中找到的第一个值。
            */
-          _Promise.resolve(item).then(resolve, reject);
+          Promise.resolve(item).then(resolve, reject);
         })
       }
     } else {
