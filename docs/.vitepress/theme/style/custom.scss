@@ -37,10 +37,11 @@
 // 滚动条
 ::-webkit-scrollbar {
   width: 7px;
+  height: 8px;
 }
 
 // 滚动滑块
 ::-webkit-scrollbar-thumb {
   background: #ccc;
-  border-radius: 6px;
+  border-radius: 7px;
 }
