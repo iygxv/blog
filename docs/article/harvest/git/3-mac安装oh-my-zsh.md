@@ -52,3 +52,10 @@ ZSH_THEME="robbyrussell"
 source ~/.zshrc
 ```
 
+## 找不到nvm问题
+
+- 在终端输入**open ~/.zshrc**
+- 在最开头加上**source ~/.bash_profile**
+- 在刚才的终端输入**source ~/.zshrc**
+
+[zsh中nvm不见了](https://blog.csdn.net/sherlyxoxo/article/details/125265019)
