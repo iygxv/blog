@@ -6,7 +6,7 @@ import dailyStudy2023 from './daily-study/2023'
 import vue from './web/vue'
 import js from './web/js'
 import ts from './web/ts'
-import webpack from './web/webpack'
+import engineered from './web/engineered'
 // leetcode
 import leetcode from './leetcode'
 
@@ -27,7 +27,7 @@ export default {
   '/article/daily-study/2023/': dailyStudy2023,
   '/article/web/vue/': vue,
   '/article/web/javascript/': js,
-  '/article/web/webpack/': webpack,
+  '/article/web/engineered/': engineered,
   '/article/leetcode/': leetcode,
   '/article/interview/': interview,
   '/article/read/': read,

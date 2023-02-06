@@ -9,6 +9,7 @@ export default [
       { text: 'Vue', link: `/article/web/vue/`, activeMatch: `/article/web/vue/` },
       { text: 'JS', link: `/article/web/javascript/`, activeMatch: `/article/web/javascript/` },
       { text: 'TypeScript', link: `/article/web/ts/`, activeMatch: `/article/web/ts/` },
+      { text: '工程化', link: `/article/web/engineered/`, activeMatch: `/article/web/engineered/` },
       { text: '面试', link: `/article/interview/`, activeMatch: `/article/interview/` }
     ]
   },
