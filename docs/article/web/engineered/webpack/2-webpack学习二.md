@@ -1,18 +1,28 @@
-# 1.模块
+# Webpack学习二
+## 1.模块
 
-## Mode配置
+### Mode配置
+
+[官方文档](https://webpack.docschina.org/configuration/mode/)
 
 - **Mode配置选项，可以告知webpack使用响应模式的内置优化**
+  
   - 默认值是**production**（什么都不设置的情况下）
-  - 可选值有：'**none**' | '**development**' | '**production**'
-
+  - 可选值有：**none** | **development** | **production**
+  
 - **这几个选项有什么样的区别呢?**
 
-![image-20220113141815224](./assets/image-20220113141815224.png)
+  | 选项        | 描述                                                         |
+  | ----------- | ------------------------------------------------------------ |
+  | development | 会将 `DefinePlugin` 中 `process.env.NODE_ENV` 的值设置为 `development`. 为模块和 chunk 启用有效的名。 |
+  | production  | 会将 `DefinePlugin` 中 `process.env.NODE_ENV` 的值设置为 `production`。为模块和 chunk 启用确定性的混淆名称，`FlagDependencyUsagePlugin`，`FlagIncludedChunksPlugin`，`ModuleConcatenationPlugin`，`NoEmitOnErrorsPlugin` 和 `TerserPlugin` 。 |
+  | none        | 不使用任何默认优化选项                                       |
 
 
 
-## source-map
+### source-map
+
+[官方文档](https://webpack.docschina.org/configuration/devtool/#root)
 
 代码报错需要调试时（debug），调试转换后的代码是很困难的, 能保证代码不出错吗？不可能
 
@@ -36,7 +46,7 @@
   - 第二步：在转换后的代码，**最后添加一个注释**，它指向sourcemap
 
     ```shell
-    //# sourceMappingURL=common.bundle.js.map
+    //## sourceMappingURL=common.bundle.js.map
     ```
 
   - 浏览器会**根据我们的注释**，查找响应的source-map，并且根据source-map还原我们的代码，方便进行调试
@@ -70,7 +80,7 @@
 
 
 
-# 2.Babel的深入解析
+## 2.Babel的深入解析
 
 - **为什么需要Babel？**
 
@@ -79,7 +89,7 @@
 - **Babel是什么呢？**
 
   - Babel是一个**工具链**，主要用于旧浏览器或者缓解中将ECMAScript 2015+代码转换为**向后兼容版本**的JavaScript
-  - 包括：**语****法转换、源代码转换、Polyfill实现目标缓解缺少**的功能等
+  - 包括：**语法转换、源代码转换、Polyfill实现目标缓解缺少**的功能等
 
 - **Babel命令行使用**
 
@@ -211,7 +221,7 @@
 
 
 
-## 认识polyfill
+### 认识polyfill
 
 - **Polyfill是什么呢？**
 
@@ -240,7 +250,7 @@
 
 
 
-## 配置babel.config.js
+### 配置babel.config.js
 
 - **preset-env配置一些属性**
   - **useBuiltIns**：**设置以什么样的方式来使用polyfill**
@@ -266,37 +276,19 @@
 
 
 
-# 3.加载vue文件
+## 3.创建vue3项目
 
-- **编写vue相关的代码**
-
-  ![image-20220113152445576](./assets/image-20220113152445576.png)
-
-- **Webpack中配置vue加载**
-
-  -  安装相关的依赖
-
-    ```shell
-    yarn add install vue-loader -D
-    
-    yarn add vue-template-compiler -D
-    ```
-
-  - 配置webpack
-
-    ![image-20220113152821996](./assets/image-20220113152821996.png)
+[创建vue3项目](https://codevity.top/article/web/engineered/relevant/1-%E5%88%9B%E5%BB%BAvue3%E9%A1%B9%E7%9B%AE.html#webpack)
 
 
-
-
-# 4.搭建本地服务器
+## 4.搭建本地服务器
 
 - **目前我们开发的代码，为了运行需要有两个操作**
 
   - 操作一：npm run build，编译相关的代码
   - 操作二：通过live server或者直接通过浏览器，打开index.html代码，查看效果
 
-- **希望可以做到，当文件发生变化时，可以自动的完成 编译 和 展示**
+- **希望可以做到，当文件发生变化时，可以自动的完成编译和展示**
 
 - **为了完成自动编译，webpack提供了几种可选的方式**
 
@@ -322,7 +314,7 @@
 
 - **webpack-dev-middleware**
 
-# 5.模块热替换（HMR）
+## 5.模块热替换（HMR）
 
 - **什么是HMR呢？**
 
@@ -344,7 +336,13 @@
 
   - 修改webpack的配置：
 
-    ![image-20220113164852797](./assets/image-20220113164852797.png)
+    ```js
+    module.exports = {
+      devServer: {
+        hot: true
+      }
+    }
+    ```
 
   - 浏览器可以看到如下效果
 
@@ -374,20 +372,20 @@
 
 
 
-# 6.devServer
+## 6.devServer
 
-## publicPath属性
+[官方文档](https://webpack.docschina.org/configuration/dev-server/)
+
+### publicPath属性
 
 -  devServer中有一个publicPath的属性，该属性是指定本地服务所在的文件夹
-  - 它的**默认值是 /**，也就是我们直接访问端口即可访问其中的资源 http://localhost:8080；
-  - 如果我们将其设置为了 **/abc**，那么我们需要通过 http://localhost:8080/abc才能访问到对应的打包后的资源
-  - 并且这个时候，我们其中的bundle.js通过 http://localhost:8080/bundle.js也是无法访问的
+  - 它的**默认值是 /**，也就是我们直接访问端口即可访问其中的资源 `http://localhost:8080`；
+  - 如果我们将其设置为了 **/abc**，那么我们需要通过 `http://localhost:8080/abc`才能访问到对应的打包后的资源
+  - 并且这个时候，我们其中的bundle.js通过 `http://localhost:8080/bundle.js`也是无法访问的
     - 所以必须将output.publicPath也设置为 /abc；
     - 官方其实有提到，建议 devServer.publicPath 与 output.publicPath相同
 
-
-
-## contentBase属性
+### contentBase属性
 
 - devServer中contentBase对于我们直接访问打包后的资源其实并没有太大的作用，它的主要作用是**如果我们打包**
   **后的资源，又依赖于其他的一些资源**，那么就需要**指定从哪里来查找这个内容**
@@ -401,27 +399,33 @@
 -  当然在devServer中还有一个可以监听contentBase发生变化后重新编译的一个属性： watchContentBase 
 
 ```js
- devServer: {
-    contentBase: path.resolve(__dirname, "./vity"),
-    watchContentBase: true,
-  }
+module.exports = {
+   devServer: {
+      contentBase: path.resolve(__dirname, "./abc"),
+      watchContentBase: true,
+ 		}
+}
 ```
 
-
-
-## hotOnly、host配置
+### hotOnly、host配置
 
 - **hotOnly是当代码编译失败时，是否刷新整个页面**
   -  默认情况下当代码编译失败修复后，我们会重新刷新整个页面
   -  如果不希望重新刷新整个页面，可以设置hotOnly为true
-
 - **host设置主机地址**
   -  默认值是localhost；
   -  如果希望其他地方也可以访问，可以设置为 0.0.0.0
 
+```js
+module.exports = {
+  devServer: {
+    hotOnly: true,
+    host: '0.0.0.0'
+  }
+}
+```
 
-
-## port、open、compress
+### port、open、compress
 
 - **port设置监听的端口，默认情况下是8080**
 
@@ -436,62 +440,108 @@
 
     ![image-20220113170258629](./assets/image-20220113170258629.png)
 
-## Proxy代理
+```js
+module.exports = {
+  devServer: {
+    port: 8081,
+    open: true,
+    compress: true // 为静态文件开启gzip 
+  }
+}
+```
+
+### Proxy代理
 
 - **proxy是我们开发中非常常用的一个配置选项，它的目的设置代理来解决跨域访问的问题**
-  - 比如我们的一个api请求是 http://localhost:8888，但是本地启动服务器的域名是 http://localhost:8000，这
+  - 比如我们的一个api请求是 `http://localhost:8888`，但是本地启动服务器的域名是`http://localhost:8000`，这
     个时候发送网络请求就会出现跨域的问题
   - 那么我们可以将请求先发送到一个代理服务器，代理服务器和API服务器没有跨域的问题，就可以解决我们的
     跨域问题了
 
 - **配置**
-  - **target**：表示的是**代理到的目标地址**，比如 /api-hy/moment会被代理到 http://localhost:8888/api-hy/moment；
+  - **target**：表示的是**代理到的目标地址**，比如 /api-hy/moment会被代理到 `http://localhost:8888/api/moment`；
   - **pathRewrite**：默认情况下，我们的 /api-hy 也会被写入到URL中，如果希望删除，可以使用pathRewrite；
   - **secure**：默认情况下不接收转发到https的服务器上，如果希望支持，可以设置为false；
   - **changeOrigin**：它表示是否更新代理后请求的headers中host地址
 
 - **changeOrigin的解析**
   - 通过查看源码我发现其实是要**修改代理请求中的headers中的host属性**
-  - 因为我们真实的请求，其实是需要通过 http://localhost:8888来请求的
-  - 但是因为使用了代码，默认情况下它的值时 http://localhost:8000；
+  - 因为我们真实的请求，其实是需要通过 `http://localhost:8888`来请求的
+  - 但是因为使用了代码，默认情况下它的值时 `http://localhost:8000`；
   - 如果我们需要修改，那么可以将changeOrigin设置为true即可
 
 ```js
-proxy: {
-   // "/vity": "http://localhost:8888"
-   "/vity": {
-       target: "http://localhost:8888",
-       pathRewrite: {
-         "^/vity": ""
-      },
-    secure: false,
-    changeOrigin: true
+module.export = {
+  devServer: {
+    // 代理单一目标 /api
+    proxy: {
+      "/api": {
+        target: "http://localhost:8888",
+        pathRewrite: {
+          "^/api": ""  // 不希望传递/api，则需要重写路径
+        },
+        secure: false,
+        changeOrigin: true
+      }
+    }
+  }
+```
+
+```js
+module.export = {
+  devServer: {
+    // 代理多个目标 /api + /auth 
+    proxy: [
+      {
+        context: ['/auth', '/api'],
+        target: 'http://localhost:3000',
+        secure: false,
+        changeOrigin: true
+      }
+    ]
+  }
 }
 ```
 
 
 
-## historyApiFallback
+### historyApiFallback
 
 - **historyApiFallback是开发中一个非常常见的属性，它主要的作用是解决SPA页面在路由跳转之后，进行页面刷新时，返回404的错误**
 -  **boolean值：默认是false**
   - 如果**设置为true**，那么在刷新时，返回404错误时，会自动返回 index.html 的内容
-
 - **object类型的值，可以配置rewrites属性**
   - 以配置from来匹配路径，决定要跳转到哪一个页面
 
+```js
+module.exports = {
+  devServer: {
+   //  historyApiFallback: true, // boolean形式
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/$/, to: '/views/landing.html' },
+        { from: /^\/subpage/, to: '/views/subpage.html' },
+        { from: /./, to: '/views/404.html' }
+      ]
+    }
+  }
+}
+```
 
 
-# 7.resolve模块解析
+
+
+
+## 7.resolve模块解析
+
+[官方文档](https://webpack.docschina.org/configuration/resolve/)
 
 - **resolve用于设置模块如何被解析**
 
   - 在开发中我们会有各种各样的模块依赖，这些模块可能来自于自己编写的代码，也可能来自第三方库
   - **resolve可以帮助webpack从每个 require/import 语句中，找到需要引入到合适的模块代码**
   -  webpack 使用 enhanced-resolve 来解析文件路径
-
 - **webpack能解析三种文件路径**
-
   - 绝对路径
     -  由于已经获得文件的绝对路径，因此不需要再做进一步解析
   - 相对路径
@@ -501,31 +551,32 @@ proxy: {
     - 在 resolve.modules中指定的所有目录检索模块
       -  默认值是 ['node_modules']，所以默认会从node_modules中查找文件
     - 我们可以通过设置别名的方式来替换初识模块路径，后面解释alias的配置
-
 - **extensions和alias配置**
 
   - extensions是解析到文件时**自动添加扩展名**
 
     - 默认值是 ['.wasm', '.mjs', '.js', '.json']
     - 所以如果我们代码中想要添加加载 .vue 或者 jsx 或者 ts 等文件时，我们必须自己写上扩展名
-
   - 配置别名alias
-
+  
     - 特别是当我们项目的目录结构比较深的时候，或者一个文件的路径可能需要 ../../../这种路径片段
+  - 我们可以给某些常见的路径起一个别名
 
-    - 我们可以给某些常见的路径起一个别名
+```js
+module.export = {
+  resolve: {
+    extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.ts', '.vue'],
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+      "pages": path.resolve(__dirname, "./src/pages")
+    }
+  }
+}
+```
 
-      ```js
-      resolve: {
-          extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.ts', '.vue'],
-          alias: {
-            "@": path.resolve(__dirname, "./src"),
-            "pages": path.resolve(__dirname, "./src/pages")
-          }
-       }
-      ```
 
-# 8.入口文件解析
+
+## 8.入口文件解析
 
 - 我们之前编写入口文件的规则是这样的：./src/index.js，但是如果我们的**配置文件所在的位置变成了 config 目录**，
   我们是否应该变成 ../src/index.js呢？
@@ -536,7 +587,68 @@ proxy: {
 -  **context的作用是用于解析入口（entry point）和加载器（loader）**
 
   - 官方说法：默认是当前路径（但是经过我测试，**默认应该是webpack的启动目录**）
-
   - 另外推荐在配置中传入一个值
+  
+  ```js
+  module.exports = {
+    // context是配置文件所在目录
+    context: path.resolve(__dirname, './'),
+    entry: './src/index.js'
+  }
+  ```
+  
+  ```js
+  module.export = {
+    // context是上一个目录
+    context: path.resolve(__dirname, '../'),
+    entry: './src/index.js'
+  }
+  ```
 
-    ![image-20220113173037947](./assets/image-20220113173037947.png)
+## 总结
+
+- webpack基本配置（二）
+
+  ```js
+  module.exports = {
+    mode: 'development', // development | production | none
+    entry: '', // 入口，也可以配置成对象形式
+    devtool: 'source-map', // 控制是否生成，以及如何生成 source map
+    output: {
+      filename: 'bundle.js', // 文件名
+      path: path.resolve(__dirname, './dist') // 打包后的路径, 必须是绝对路径
+    },
+    resolve: {
+      extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.ts', '.vue'],
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+        pages: path.resolve(__dirname, './src/pages')
+      }
+    },
+    devServer: {
+      hot: true, // 开启热更新
+      host: '0.0.0.0', // 设置主机地址
+      port: 8081, // 设置端口
+      open: true, // 自动打开浏览器
+      compress: true, // 为静态文件开启gzip
+      // 代理单一目标 /api
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8888',
+          pathRewrite: {
+            '^/api': '' // 不希望传递/api，则需要重写路径
+          },
+          secure: false,
+          changeOrigin: true
+        }
+      }
+    },
+    module: {
+      rules: [] // loader
+    },
+    plugins: [] // 插件
+  }
+  // 待补充...
+  ```
+  
+  

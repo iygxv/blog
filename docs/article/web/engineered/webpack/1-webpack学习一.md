@@ -1,4 +1,5 @@
-# 1.Webpack是什么？(初始)
+# Webpack学习一
+## 1.Webpack是什么?
 
 webpack是一个静态的模块化打包工具，为现代的JavaScript应用程序；
 
@@ -12,13 +13,13 @@ webpack是一个静态的模块化打包工具，为现代的JavaScript应用程
 
 
 
-## Webpack的依赖
+### Webpack的依赖
 
 Webpack的运行是依赖Node环境的，所以我们电脑上必须有Node环境
 
 
 
-## Webpack的安装
+### Webpack的安装
 
 webpack的安装目前分为两个：webpack、webpack-cli
 
@@ -30,7 +31,7 @@ webpack的安装目前分为两个：webpack、webpack-cli
 - webpack-cli中代码执行时，才是真正利用webpack进行编译和打包的过程；
 - 所以在安装webpack时，我们需要同时安装webpack-cli（第三方的脚手架事实上是没有使用webpack-cli的，而是类似于自己的vue-service-cli的东西）
 
-## webpack默认打包
+### webpack默认打包
 
 - 我们可以通过webpack进行打包，之后运行`打包之后`的代码
   在目录下直接执行 **`webpack`** 命令
@@ -51,13 +52,13 @@ webpack
 
 
 
-## Webpack配置文件
+### Webpack配置文件
 
 - 在通常情况下，webpack需要打包的项目是非常复杂的，并且我们需要一系列的配置来满足要求，默认配置必然
   是不可以的。
 - 我们可以在根目录下创建一个***webpack.config.js***文件，来作为webpack的配置文件：
 
-### 入口(entry)
+##### 入口(entry)
 
 ```js
 const config = {
@@ -77,7 +78,7 @@ const config = {
 };
 ```
 
-### 输出(output)
+##### 输出(output)
 
 在 webpack 中配置 `output` 属性的最低要求是，将它的值设置为一个对象，包括以下两点：
 
@@ -97,13 +98,13 @@ module.exports = config;
 
 此配置将一个单独的 `bundle.js` 文件输出到 `/home/proj/public/assets` 目录中。
 
-### loader和plugins
+##### loader和plugins
 
 `loader` 和`plugins`单独分成模块去理解
 
 
 
-## 指定配置文件
+### 指定配置文件
 
 - 如果我们的配置文件并不是webpack.config.js的名字，而是其他的名字呢？
   - 比如我们将webpack.config.js修改成了 wk.config.js；
@@ -129,7 +130,7 @@ module.exports = config;
 
 
 
-# 2.Webpack依赖(loader)
+## 2.loader
 
 - webpack到底是如何对我们的项目进行打包的呢？
   - 事实上webpack在处理应用程序时，它会根据命令或者配置文件找到入口文件；
@@ -138,7 +139,7 @@ module.exports = config;
 
 
 
-## loader的配置方式
+### loader的配置方式
 
 - 配置方式表示的意思是在我们的webpack.config.js文件中写明配置信息：
 
@@ -150,31 +151,47 @@ module.exports = config;
 
 - **module.rules的配置如下：**
 
-- rules属性对应的值是一个数组：[Rule]
+rules属性对应的值是一个数组：[Rule]
 
--  数组中存放的是一个个的Rule，Rule是一个对象，对象中可以设置多个属性：
+数组中存放的是一个个的Rule，Rule是一个对象，对象中可以设置多个属性：
 
-  - **test属性**：用于对 resource（资源）进行匹配的，通常会设置成正则表达式；
+   - **test属性**：用于对 resource（资源）进行匹配的，通常会设置成正则表达式；
 
-  - **loader属性**： Rule.use: [ { loader } ] 的简写。
+   - **loader属性**： Rule.use: [ { loader } ] 的简写。
 
-  - **use属性**：对应的值时一个数组：[UseEntry]
+   - **use属性**：对应的值时一个数组：[UseEntry]
 
-    - **UseEntry是一个对象**，可以通过对象的属性来设置一些其他属性
--  loader：必须有一个 loader属性，对应的值 是一个字符串；
-  
-- options：可选的属性，值是一个字符串或者对象，值会被传入到loader中；
-      - query：目前已经使用options来替代；
+     - **UseEntry是一个对象**，可以通过对象的属性来设置一些其他属性
+     - loader：必须有一个 loader属性，对应的值 是一个字符串
+     
+   - options：可选的属性，值是一个字符串或者对象，值会被传入到loader中；
   
 - **传递字符串**（如：use: [ 'style-loader' ]）是 loader 属性的简写方式（如：use: [ { loader: 'style-loader'} ]）；
   
+  ```js
+  module.exports = {
+    module: {
+      rules: [
+        {
+          test: /\.css$/, // 正则表达式匹配相应的资源
+          use: [
+            // 注意顺序（从下往上，从左往右，从后往前）
+            { loader: 'style-loader' },
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+              },
+            },
+            { loader: 'sass-loader' },
+          ],
+        },
+      ],
+    },
+  };
+  ```
 
-
-![image-20220113111007115](assets/image-20220113111007115.png)
-
-
-
-## PostCSS工具
+### PostCSS工具
 
 - **什么是PostCSS呢？**
   - PostCSS是一个通过JavaScript来转换样式的**工具**；
@@ -189,7 +206,7 @@ module.exports = config;
 
     
 
-## 命令行使用postcss
+### 命令行使用postcss
 
 - **终端使用PostCSS**
 
@@ -201,9 +218,7 @@ module.exports = config;
   yarn add postcss postcss-cli -D
   ```
 
-
-
-## postcss-loader的使用
+### postcss-loader的使用
 
 - **借助于构建工具：**
 
@@ -219,13 +234,17 @@ module.exports = config;
   
   - **注意：因为postcss需要有对应的插件才会起效果，所以我们需要配置它的plugin**
 
+### 单独的postcss配置文件
 
+- **在根目录下创建postcss.config.js，下入下面代码，将会自动加入css前缀**
 
-## 单独的postcss配置文件
-
-- **在根目录下创建postcss.config.js**
-
-![image-20220113112321715](assets/image-20220113112321715.png)
+```js
+module.exports = {
+  plugins: [
+    require('autoprefixer')
+  ]
+}
+```
 
 - **postcss-preset-env(预设)** 
   - postcss-preset-env也是一个postcss的插件；
@@ -239,9 +258,15 @@ module.exports = config;
 yarn add postcss-preset-env -D 
 ```
 
-![image-20220113112536115](assets/image-20220113112536115.png)
+```js
+module.exports = {
+  plugins: [
+    'postcss-preset-env'
+  ]
+}
+```
 
-## file-loader
+### file-loader
 
 - **要处理jpg、png等格式的图片，我们也需要有对应的loader：file-loader**
 
@@ -256,13 +281,20 @@ yarn add postcss-preset-env -D
 
 - **配置处理图片的Rule**
 
-  ![image-20220113112830308](assets/image-20220113112830308.png)
+  ```js
+  {
+    test: /\.(png|jpe?g|gif|svg)$/,
+      use: {
+        loader: "file-loader"
+      }
+  }
+  ```
 
 - **有时候我们处理后的文件名称按照一定的规则进行显示：**
 
   比如保留原来的**文件名、扩展名**，同时为了**防止重复**，包含一个**hash值**等
 
-- **[PlaceHolders](https://webpack.js.org/loaders/file-loader/#placeholders)**
+- **[PlaceHolders](https://webpack.js.org/loaders/file-loader/##placeholders)**
 
 - **最常用的placeholder**
 
@@ -276,11 +308,26 @@ yarn add postcss-preset-env -D
 - **设置文件名称和存放路径**
 
   - name设置名称
+  
   - outputPath设置存放路径
+  
+    ```js
+    {
+      test: /\.(png|jpe?g|gif|svg)$/,
+        use: {
+          loader: "file-loader",
+            options: {
+              name: "[name].[hash:8].ext",
+              outputPath: "img"
+            }
+        }
+    }
+    ```
+  
+    
+  
 
-  ![image-20220113113402900](assets/image-20220113113402900.png)
-
-## url-loader
+### url-loader
 
 - **url-loader和file-loader的工作方式是相似的，但是可以将较小的文件，转成base64的URI。**
 
@@ -290,7 +337,22 @@ yarn add postcss-preset-env -D
   yarn add url-loader -D
   ```
 
-  ![image-20220113113605091](assets/image-20220113113605091.png)
+  ```js
+  {
+    test: /\.(png|jpe?g|gif|svg)$/,
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            name: "img/[name].[hash:6].[ext]",
+            outputPath: "img"
+          }
+        }
+      ]
+  }
+  ```
+
+  
 
 - **url-loader的limit**
 
@@ -303,11 +365,24 @@ yarn add postcss-preset-env -D
 
     - url-loader有一个options属性limit，可以用于设置转换的限制
 
-      ![image-20220113113826423](assets/image-20220113113826423.png)
+      ```js
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                name: "img/[name].[hash:6].[ext]",
+                limit: 100 * 1024
+              }
+            }
+          ]
+      }
+      ```
+      
+      
 
-
-
-## asset module type的介绍
+### asset module type的介绍
 
 - **我们当前使用的webpack版本是webpack5**
 
@@ -323,32 +398,83 @@ yarn add postcss-preset-env -D
   - **asset/source** 导出资源的源代码。之前通过使用 raw-loader 实现；
 
   - **asset** 在导出一个 data URI 和发送一个单独的文件之间自动选择。之前通过使用 url-loader，并且配置资源
-    体积限制实现；
+    体积限制实现
 
-    ![image-20220113114220747](assets/image-20220113114220747.png)
+    ```js
+    {
+      test: /\.(png|jpe?g|gif|svg)$/,
+      type: "asset/resource", // file-loader的效果
+    
+    }
+    ```
+    
+    
 
 - **自定义文件的输出路径和文件名**
 
   - 方式一：修改**output**，添加**assetModuleFilename**属性；
+  
+    ```js
+    output: {
+      filename: "bundle.js",
+        // 必须是一个绝对路径
+        path: path.resolve(__dirname, "./build"),
+        assetModuleFilename: "img/[name].[hash:6][ext]"
+    }
+    ```
+  
   - 方式二：在**Rule**中，添加一个**generator**属性，并且设置**filename**
-
-![image-20220113114331013](assets/image-20220113114331013.png)
-
-![image-20220113114343742](assets/image-20220113114343742.png)
+  
+    ```js
+    {
+      test: /\.(png|jpe?g|gif|svg)$/,
+      type: "asset/resource", // file-loader的效果
+      generator: {
+         filename: "img/[name].[hash:6][ext]"
+      }
+    }
+    ```
 
 - **url-loader的limit的效果**
+  
   - 步骤一：将type修改为asset
+  
   - 步骤二：添加一个parser属性，并且制定dataUrl的条件，添加maxSize属性
+  
+    ```js
+    {
+      test: /\.(png|jpe?g|gif|svg)$/,
+      type: "asset",
+      generator: {
+         filename: "img/[name].[hash:6][ext]"
+       },
+      parser: {
+         dataUrlCondition: {
+               maxSize: 100 * 1024
+            }
+        }
+    }
+    ```
+  
+    
 
-![image-20220113114645147](assets/image-20220113114645147.png)
-
-## 加载字体文件
+### 加载字体文件
 
 - **可以选择使用file-loader来处理，也可以选择直接使用webpack5的资源模块类型来处理**
 
-![image-20220113115002129](assets/image-20220113115002129.png)
+  ```js
+  {
+    test: /\.ttf|eot|woff2?$/i,
+    type: "asset/resource",
+      generator: {
+        filename: "font/[name].[hash:6][ext]"
+      }
+  }
+  ```
 
-# 3.Plugin
+
+
+## 3.Plugin
 
 - Webpack的另一个核心是Plugin
   - Loader是用于特定的模**块类型进行转换**
@@ -358,7 +484,7 @@ yarn add postcss-preset-env -D
 
 
 
-## CleanWebpackPlugin
+### CleanWebpackPlugin
 
 - **每次修改了一些配置，重新打包时，都需要手动删除dist文件夹**
   
@@ -372,11 +498,16 @@ yarn add postcss-preset-env -D
 
 - **配置**
 
-- ![image-20220113135835822](assets/image-20220113135835822.png)
+  ```js
+  const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+  module.exports = {
+    plugins: [
+      new CleanWebpackPlugin()
+    ]
+  }
+  ```
 
-
-
-## HtmlWebpackPlugin
+### HtmlWebpackPlugin
 
 - **生成对应的入口文件index.html**
   - 我们的HTML文件是编写在根目录下的，而**最终打包的dist文件夹中是没有index.html文件**的。
@@ -388,15 +519,40 @@ yarn add postcss-preset-env -D
 yanr add html-webpack-plugin -D
 ```
 
-![image-20220113140209604](assets/image-20220113140209604.png)
+- 配置
+
+  ```js
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
+  module.exports = {
+    plugins: [
+      new HtmlWebpackPlugin({
+        title: "title 测试"
+      })
+    ]
+  }
+  ```
 
 - **生成的index.html分析**
 
   - 该文件中也自动添加了我们打包的bundle.js文件
 
-    ![image-20220113140250304](assets/image-20220113140250304.png)
-
-- **这个文件是如何生成的呢？**
+    ```html
+    <!DOCTYPE html>
+    <html lang="">
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="icon" href="./favicon.ico" />
+        <title>title 测试</title>
+      </head>
+      <body>
+        <script src="js/bundle.js"></script>
+      </body>
+    </html>
+    ```
+    
+    **这个文件是如何生成的呢？**
 
   - 默认情况下是根据ejs的一个模板来生成的
   - 在html-webpack-plugin的源码中，有一个default_index.ejs模块
@@ -405,26 +561,53 @@ yanr add html-webpack-plugin -D
 
   - 比如添加一个noscript标签，在用户的JavaScript被关闭时，给予响应的提示；
 
-  - 比如在开发vue或者react项目时，我们需要一个可以挂载后续组件的根标签
-    ```html
-      <div id="app"></div>
-    ```
-
+  - 比如在开发vue或者react项目时，我们需要一个可以挂载后续组件的根标签;
+    
   -  这个我们需要一个属于自己的index.html模块
 
-    ![image-20220113140546096](assets/image-20220113140546096.png)
+    ```html
+    <!DOCTYPE html>
+    <html lang="">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+        <title><%= htmlWebpackPlugin.options.title %></title>
+      </head>
+      <body>
+        <noscript>
+          <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+        </noscript>
+          
+         <div id="app"></div>
+      </body>
+    </html>
+    ```
+    
+    
 
 - **自定义模板数据填充**
   - 上面的代码中，会有一些类似这样的语法**`<% 变量 %>`**，这个是**EJS模块填充数据的方式**
+  
   - 在配置HtmlWebpackPlugin时，我们可以添加如下配置
     - **template**：指定我们要使用的模块所在的路径
+    
     - **title**：在进行htmlWebpackPlugin.options.title读取时，就会读到该信息
+    
+      ```js
+      const HtmlWebpackPlugin = require('html-webpack-plugin');
+      module.exports = {
+        plugins: [
+          new HtmlWebpackPlugin({
+            title: "title 测试",
+            template: "./public/index.html"
+          })
+        ]
+      }
+      ```
 
-![image-20220113140755135](assets/image-20220113140755135.png)
-
-
-
-## DefinePlugin
+### DefinePlugin
 
 - **模块中使用到一个BASE_URL的常量**
 
@@ -436,11 +619,18 @@ yanr add html-webpack-plugin -D
 
 - **DefinePlugin允许在编译时创建配置的全局常量，是一个webpack内置的插件（不需要单独安装）**
 
-![image-20220113141108527](assets/image-20220113141108527.png)
+  ```js
+  const { DefinePlugin } = require('webpack');
+  module.exports = {
+    plugins: [
+     new DefinePlugin({
+        BASE_URL: '"./"'
+      })
+    ]
+  }
+  ```
 
-
-
-## CopyWebpackPlugin
+### CopyWebpackPlugin
 
 - **在vue的打包过程中，如果我们将一些文件放到public的目录下，那么这个目录会被复制到dist文件夹中**
 
@@ -454,11 +644,65 @@ yanr add html-webpack-plugin -D
 
 - **配置CopyWebpackPlugin**
   - 规则在**patterns**中设置；
+  
   - **from**：设置从哪一个源中开始复制；
+  
   - **to**：复制到的位置，可以省略，会默认复制到打包的目录下；
+  
   - **globOptions**：设置一些额外的选项，其中可以编写需要忽略的文件：
     - .DS_Store：mac目录下回自动生成的一个文件；
     -  index.html：也不需要复制，因为我们已经通过HtmlWebpackPlugin完成了index.html的生成
+    -  其他...
+    
+    ```js
+    const CopyWebpackPlugin = require('copy-webpack-plugin');
+    module.exports = {
+      plugins: [
+        new CopyWebpackPlugin({
+          patterns: [
+            {
+              from: "public",
+              globOptions: {
+                ignore: [
+                  "**/index.html",
+                  "**/.DS_Store",
+                  "**/其他..."
+                ]
+              }
+            }
+          ]
+        })
+      ]
+    }
+    ```
 
-![image-20220113141455322](assets/image-20220113141455322.png)
+## 总结
+
+- webpack基本配置（一）
+
+  ```js
+  module.exports = {
+    entry: '', // 入口，也可以配置成对象形式
+    output: {
+      filename: 'bundle.js', // 文件名
+      path: path.resolve(__dirname, "./dist"), // 打包后的路径, 必须是绝对路径
+    },
+    module: {
+      rules: [] // loader
+    },
+    plugins: [] // 插件
+  }
+  // 待补充...
+  ```
+
+- 常用的loader（**注意顺序（从下往上，从左往右，从后往前）**）
+  - css-loader、less-loader（sass-loader）、style-loader（会直接引入到style中）、MiniCssExtractPlugin.loader (生成独立文件引入)
+  - file-loader **处理jpg、png等格式的图片**
+  - url-loader **url-loader和file-loader的工作方式是相似的，`但是可以将较小的文件`，转成base64的URI**
+  - 待补充...
+- 常用的plugins
+  - CleanWebpackPlugin **重新打包， 自动删除dist文件夹**
+  - HtmlWebpackPlugin **配置生成的index.html**
+  - DefinePlugin  **模块中使用到一个BASE_URL的常量, 我们可以用这个插件配置这些常量**
+  - 待补充...
 

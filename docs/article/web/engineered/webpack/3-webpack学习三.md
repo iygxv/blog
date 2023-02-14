@@ -1,4 +1,65 @@
-# 1.Terser
+# Webpack学习三
+## 1.optimization
+
+[官方文档](https://webpack.docschina.org/configuration/optimization/#root)
+
+从 webpack 4 开始，会根据你选择的 [`mode`](https://webpack.docschina.org/concepts/mode/) 来执行不同的优化， 不过所有的优化还是可以手动配置和重写。
+
+```js
+module.exports = {
+  optimization: {
+    //  对代码进行优化相关的操作
+  }
+}
+```
+
+## 2.SplitChunks
+
+webpack 将根据以下条件自动拆分 chunks：
+
+- 新的 chunk 可以被共享，或者模块来自于 `node_modules` 文件夹
+- 新的 chunk 体积大于 20kb（在进行 min+gz 之前的体积）
+- 当按需加载 chunks 时，并行请求的最大数量小于或等于 30
+- 当加载初始化页面时，并发请求的最大数量小于或等于 30
+
+当尝试满足最后两个条件时，最好使用较大的 chunks。
+
+**配置**
+
+下面这个配置对象代表 `SplitChunksPlugin` 的默认行为。
+
+```js
+module.exports = {
+  //...
+  optimization: {
+    splitChunks: {
+      chunks: 'async', // async 异步导入 、 inital同步导入 、all -> chunk 可以在异步和非异步 chunk 之间共享
+      minSize: 20000, // 生成 chunk 的最小体积(如果拆分出来一个, 那么拆分出来的这个包的大小最小为minSize)
+      minRemainingSize: 0,
+      minChunks: 1, // minChunks表示引入的包, 至少被导入了几次
+      maxAsyncRequests: 30, // 按需加载时的最大并行请求数
+      maxInitialRequests: 30, // 入口点的最大并行请求数
+      enforceSizeThreshold: 50000, // 强制执行拆分的体积阈值和其他限制（minRemainingSize，maxAsyncRequests，maxInitialRequests）将被忽略。
+      cacheGroups: { // 缓存组
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10, // 优先级
+          reuseExistingChunk: true 
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
+  }
+}
+```
+
+
+
+## 3.Terser
 
 - **什么是Terser呢？**
   - Terser是一个**JavaScript的解释（Parser）、Mangler（绞肉机）/Compressor（压缩机）的工具集**
@@ -16,16 +77,18 @@
 
 - **Terser在webpack中配置**
 
-  - 真实开发中，我们不需要手动的通过terser来处理我们的代码，我们可以直接通过webpack来处理
-    - 在webpack中有一个minimizer属性，在**production模式**下，**默认就是使用TerserPlugin来处理我们的代码的**
-    -  如果我们对默认的配置不满意，也可以自己来创建TerserPlugin的实例，并且覆盖相关的配置
+  真实开发中，我们不需要手动的通过terser来处理我们的代码，我们可以直接通过webpack来处理，在webpack中有一个minimizer属性，在**production模式**下，**默认就是使用TerserPlugin来处理我们的代码的**
+  
+  
+  
+  如果我们对默认的配置不满意，也可以自己来创建TerserPlugin的实例，并且覆盖相关的配置
+  
   - 首先，我们需要打开minimize，让其对我们的代码进行压缩（**默认production模式下已经打开了**）
-  -  其次，我们可以在minimizer创建一个**TerserPlugin**
+  - 其次，我们可以在minimizer创建一个**TerserPlugin**
     -  **extractComments**：默认值为true，表示会将注释抽取到一个单独的文件中
       - 在开发中，我们不希望保留这个注释时，可以设置为false
-    -  **parallel**：使用多进程并发运行提高构建的速度，默认值是true，并发运行的默认数量： os.cpus().length - 1
-      - 我们也可以设置自己的个数，但是使用默认值即可
-    -  **terserOptions**：设置我们的terser相关的配置
+    -  **parallel**：使用多进程并发运行提高构建的速度，默认值是true，并发运行的默认数量： os.cpus().length - 1, 我们也可以设置自己的个数，但是使用默认值即可
+    - **terserOptions**：设置我们的terser相关的配置
       - **compress**：设置压缩相关的选项；
       - **mangle**：设置丑化相关的选项，可以直接设置为true；
       -  **toplevel**：底层变量是否进行转换；
@@ -52,15 +115,11 @@ module.exports = {
         }
       })
     ]
-  },
+  }
 }	
-
-
 ```
 
-
-
-# 2.CSS的压缩
+## 4.CSS的压缩
 
 - **CSS压缩通常是去除无用的空格等，因为很难去修改选择器、属性的名称、值等**
 - **CSS的压缩我们可以使用另外一个插件：css-minimizer-webpack-plugin；**
@@ -68,9 +127,20 @@ module.exports = {
   - 第一步，安装 css-minimizer-webpack-plugin
   - 第二步，在optimization.minimizer中配置
 
-![image-20220113175139087](assets/image-20220113175139087.png)
+```js
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+module.exports = {
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin({
+        parallel: true
+      })
+    ]
+  }
+}
+```
 
-# 3.Tree Shaking
+## 5.Tree Shaking
 
 - **什么是Tree Shaking呢？**
   - Tree Shaking是一个术语，在计算机中表示**消除死代码（dead_code）**
@@ -106,7 +176,7 @@ module.exports = {
           }
         })
       ]
-  },
+    }
   }
   ```
 
@@ -122,7 +192,7 @@ module.exports = {
 
 
 
-# 4.Scope Hoisting
+## 6.Scope Hoisting
 
 - **什么是Scope Hoisting呢？**
   - Scope Hoisting从webpack3开始增加的一个新功能
