@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as i,a}from"./app.80fd0906.js";const h=JSON.parse('{"title":"与Vue2的差别","description":"","frontmatter":{},"headers":[],"relativePath":"article/web/vue/vue3/5-与Vue2的差别.md"}'),r={name:"article/web/vue/vue3/5-与Vue2的差别.md"},o=a("",2),_=[o];function l(n,s,c,u,d,p){return i(),t("div",null,_)}const V=e(r,[["render",l]]);export{h as __pageData,V as default};

@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,b as n}from"./app.80fd0906.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"article/about/plan/index.md"}'),o={name:"article/about/plan/index.md"},s=n("p",null,"关于我的计划",-1),r=[s];function c(i,d,_,l,p,m){return a(),t("div",null,r)}const x=e(o,[["render",c]]);export{f as __pageData,x as default};

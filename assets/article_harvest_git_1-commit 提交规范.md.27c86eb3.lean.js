@@ -1,0 +1,1 @@
+import{_ as t,c as i,o as e,a}from"./app.80fd0906.js";const p=JSON.parse('{"title":"commit 提交规范","description":"","frontmatter":{},"headers":[],"relativePath":"article/harvest/git/1-commit 提交规范.md"}'),l={name:"article/harvest/git/1-commit 提交规范.md"},r=a("",2),o=[r];function _(c,s,m,n,d,h){return e(),i("div",null,o)}const u=t(l,[["render",_]]);export{p as __pageData,u as default};
