@@ -7,7 +7,7 @@ const items = booksDate.map(item => ({
 }))
 export default [
   {
-    text: `读书收获`,
+    text: `技术书`,
     collapsible: true,
     collapsed: false,
     items
