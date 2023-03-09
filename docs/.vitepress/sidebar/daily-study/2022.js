@@ -1,54 +1,54 @@
 import { getCurItems } from `../../../utils`
 const commonPath = `/article/daily-study/2022`
-const dailyStudyDate = getCurItems(`${commonPath}/july`, false, true)
-const dailyStudyAugustDate = getCurItems(`${commonPath}/august`, false, true)
-const dailyStudySeptemberDate = getCurItems(`${commonPath}/september`, false, true)
-const dailyStudyOctoberDate = getCurItems(`${commonPath}/October`)
-const dailyStudyNovemberDate = getCurItems(`${commonPath}/November`)
+const dailyStudyData = getCurItems(`${commonPath}/july`, false, true)
+const dailyStudyAugustData = getCurItems(`${commonPath}/august`, false, true)
+const dailyStudySeptemberData = getCurItems(`${commonPath}/september`, false, true)
+const dailyStudyOctoberData = getCurItems(`${commonPath}/October`)
+const dailyStudyNovemberData = getCurItems(`${commonPath}/November`)
 
 
-const items = dailyStudyDate.map(item => ({
+const items = dailyStudyData.map(item => ({
   text: item,
   link: `${commonPath}/july/${item}.md`
 }))
-const itemAugust = dailyStudyAugustDate.map(item => ({
+const itemAugust = dailyStudyAugustData.map(item => ({
   text: item,
   link: `${commonPath}/august/${item}.md`
 }))
-const itemSeptember = dailyStudySeptemberDate.map(item => ({
+const itemSeptember = dailyStudySeptemberData.map(item => ({
   text: item,
   link: `${commonPath}/september/${item}.md`
 }))
-const itemOctober = dailyStudyOctoberDate.map(item => ({
+const itemOctober = dailyStudyOctoberData.map(item => ({
   text: item,
   link: `${commonPath}/October/${item}.md`
 }))
-const itemNovember = dailyStudyNovemberDate.map(item => ({
+const itemNovember = dailyStudyNovemberData.map(item => ({
   text: item,
   link: `${commonPath}/November/${item}.md`
 }))
 
 export default [
   {
-    text: `七月手写 (${dailyStudyDate.length})`,
+    text: `七月手写 (${dailyStudyData.length})`,
     collapsible: true,
     collapsed: true,
     items
   },
   {
-    text: `八月手写 (${dailyStudyAugustDate.length})`,
+    text: `八月手写 (${dailyStudyAugustData.length})`,
     collapsible: true,
     collapsed: true,
     items: itemAugust,
   },
   {
-    text: `九月http系列 (${dailyStudySeptemberDate.length})`,
+    text: `九月http系列 (${dailyStudySeptemberData.length})`,
     collapsible: true,
     collapsed: true,
     items: itemSeptember,
   },
   {
-    text: `十月性能与监控系列 (${dailyStudyOctoberDate.length})`,
+    text: `十月性能与监控系列 (${dailyStudyOctoberData.length})`,
     collapsible: true,
     collapsed: false,
     items: itemOctober,

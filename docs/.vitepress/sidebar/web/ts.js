@@ -1,7 +1,7 @@
 import { getCurItems } from `../../../utils`
 const commonPath = `/article/web`
-const booksDate = getCurItems(`${commonPath}/ts`, true, false)
-const items = booksDate.map(item => ({
+const booksData = getCurItems(`${commonPath}/ts`, true, false)
+const items = booksData.map(item => ({
   text: item,
   link: `${commonPath}/ts/${item}.md`
 }))

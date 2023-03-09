@@ -22,6 +22,9 @@ import harvest from './harvest'
 // 计划
 import plan from './about/plan'
 
+// 生活方面
+import cooking from './life/cooking'
+
 export default {
   '/article/daily-study/2022/': dailyStudy2022,
   '/article/daily-study/2023/': dailyStudy2023,
@@ -34,4 +37,5 @@ export default {
   '/article/harvest/': harvest,
   '/article/about/plan/': plan,
   '/article/web/ts/': ts,
+  '/article/life/cooking/': cooking
 }

@@ -1,7 +1,7 @@
 import { getCurItems } from `../../../utils`
 const commonPath = `/article/interview`;
-const interviewDate = getCurItems(`${commonPath}/series`);
-const items = interviewDate.map(item => ({
+const interviewData = getCurItems(`${commonPath}/series`);
+const items = interviewData.map(item => ({
     text: item, link: `${commonPath}/series/${item}.md`
 }))
 

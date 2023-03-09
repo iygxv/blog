@@ -1,18 +1,18 @@
 import { getCurItems } from `../../../utils`
 const commonPath = `/article/daily-study/2023`
-const JanuaryDate = getCurItems(`${commonPath}/January`, true)
-const FebruaryDate = getCurItems(`${commonPath}/February`, true)
-const MarchDate = getCurItems(`${commonPath}/March`, true)
+const JanuaryData = getCurItems(`${commonPath}/January`, true)
+const FebruaryData = getCurItems(`${commonPath}/February`, true)
+const MarchData = getCurItems(`${commonPath}/March`, true)
 
-const itemsJanuary = JanuaryDate.map(item => ({
+const itemsJanuary = JanuaryData.map(item => ({
   text: item,
   link: `${commonPath}/January/${item}.md`
 }))
-const itemsFebruary = FebruaryDate.map(item => ({
+const itemsFebruary = FebruaryData.map(item => ({
   text: item,
   link: `${commonPath}/February/${item}.md`
 }))
-const itemsMarch = MarchDate.map(item => ({
+const itemsMarch = MarchData.map(item => ({
   text: item,
   link: `${commonPath}/March/${item}.md`
 }))

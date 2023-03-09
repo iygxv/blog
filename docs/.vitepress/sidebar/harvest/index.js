@@ -1,28 +1,28 @@
 import { getCurItems } from `../../../utils`
 const commonPath = `/article/harvest`
-const booksDate = getCurItems(`${commonPath}/i-know`, true, false)
-const studyNotesDate = getCurItems(`${commonPath}/study-notes`, true, false)
-const studyDifficultyDate = getCurItems(`${commonPath}/difficulty`, true, false)
-const gitDate = getCurItems(`${commonPath}/git`, true, false)
-const linkDate = getCurItems(`${commonPath}/link`, true, false)
+const booksData = getCurItems(`${commonPath}/i-know`, true, false)
+const studyNotesData = getCurItems(`${commonPath}/study-notes`, true, false)
+const studyDifficultyData = getCurItems(`${commonPath}/difficulty`, true, false)
+const gitData = getCurItems(`${commonPath}/git`, true, false)
+const linkData = getCurItems(`${commonPath}/link`, true, false)
 
-const items = booksDate.map(item => ({
+const items = booksData.map(item => ({
   text: item,
   link: `${commonPath}/i-know/${item}.md`
 }))
-const studyNotesItems = studyNotesDate.map(item => ({
+const studyNotesItems = studyNotesData.map(item => ({
   text: item,
   link: `${commonPath}/study-notes/${item}.md`
 }))
-const studyDifficultyItems = studyDifficultyDate.map(item => ({
+const studyDifficultyItems = studyDifficultyData.map(item => ({
   text: item,
   link: `${commonPath}/difficulty/${item}.md`
 }))
-const gitItems = gitDate.map(item => ({
+const gitItems = gitData.map(item => ({
   text: item,
   link: `${commonPath}/git/${item}.md`
 }))
-const linkItems = linkDate.map(item => ({
+const linkItems = linkData.map(item => ({
   text: item,
   link: `${commonPath}/link/${item}.md`
 }))

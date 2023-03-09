@@ -20,6 +20,12 @@ export default [
     ]
   },
   {
+    text: '生活',
+    items: [
+      { text: '食', link: `/article/life/cooking/`, activeMatch: `/article/life/cooking/` },
+    ]
+  },
+  {
     text: '其他',
     items: [
       { text: '读书', link: `/article/read/`, activeMatch: `/article/read/` }
