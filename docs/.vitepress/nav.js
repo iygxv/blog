@@ -22,7 +22,7 @@ export default [
   {
     text: '生活',
     items: [
-      { text: '食', link: `/article/life/cooking/`, activeMatch: `/article/life/cooking/` },
+      { text: '吃', link: `/article/life/cooking/`, activeMatch: `/article/life/cooking/` },
     ]
   },
   {
