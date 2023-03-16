@@ -32,7 +32,7 @@ export default [
   {
     text: `七月手写 (${dailyStudyData.length})`,
     collapsible: true,
-    collapsed: true,
+    collapsed: false,
     items
   },
   {
@@ -50,13 +50,13 @@ export default [
   {
     text: `十月性能与监控系列 (${dailyStudyOctoberData.length})`,
     collapsible: true,
-    collapsed: false,
+    collapsed: true,
     items: itemOctober,
   },
   {
     text: `十一月规划的变更`,
     collapsible: true,
-    collapsed: false,
+    collapsed: true,
     items: itemNovember,
   }
 ]

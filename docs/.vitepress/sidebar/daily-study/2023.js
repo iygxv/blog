@@ -27,7 +27,7 @@ export default [
   {
     text: `二月`,
     collapsible: true,
-    collapsed: false,
+    collapsed: true,
     items: itemsFebruary
   },
   {
