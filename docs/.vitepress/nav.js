@@ -19,16 +19,16 @@ export default [
       { text: '文章', link: `/article/harvest/`, activeMatch: `/article/harvest/` },
     ]
   },
-  {
-    text: '生活',
-    items: [
-      { text: '吃', link: `/article/life/cooking/`, activeMatch: `/article/life/cooking/` },
-    ]
-  },
-  {
-    text: '其他',
-    items: [
-      { text: '读书', link: `/article/read/`, activeMatch: `/article/read/` }
-    ]
-  }
+  // {
+  //   text: '生活',
+  //   items: [
+  //     { text: '吃', link: `/article/life/cooking/`, activeMatch: `/article/life/cooking/` },
+  //   ]
+  // },
+  // {
+  //   text: '其他',
+  //   items: [
+  //     { text: '读书', link: `/article/read/`, activeMatch: `/article/read/` }
+  //   ]
+  // }
 ]
