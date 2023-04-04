@@ -43,9 +43,12 @@ jobs:
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn
+
+      - name: Build
+        run: yarn docs:build
  
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           # 部署到 gh-pages 分支
