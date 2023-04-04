@@ -2,7 +2,6 @@
 
 name: Build and deploy
 
-# Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -45,12 +44,12 @@ jobs:
         run: yarn
  
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: iygxv/blog@v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          github_token: ${{ secrets.ACCESS_TOKEN }}
           # 部署到 gh-pages 分支
           BRANCH: gh-pages
           # 部署目录为 vitePress 的默认输出目录，这里需要根据项目的目录进行修改
-          FOLDER: docs/.vitepress/dist
+          publish_dir: docs/.vitepress/dist
 
 
