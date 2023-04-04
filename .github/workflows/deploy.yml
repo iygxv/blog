@@ -44,7 +44,7 @@ jobs:
         run: yarn
  
       - name: Deploy
-        uses: iygxv/blog@v3
+        uses: actions/deploy-pages@v1
         with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
           # 部署到 gh-pages 分支
