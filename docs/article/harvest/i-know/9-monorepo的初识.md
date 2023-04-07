@@ -57,7 +57,7 @@ packages:
 
 现在我们就可以在`packages`中创建多个项目了，目录结构如下：
 
-```text
+```html
 pnpm_workspace
 ├── package.json
 ├── packages

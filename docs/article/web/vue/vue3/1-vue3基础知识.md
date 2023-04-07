@@ -1895,7 +1895,7 @@ export default {
 
 你也可以使用 `is` attribute 来创建一般的 HTML 元素。
 
-```text
+```html
 当使用 <component :is="..."> 来在多个组件间作切换时，被切换掉的组件会被卸载。
 我们可以通过 <KeepAlive> 组件强制被切换掉的组件仍然保持存活的状态。
 ```

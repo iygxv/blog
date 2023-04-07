@@ -17,7 +17,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 执行过程遇到`443`问题
 
-```text
+```html
 HQITI0010:.ssh shiyang.long$ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused
 ```

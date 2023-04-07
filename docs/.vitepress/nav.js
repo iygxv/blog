@@ -1,7 +1,7 @@
 export default [
   { text: '每日学习', items: [
     { text: '2022', link: `/article/daily-study/2022/`, activeMatch: `/article/daily-study/2022/` },
-    { text: '2023', link: `/article/daily-study/2023/`, activeMatch: `/article/daily-study/2023/` },
+    // { text: '2023', link: `/article/daily-study/2023/`, activeMatch: `/article/daily-study/2023/` },
   ] },
   {
     text: '前端知识点',
