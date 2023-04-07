@@ -3,6 +3,7 @@ const commonPath = `/article/daily-study/2023`
 const JanuaryData = getCurItems(`${commonPath}/January`, true)
 const FebruaryData = getCurItems(`${commonPath}/February`, true)
 const MarchData = getCurItems(`${commonPath}/March`, true)
+const AprilData = getCurItems(`${commonPath}/April`, true)
 
 const itemsJanuary = JanuaryData.map(item => ({
   text: item,
@@ -15,6 +16,10 @@ const itemsFebruary = FebruaryData.map(item => ({
 const itemsMarch = MarchData.map(item => ({
   text: item,
   link: `${commonPath}/March/${item}.md`
+}))
+const itemsApril = AprilData.map(item => ({
+  text: item,
+  link: `${commonPath}/April/${item}.md`
 }))
 
 export default [
@@ -35,5 +40,11 @@ export default [
     collapsible: true,
     collapsed: false,
     items: itemsMarch
+  },
+  {
+    text: `四月`,
+    collapsible: true,
+    collapsed: false,
+    items: itemsApril
   },
 ]
