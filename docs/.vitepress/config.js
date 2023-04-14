@@ -2,7 +2,7 @@ import nav from './nav'
 import sidebar from './sidebar'
 
 export default {
-  base: '/blog/',
+  base: '/blog_static/',
   title: '故心', // 所有文档的浏览器标签title
   description: '故心', // 会渲染成<meta>标签，SEO用
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],

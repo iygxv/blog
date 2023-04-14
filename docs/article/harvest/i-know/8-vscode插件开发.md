@@ -65,6 +65,45 @@ yo code
 
 ![image-20221017222238568](./assets/image-20221017222238568.png)
 
-## 分析
 
-待补充...
+
+##  打包发布
+
+要打包这个插件，可以使用VS Code提供的命令行工具`vsce`
+
+- 在终端中全局安装`vsce`
+
+  ```shell
+  npm install -g vsce
+  ```
+
+- 在插件项目的根目录下运行以下命令
+
+  ```shell
+  vsce package
+  ```
+
+该命令会在当前目录下生成一个`.vsix`文件，用于发布插件。
+
+1. 如果要发布插件到VS Code插件市场，需要先在[Visual Studio Marketplace](https://marketplace.visualstudio.com/)上注册一个账号。
+2. 登录到[Visual Studio Marketplace](https://marketplace.visualstudio.com/)，然后点击右上角的“Submit an extension”按钮，进入发布插件的页面。
+3. 在发布页面中，填写插件的基本信息，包括名称、描述、版本号等。然后上传之前生成的`.vsix`文件，等待上传完成。
+4. 审核通过后，插件就可以在VS Code插件市场中搜索到并安装使用了。
+
+## 为插件设置头像
+
+要为插件设置头像，需要进行以下步骤：
+
+- 在VS Code插件项目的根目录下创建一个名为`images`的文件夹，并在其中添加插件头像文件。头像文件必须是正方形的PNG或SVG格式，大小为128x128像素
+
+- 在插件的`package.json`文件中，添加以下配置：
+
+  ```json
+  {
+    "icon": "images/icon.png"
+  }
+  ```
+
+打包插件并上传到Visual Studio Marketplace，等待审核通过后，插件的头像就会显示在插件详情页面和搜索结果中
+
+注意：上传的头像文件必须符合Visual Studio Marketplace的规定，具体要求可以参考[官方文档](https://docs.microsoft.com/en-us/visualstudio/marketplace/publish/branding-guidelines?view=vs-2019)。
