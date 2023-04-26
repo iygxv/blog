@@ -4,7 +4,7 @@ import {defineConfig} from "vite";
 export default defineConfig({
     resolve: {
         alias: {
-            '@': resolve(__dirname, 'docs'),
+            '@': resolve(__dirname),
         }
     },
     build: {
