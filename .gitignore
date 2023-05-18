@@ -39,6 +39,7 @@ build/Release
 
 # Dependency directories
 node_modules/
+docs/.vitepress/cache
 docs/.vitepress/dist
 docs/.vitepress/dist.zip
 jspm_packages/

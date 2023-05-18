@@ -1,11 +1,15 @@
 import { resolve } from 'path'
-//vite.config.js
-import {defineConfig} from "vite";
+import { defineConfig } from "vite";
+console.log(__dirname + '/utils')
 export default defineConfig({
     resolve: {
         alias: {
-            '@': resolve(__dirname),
+            'utils': resolve(__dirname + '/utils'),
         }
+    },
+    server: {
+        host: '0.0.0.0'
+        // open: true
     },
     build: {
         chunkSizeWarningLimit:1500,

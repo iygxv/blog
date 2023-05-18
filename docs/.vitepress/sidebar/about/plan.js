@@ -1,4 +1,4 @@
-import { getCurItems } from `../../../utils`
+import { getCurItems } from '../../../utils'
 const commonPath = `/article/about`
 const booksData = getCurItems(`${commonPath}/plan`, true, false)
 const items = booksData.map(item => ({

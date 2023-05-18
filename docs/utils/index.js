@@ -1,8 +1,13 @@
 const fs = require('fs')
 const path = require('path')
 
-// 小数排序/ 版本号排序 (从小到大排)
-const versionSort = (version, mode = 'fromSmallToBig') => {
+/**
+ * 版本号排序
+ * @param {*} version 版本号
+ * @param {*} mode 模式(从小到大)
+ * @returns 排序号的版本号
+ */
+const versionSort = (version, mode = 'fs') => {
   version.sort((a, b) => {
     let i = 0
     const aVersion = a.split('-')[0].split('.')
@@ -13,7 +18,7 @@ const versionSort = (version, mode = 'fromSmallToBig') => {
       i++
       // 例如遇到比较4.3.5', '4.3.5.5'
       if (bVersionItem == undefined || aVersionItem == undefined) {
-        if(mode === 'small->big') {
+        if(mode === 'fb') {
           return aVersion.length - bVersion.length
         }else {
           return bVersion.length - aVersion.length
@@ -22,7 +27,7 @@ const versionSort = (version, mode = 'fromSmallToBig') => {
       // 如果当前相等, 需要进行下一轮比较
       if (aVersionItem === bVersionItem) continue
       // 比较版本数字
-      if(mode === 'fromSmallToBig') {
+      if(mode === 'fs') {
         return aVersionItem.length - bVersionItem.length
       }else {
         return bVersionItem.length - aVersionItem.length
@@ -31,6 +36,11 @@ const versionSort = (version, mode = 'fromSmallToBig') => {
   })
   return version
 }
+/**
+ * 基本排序
+ * @param {*} items 排序的数组
+ * @returns 排序好的数组
+ */
 const baseSort = (items) => {
   return items.sort((a, b) => Number(a.split('-')[0]) - Number(b.split('-')[0]))
 }
