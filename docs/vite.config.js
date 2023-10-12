@@ -1,7 +1,6 @@
 import { resolve } from 'path'
 import { defineConfig } from "vite";
-console.log(__dirname + '/utils')
-export default defineConfig({
+export default  defineConfig({
     resolve: {
         alias: {
             'utils': resolve(__dirname + '/utils'),

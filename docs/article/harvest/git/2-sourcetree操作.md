@@ -101,6 +101,12 @@ fallback.js
 
 - 本地多个commit 合并为一个commit
 
+
+
+## **命令操作**
+
+[git操作](https://juejin.cn/post/7127956933809537032)
+
 ## **小结**
 
 - 没有push到远程仓库, 用`重置(reset)`
