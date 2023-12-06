@@ -1,4 +1,6 @@
 import { getCurItems } from `../../../utils`
+
+
 const commonPath = `/article/harvest`
 const booksData = getCurItems(`${commonPath}/i-know`, true, false)
 const studyNotesData = getCurItems(`${commonPath}/study-notes`, true, false)

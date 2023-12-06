@@ -1,5 +1,5 @@
 export default [
-  { text: '每日学习', items: [
+  { text: '每日记录', items: [
     { text: '2022', link: `/article/daily-study/2022/`, activeMatch: `/article/daily-study/2022/` },
     { text: '2023', link: `/article/daily-study/2023/`, activeMatch: `/article/daily-study/2023/` },
   ] },
@@ -19,12 +19,6 @@ export default [
       { text: '文章', link: `/article/harvest/`, activeMatch: `/article/harvest/` },
     ]
   },
-  // {
-  //   text: '生活',
-  //   items: [
-  //     { text: '吃', link: `/article/life/cooking/`, activeMatch: `/article/life/cooking/` },
-  //   ]
-  // },
   // {
   //   text: '其他',
   //   items: [
