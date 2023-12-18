@@ -629,7 +629,7 @@ console.log(flattenObj(inputObj));
 
 - **区分初始化和有oldKey情况**
 - **数组和对象的处理不一样**
-  :::
+:::
 
 ## compose组合函数
 
