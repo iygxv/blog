@@ -22,6 +22,12 @@ export default defineConfig({
     logo: '/logo.jpg',
     nav: [
       { text: '首页', link: '/' },
+      { 
+        text: '前端知识',
+        items: [
+          { text: 'JavaScript', link: '/javascript/' },
+        ]
+      },
     ],
     socialLinks: [
       {
