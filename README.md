@@ -1,17 +1,29 @@
-# 故心的博客
+# vitepress @sugarat/theme
+简约风的 [Vitepress 博客主题](https://theme.sugarat.top)
 
-[点击进入](https://github.com/iygxv/blog)
+## Usage
+先安装 `pnpm`
 
-##  介绍
+```sh
+npm i -g pnpm
+```
 
-专门记录自己所见所学
+安装依赖
+```sh
+pnpm install
+```
 
-## 与我相关
+开发启动
+```sh
+pnpm dev
+```
 
-[语雀](https://www.yuque.com/u25152297/gu)
+构建
+```sh
+pnpm build
+```
 
-[掘金](https://juejin.cn/user/1055169568063134)
-
-[个人博客](https://codevity.top/)
-
-[github](https://github.com/iygxv)
+预览产物
+```sh
+pnpm serve
+```

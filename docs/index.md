@@ -1,18 +1,15 @@
 ---
 layout: home
-
-title: 故心
-titleTemplate: 持续行动
-
-features:
-  - title: 早起
-    details: 早起
-  - title: 锻炼
-    details: 锻炼
-  - title: 写作
-    details: 写作
-  - title: 冥想
-    details: 冥想
-  - title: 阅读
-    details: 阅读
+# 首页部分元素定制
+blog:
+ name: '随缘'
+ motto: 
+ inspiring:
+  - 千万不要因为走得太久，而忘记了我们为什么出发
+  - 人生就像一场修行，你不可能一开始就修成正果
+  - 无论多么沉重的负担，也不要忘记微笑；无论多么漫长的路程，也不要忘记坚持
+  - 生活的真谛不在繁华，而在于淡泊
+ # 设置 inspiringTimeout 可以实现自动切换
+ inspiringTimeout: 3000
+ pageSize: 12
 ---

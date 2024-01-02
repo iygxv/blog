@@ -1,19 +1,27 @@
 {
-  "name": "vitepress-demo",
+  "name": "vitepress-blog",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
+  "author": "随缘",
   "license": "MIT",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs --port 3001"
-  },
-  "devDependencies": {
-    "vitepress": "^1.0.0-alpha.65",
-    "vue": "^3.2.37"
+    "serve": "vitepress serve docs"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "sass": "^1.55.0"
+    "@element-plus/icons-vue": "^2.1.0",
+    "@sugarat/theme": "^0.2.14",
+    "element-plus": "^2.3.8",
+    "pagefind": "^1.0.4",
+    "vue": "3.3.13"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "sass": "^1.64.1",
+    "typescript": "^5.1.6",
+    "vitepress": "1.0.0-rc.32"
   }
 }
