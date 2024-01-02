@@ -1,29 +1,3 @@
-# vitepress @sugarat/theme
-简约风的 [Vitepress 博客主题](https://theme.sugarat.top)
+# 随缘
 
-## Usage
-先安装 `pnpm`
-
-```sh
-npm i -g pnpm
-```
-
-安装依赖
-```sh
-pnpm install
-```
-
-开发启动
-```sh
-pnpm dev
-```
-
-构建
-```sh
-pnpm build
-```
-
-预览产物
-```sh
-pnpm serve
-```
+[博客地址](http://43.139.47.204:1009/)
