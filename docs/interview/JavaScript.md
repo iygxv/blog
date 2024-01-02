@@ -1,9 +1,9 @@
 ---
 sidebar:
- title: javascript
+ title: javascript 面试题
  step: 1
  isTimeLine: true
-title: javascript
+title: javascript 面试题
 tags:
  - 面试题
 categories:
