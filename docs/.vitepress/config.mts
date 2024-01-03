@@ -22,10 +22,17 @@ export default defineConfig({
     logo: '/logo.jpg',
     nav: [
       { text: '首页', link: '/' },
+      { text: '面试', items: [
+          { text: '面试题', link: '/interview/' },
+        ] 
+      },
       { 
         text: '前端知识',
         items: [
           { text: 'JavaScript', link: '/javascript/' },
+          { text: 'Git', link: '/git/' },
+          { text: 'vue2', link: '/vue2/' },
+          { text: 'vue3', link: '/vue3/' },
         ]
       },
     ],

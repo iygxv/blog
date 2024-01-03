@@ -53,23 +53,23 @@ const blogTheme = getThemeConfig({
   ],
 
   // 公告
-  popover: {
-    title: '公告',
-    body: [
-      { type: 'text', content: '👇 微信二维码 👇' },
-      {
-        type: 'image',
-        src: 'http://s6d8fpi35.hn-bkt.clouddn.com/blob/ewm.jpg'
-      },
-      {
-        type: 'button',
-        content: '作者博客',
-        link: 'http://43.139.47.204:1009',
-        style: 'margin-top: 20px'
-      }
-    ],
-    duration: 0
-  },
+  // popover: {
+  //   title: '公告',
+  //   body: [
+  //     { type: 'text', content: '👇 微信二维码 👇' },
+  //     {
+  //       type: 'image',
+  //       src: 'http://s6d8fpi35.hn-bkt.clouddn.com/blob/ewm.jpg'
+  //     },
+  //     {
+  //       type: 'button',
+  //       content: '作者博客',
+  //       link: 'http://43.139.47.204:1009',
+  //       style: 'margin-top: 20px'
+  //     }
+  //   ],
+  //   duration: 0
+  // },
 })
 
 export { blogTheme }
