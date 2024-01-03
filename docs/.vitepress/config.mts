@@ -39,7 +39,7 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://iygxv.github.io/blog_static/'
+        link: 'https://github.com/iygxv/blog'
       }
     ]
   }

@@ -2,7 +2,7 @@
 sidebar: 
  title: webpack 学习二
  step: 1
- isTimeLine: true
+ recommend: 2
 title: webpack 学习二
 tags:
  - webpack
