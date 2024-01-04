@@ -8,7 +8,8 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "serve": "vitepress serve docs",
-    "deploy": "vitepress build docs && sh deploy.sh"
+    "deploy": "vitepress build docs && sh deploy.sh",
+    "create": "node create.js"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
