@@ -59,7 +59,7 @@ function traverseFolder(folderPath) {
             // traverseFolder(filePath); // 递归遍历子文件夹
           } else if (path.extname(file) === '.md' && file !== 'index.md') {
             const fileName = path.basename(file, '.md');
-            indexContent += `* [${fileName.replace(/\s/g, '')}](./${file.replace(/\s/g, '')})\n`;
+            indexContent += `* [${fileName.replace(/\s/g, '')}](./${file})\n`;
           }
           index === files.length - 1 && resolve();
         });
