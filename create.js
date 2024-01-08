@@ -5,7 +5,7 @@ const path = require('path');
 
 // const folderPath = __dirname + '/docs/git'; 
 
-// const folderPath = __dirname + '/docs/devOps'; 
+const folderPath = __dirname + '/docs/devOps'; 
 
 // const folderPath = __dirname + '/docs/informalEssay'; 
 
@@ -29,7 +29,7 @@ const path = require('path');
 
 // const folderPath = __dirname + '/docs/vue3'; 
 
-const folderPath = __dirname + '/docs/webpack'; 
+// const folderPath = __dirname + '/docs/webpack'; 
 
 
 const folderName = path.basename(folderPath);
@@ -59,9 +59,11 @@ function traverseFolder(folderPath) {
             // traverseFolder(filePath); // 递归遍历子文件夹
           } else if (path.extname(file) === '.md' && file !== 'index.md') {
             const fileName = path.basename(file, '.md');
-            indexContent += `* [${fileName.replace(/\s/g, '')}](./${file})\n`;
+            indexContent += `* [${fileName}](./${file})\n`;
           }
+         setTimeout(() => {
           index === files.length - 1 && resolve();
+         }, 200)
         });
       });
     })
