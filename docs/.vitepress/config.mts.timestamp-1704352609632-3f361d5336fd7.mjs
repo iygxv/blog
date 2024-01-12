@@ -39,7 +39,7 @@ var blogTheme = getThemeConfig({
   //     { type: 'text', content: '👇 微信二维码 👇' },
   //     {
   //       type: 'image',
-  //       src: 'http://s6d8fpi35.hn-bkt.clouddn.com/blob/ewm.jpg'
+  //       src: 'http://www.icodehub.top/blob/ewm.jpg'
   //     },
   //     {
   //       type: 'button',
