@@ -3,9 +3,11 @@ const path = require('path');
 
 // const folderPath = __dirname + '/docs/coding'; 
 
-const folderPath = __dirname + '/docs/git'; 
+// const folderPath = __dirname + '/docs/git'; 
 
-// const folderPath = __dirname + '/docs/devOps'; 
+// const folderPath = __dirname + '/docs/devOps';
+
+const folderPath = __dirname + '/docs/nest'; 
 
 // const folderPath = __dirname + '/docs/uniapp'; 
 

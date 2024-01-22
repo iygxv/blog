@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: vue3 基础知识
 tags:
- - vue3
+ - Vue3
 categories:
- - vue3
+ - Vue3
 ---
 
 # vue3基础知识

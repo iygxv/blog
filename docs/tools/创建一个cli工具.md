@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: 如何创建一个cli工具呢?
 tags:
- - tools
+ - Tools
 categories:
- - tools
+ - Tools
 ---
 
 # 如何创建一个cli工具呢?

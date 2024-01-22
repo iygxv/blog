@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: git报错收集
 tags:
- - git
+ - Git
 categories:
- - git
+ - Git
 ---
 
 # git报错收集

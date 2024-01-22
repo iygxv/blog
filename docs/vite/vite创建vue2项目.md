@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: vite创建vue2项目
 tags:
- - vite
+ - Vite
 categories:
- - vite
+ - Vite
 ---
 
 

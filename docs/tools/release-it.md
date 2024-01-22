@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: release-it
 tags:
- - tools
+ - Tools
 categories:
- - tools
+ - Tools
 ---
 
 # release-it
@@ -88,7 +88,7 @@ git提交时执行`npm run commit`
 ## **总结**
 
 - release-it可以自动提升版本、打tag、生成changelog
-- git-cz可以进行commit 规范
+- Git-cz可以进行commit 规范
 
 ## **参考文档**
 

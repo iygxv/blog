@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: vue2易忽略的知识
 tags:
- - vue2
+ - Vue2
 categories:
- - vue2
+ - Vue2
 ---
 
 ## sync修饰符

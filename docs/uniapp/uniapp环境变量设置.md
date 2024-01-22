@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: uniapp 环境变量设置
 tags:
- - uniapp
+ - Uniapp
 categories:
- - uniapp
+ - Uniapp
 ---
 
 # uniapp环境变量设置

@@ -5,9 +5,9 @@ sidebar:
  recommend: 1
 title: webpack 学习一
 tags:
- - webpack
+ - Webpack
 categories:
- - webpack
+ - Webpack
 ---
 
 # webpack 学习一
@@ -40,7 +40,7 @@ webpack的安装目前分为两个：webpack、webpack-cli
 - 执行webpack命令，会执行node_modules下的.bin目录下的webpack；
 
 - webpack在执行时是依赖webpack-cli的，如果没有安装就会报错；
-- webpack-cli中代码执行时，才是真正利用webpack进行编译和打包的过程；
+- Webpack-cli中代码执行时，才是真正利用webpack进行编译和打包的过程；
 - 所以在安装webpack时，我们需要同时安装webpack-cli（第三方的脚手架事实上是没有使用webpack-cli的，而是类似于自己的vue-service-cli的东西）
 
 ### webpack默认打包
@@ -132,7 +132,7 @@ module.exports = config;
   ```js
   {
     "scripts": {
-      "build": "webpack -- webpack --config wk.config.js"
+      "build": "webpack -- Webpack --config wk.config.js"
     }
   }
   

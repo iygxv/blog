@@ -5,9 +5,9 @@ sidebar:
  recommend: 2
 title: webpack 学习二
 tags:
- - webpack
+ - Webpack
 categories:
- - webpack
+ - Webpack
 ---
 
 # webpack 学习二
@@ -305,9 +305,9 @@ categories:
 
 - **为了完成自动编译，webpack提供了几种可选的方式**
 
-  - webpack watch mode
-  - webpack-dev-server
-  - webpack-dev-middleware
+  - Webpack watch mode
+  - Webpack-dev-server
+  - Webpack-dev-middleware
 
 - **Webpack watch**
 
@@ -370,7 +370,7 @@ categories:
 - **HMR的原理**
 
   - 那么HMR的原理是什么呢？如何可以做到只更新一个模块中的内容呢？
-    - webpack-dev-server会创建两个服务：**提供静态资源的服务（express）和Socket服务（net.Socket）**
+    - Webpack-dev-server会创建两个服务：**提供静态资源的服务（express）和Socket服务（net.Socket）**
     - express server负责直接提供静态资源的服务（打包后的资源直接被浏览器请求和解析）
 
   - HMR Socket Server，是一个socket的长连接

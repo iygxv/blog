@@ -8,9 +8,9 @@ sidebar:
  isTimeLine: true
 title: commit 提交规范
 tags:
- - git
+ - Git
 categories:
- - git
+ - Git
 ---
 
 #  commit 提交规范

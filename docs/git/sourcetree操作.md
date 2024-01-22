@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: sourcetree操作
 tags:
- - git
+ - Git
 categories:
- - git
+ - Git
 ---
 
 # sourcetree操作
@@ -28,7 +28,7 @@ categories:
 
 
 特殊情况(如重置远程的)
-- git push -f origin master(`非特殊情况不要乱用`)
+- Git push -f origin master(`非特殊情况不要乱用`)
 - 强行推送并且会覆盖的commit(`git log查看commit`)
 
 
@@ -107,7 +107,7 @@ fallback.js
 
 **取消交互式变基**
 
-- git rebase --abort
+- Git rebase --abort
 
 **场景**
 

@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: 与 vue2 的差别
 tags:
- - vue3
+ - Vue3
 categories:
- - vue3
+ - Vue3
 ---
 
 - 响应式原理 pxoxy / defineProperty

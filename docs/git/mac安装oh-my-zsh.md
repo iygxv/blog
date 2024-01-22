@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: mac安装oh-my-zsh
 tags:
- - git
+ - Git
 categories:
- - git
+ - Git
 ---
 
 # mac安装oh-my-zsh

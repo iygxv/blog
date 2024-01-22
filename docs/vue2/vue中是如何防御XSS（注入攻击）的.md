@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: vue中是如何防御XSS（注入攻击）的
 tags:
- - vue2
+ - Vue2
 categories:
- - vue2
+ - Vue2
 ---
 
 # Vue中是如何防御XSS（注入攻击）的
