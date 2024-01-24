@@ -19,11 +19,19 @@ const foldersPath = [
   `${ __dirname + '/docs/devOps'}`,
   `${ __dirname + '/docs/ts'}`,
   `${ __dirname + '/docs/project'}`,
+  `${ __dirname + '/docs/css'}`,
 ]
 
+const folderNameWhite = ['css']
 function traverseFolder(folderPath) {
+  let capitalizedFolderName = ''
   const folderName = path.basename(folderPath);
-  const capitalizedFolderName = folderName.charAt(0).toUpperCase() + folderName.slice(1);
+
+  if (folderNameWhite.includes(folderName)) {
+    capitalizedFolderName = folderName;
+  } else {
+    capitalizedFolderName = folderName.charAt(0).toUpperCase() + folderName.slice(1);
+  }
   const indexPath = path.join(folderPath, 'index.md');
   let indexContent = `---\nhidden: true\n---\n\n## ${capitalizedFolderName}\n`;
 
