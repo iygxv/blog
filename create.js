@@ -40,12 +40,15 @@ function traverseFolder(folderPath) {
       console.error('读取文件夹出错：', err);
       return;
     }
+    // 过滤 index.md 并排序
+    const realFiles = files.sort((a, b) => a - b );
 
     const p = new Promise((resolve) => {
-      if (files.length === 0) {
+      if (realFiles.length === 0) {
         resolve()
-      }
-      files.forEach((file, index) => {
+    }
+      console.log(files)
+      realFiles.forEach((file, index) => {
         const filePath = path.join(folderPath, file);
         fs.stat(filePath, (err, stats) => {
           if (err) {
@@ -54,7 +57,7 @@ function traverseFolder(folderPath) {
           }
           if (stats.isDirectory()) {
             // traverseFolder(filePath); // 递归遍历子文件夹
-          } else if (path.extname(file) === '.md' && file !== 'index.md') {
+          } else if (path.extname(file) === '.md') {
             const fileName = path.basename(file, '.md');
             indexContent += `* [${fileName}](./${file})\n`;
           }

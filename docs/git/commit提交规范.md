@@ -1,5 +1,5 @@
 ---
-top: 1
+top: 2
 sticky: 1000
 
 sidebar: 
