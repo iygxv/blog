@@ -3,6 +3,7 @@ hidden: true
 ---
 
 ## Javascript
+* [原生JavaScript实现图片懒加载](./JavaScript侦测手机浏览器的五种方法.md)
 * [JavaScript侦测手机浏览器的五种方法](./JavaScript侦测手机浏览器的五种方法.md)
 * [代码规范之道](./代码规范之道.md)
 * [单一知识点](./单一知识点.md)
