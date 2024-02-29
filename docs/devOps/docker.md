@@ -13,9 +13,13 @@ categories:
 # docker 的基本学习
 
 [docker 在 desktop 使用 ](https://juejin.cn/book/7226988578700525605/section/7227408739827974199)
+
 [Dockerfile 的使用](https://juejin.cn/book/7226988578700525605/section/7236527474555748410)
+
 [docker 技巧](https://juejin.cn/book/7226988578700525605/section/7247104427566792762)
+
 [docker compose](https://juejin.cn/book/7226988578700525605/section/7236156782194720805)
+
 [docker 容器通信](https://juejin.cn/book/7226988578700525605/section/7246374398461280317)
 
 

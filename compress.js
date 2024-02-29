@@ -27,6 +27,8 @@ function compressAndReplaceImage(filePath) {
     limitInputPixels: false,
   }).png({
     compressionLevel: 9,
+    colours: 200,
+    quality: 90
   }).toBuffer().then(data => {
       fs.writeFileSync(filePath, data); // 覆盖原始图片
 
