@@ -63,13 +63,16 @@ data-* 全局属性：构成一类名称为自定义数据属性的属性，可�
 - 通过`element.offsetTop`获取元素相对于文档顶部的距离
 - 通过`document.documentElement.scrollTop`获取浏览器窗口顶部与文档顶部之间的距离，也就是滚动条滚动的距离
   
-然后判断②-③<①是否成立，如果成立，元素就在可视区域内。
+然后判断① + ③ > ② 是否成立，如果成立，元素就在可视区域内。
+
+<img src="./assets/js-view-methods-1.png" alt="image-20221003150455272" />
 
 ### 方法二 getBoundingClientRect
 通过getBoundingClientRect()方法来获取元素的大小以及位置，MDN上是这样描述的：
-`这个方法返回一个名为ClientRect的DOMRect对象，包含了top、right、botton、left、width、height这些值。`
+`这个方法返回一个名为ClientRect的DOMRect对象，包含了top、right、bottom、left、width、height这些值。`
 
-<img src="./assets/js-view-methods-1.png" alt="image-20221003150455272" />
+<img src="./assets/element-box-diagram.png" alt="image-20221003150455272" />
+
 
 可以看出返回的元素位置是相对于左上角而言的，而不是边距。
 我们思考一下，什么情况下图片进入可视区域。

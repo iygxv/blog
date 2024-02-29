@@ -16,6 +16,7 @@
     "@sugarat/theme": "^0.2.14",
     "element-plus": "^2.3.8",
     "pagefind": "^1.0.4",
+    "sharp": "^0.33.2",
     "vue": "3.3.13"
   },
   "directories": {
