@@ -1361,7 +1361,7 @@ div {
 div{
     border: 100px solid transparent;
     width: 0;
-    heigt: 0;
+    height: 0;
     border-radius: 100px;
     border-top-color: red;
 }
