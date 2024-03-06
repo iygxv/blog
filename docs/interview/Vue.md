@@ -1,16 +1,16 @@
 ---
 sidebar:
- title: vue2 面试题
+ title: vue2 试炼
  step: 1
  isTimeLine: true
-title: vue2 面试题
+title: vue2 试炼
 tags:
- - 面试题
+ - 试炼
 categories:
- - 面试题
+ - 试炼
 ---
 
-<img src="./assets/Vue面试题.png" alt="Vue面试题" style="zoom:80%;" />
+<img src="./assets/vue-interview-detail.png" alt="vue-interview-detail" style="zoom:80%;" />
 
 ## 一、Vue 基础
 

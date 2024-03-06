@@ -1,17 +1,17 @@
 ---
 sidebar:
- title: html 面试题
+ title: html 试炼
  step: 1
  isTimeLine: true
-title: html 面试题
+title: html 试炼
 tags:
- - 面试题
+ - 试炼
 categories:
- - 面试题
+ - 试炼
 ---
 
 
-<img src="./assets/1621600195788-acab59b1-a654-4ec4-b9c2-0a491a660671.png" alt="HTML面试题.png" style="zoom:50%;" />
+<img src="./assets/1621600195788-acab59b1-a654-4ec4-b9c2-0a491a660671.png" alt="HTML试炼.png" style="zoom:50%;" />
 
 ## 1. src 和 href 的区别
 

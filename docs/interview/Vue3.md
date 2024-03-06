@@ -1,13 +1,13 @@
 ---
 sidebar:
- title: vue3 面试题
+ title: vue3 试炼
  step: 1
  isTimeLine: true
-title: vue3 面试题
+title: vue3 试炼
 tags:
- - 面试题
+ - 试炼
 categories:
- - 面试题
+ - 试炼
 ---
 
 

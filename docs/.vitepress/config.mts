@@ -22,19 +22,25 @@ export default defineConfig({
     logo: '/logo.jpg',
     nav: [
       { text: '首页', link: '/' },
-      { text: '面试', items: [
-          { text: '面试题', link: '/interview/' },
+      { text: '升阶试炼场', items: [
+          { text: '升阶秘籍', link: '/interview/' },
         ] 
       },
       { 
-        text: '前端知识',
+        text: '技术领域',
         items: [
+          { text: 'CSS', link: '/css/' },
           { text: 'JavaScript', link: '/javascript/' },
+          { text: 'TypeScript', link: '/ts/' },
+          { text: 'Vue2', link: '/vue2/' },
+          { text: 'Vue3', link: '/vue3/' },
+          { text: 'Uniapp', link: '/uniapp/' },
+          { text: 'Vite', link: '/vite/' },
+          { text: 'Webpack', link: '/webpack/' },
           { text: 'Git', link: '/git/' },
-          { text: 'vue2', link: '/vue2/' },
-          { text: 'vue3', link: '/vue3/' },
+          { text: '正则', link: '/regex/' },
         ]
-      },
+      }
     ],
     socialLinks: [
       {

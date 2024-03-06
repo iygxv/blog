@@ -1,17 +1,17 @@
 ---
 sidebar:
- title: javascript 面试题
+ title: javascript 试炼
  step: 1
  isTimeLine: true
-title: javascript 面试题
+title: javascript 试炼
 tags:
- - 面试题
+ - 试炼
 categories:
- - 面试题
+ - 试炼
 ---
 
 
-![JavaScript面试题.png](./assets/1621500410361-1f8976b5-7b26-4803-b5c3-d0ec8cd819d8.png)
+![JavaScript试炼.png](./assets/1621500410361-1f8976b5-7b26-4803-b5c3-d0ec8cd819d8.png)
 
 ## 一、数据类型
 
@@ -2515,7 +2515,7 @@ A()
 B() // 1
 ```
 
-在 JS 中，闭包存在的意义就是让我们可以间接访问函数内部的变量。经典面试题：循环中使用闭包解决 var 定义函数的问题
+在 JS 中，闭包存在的意义就是让我们可以间接访问函数内部的变量。经典试炼：循环中使用闭包解决 var 定义函数的问题
 
 ```js
 for (var i = 1; i <= 5; i++) {

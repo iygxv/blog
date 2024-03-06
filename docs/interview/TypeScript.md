@@ -1,16 +1,16 @@
 ---
 sidebar:
- title: ts 面试题
+ title: ts 试炼
  step: 1
  isTimeLine: true
-title: ts 面试题
+title: ts 试炼
 tags:
- - 面试题
+ - 试炼
 categories:
- - 面试题
+ - 试炼
 ---
 
-# TypeScript面试题
+# TypeScript试炼
 
 ## **什么是TypeScript？**
 
