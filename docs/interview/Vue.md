@@ -713,7 +713,7 @@ this.$nextTick(() => {
 点击 button 会发现，obj.b 已经成功添加，但是视图并未刷新。这是因为在Vue实例创建时，obj.b并未声明，因此就没有被Vue转换为响应式的属性，自然就不会触发视图的更新，这时就需要使用Vue的全局 api **$set()：**
 
 ```js
-addObjB () (
+addObjB () {
    this.$set(this.obj, 'b', 'obj.b')
    console.log(this.obj)
 }

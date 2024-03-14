@@ -6,6 +6,7 @@ import { blogTheme } from './blog-theme'
 // Vitepress 默认配置
 // 详见文档：https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base:'/blob/',
   // 继承博客主题(@sugarat/theme)
   extends: blogTheme,
   lang: 'zh-cn',
