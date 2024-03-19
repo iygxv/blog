@@ -304,3 +304,12 @@ export const shallowReadonlyHandlers = extend(
 [effect实现](https://codevity.top/article/web/vue/vue3/source-code/2-effect.html)
 
 [computed实现](https://codevity.top/article/web/vue/vue3/source-code/5-computed.html)
+
+<br/>
+<hr />
+
+⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+
+✿✿ヽ(°▽°)ノ✿
+
+撒花 🌸🌸🌸🌸🌸🌸

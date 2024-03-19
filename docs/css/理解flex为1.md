@@ -228,3 +228,12 @@ background: pink;
 看到这里，你应该对flex：1有自己的见解了吧，快去实战实用一下吧。
 
 [参考文档](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex)
+
+<br/>
+<hr />
+
+⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+
+✿✿ヽ(°▽°)ノ✿
+
+撒花 🌸🌸🌸🌸🌸🌸

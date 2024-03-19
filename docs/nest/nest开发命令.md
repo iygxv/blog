@@ -49,3 +49,13 @@ nest generate resource xxx
 - `--skip-import` 是指定不在 AppModule 里引入
 - `--project`，这是指定生成代码在哪个子项目的
 
+
+
+<br/>
+<hr />
+
+⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+
+✿✿ヽ(°▽°)ノ✿
+
+撒花 🌸🌸🌸🌸🌸🌸
