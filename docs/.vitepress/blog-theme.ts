@@ -44,6 +44,13 @@ const blogTheme = getThemeConfig({
   // 友链
   friend: [
     {
+      nickname: '冴羽',
+      des: '冴羽的JavaScript博客',
+      avatar:
+        'https://avatars.githubusercontent.com/u/11458263?s=48&v=4',
+      url: 'https://github.com/mqyqingfeng/Blog',
+    },
+    {
       nickname: '粥里有勺糖',
       des: '你的指尖用于改变世界的力量',
       avatar:
