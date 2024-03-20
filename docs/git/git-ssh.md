@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: Git配置ssh Key（密钥和公钥）到github
 tags:
- - git
+ - Git
 categories:
- - git
+ - Git
 ---
 
 # Git配置ssh Key（密钥和公钥）到github
