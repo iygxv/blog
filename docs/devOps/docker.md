@@ -35,7 +35,7 @@ categories:
 docker 镜像是通过 dockerfile 构建出来的
 dockerfile 通过 FROM、WORKDIR、COPY、RUN、EXPOSE、CMD 等指令声明了一个 http-server 提供静态服务的镜像
 
-```arduino
+```yaml
 FROM node:latest
 
 WORKDIR /app
