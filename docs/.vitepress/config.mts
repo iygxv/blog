@@ -41,6 +41,12 @@ export default defineConfig({
           { text: 'Git', link: '/git/' },
           { text: '正则', link: '/regex/' },
         ]
+      },
+      { 
+        text: '知识中心',
+        items: [
+          { text: '三月截获知识', link: '/information/3月截获知识.md' },
+        ]
       }
     ],
     socialLinks: [
