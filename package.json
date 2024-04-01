@@ -1,6 +1,6 @@
 {
   "name": "vitepress-blog",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "author": "随缘",
   "license": "MIT",
@@ -9,7 +9,8 @@
     "build": "vitepress build docs",
     "serve": "vitepress serve docs",
     "deploy": "vitepress build docs && sh deploy.sh",
-    "create": "node create.js"
+    "create": "node create.js",
+    "release": "standard-version"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "sass": "^1.64.1",
+    "standard-version": "^9.5.0",
     "typescript": "^5.1.6",
     "vitepress": "1.0.0-rc.32"
   }
