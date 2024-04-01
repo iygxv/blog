@@ -46,6 +46,11 @@ export default defineConfig({
         text: '知识中心',
         items: [
           { text: '三月截获知识', link: '/information/3月截获知识.md' },
+          { text: '四月截获知识', link: '/information/4月截获知识.md' },
+          // { text: '三月截获知识', link: '/information/3月截获知识.md' },
+          // { text: '三月截获知识', link: '/information/3月截获知识.md' },
+          // { text: '三月截获知识', link: '/information/3月截获知识.md' },
+          // { text: '三月截获知识', link: '/information/3月截获知识.md' },
         ]
       }
     ],

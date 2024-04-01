@@ -1,7 +1,4 @@
 ---
-top: 2
-sticky: 1000
-
 sidebar: 
  title: commit 提交规范
  step: 1

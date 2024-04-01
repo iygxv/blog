@@ -1,7 +1,4 @@
 ---
-top: 2
-sticky: 999
-
 sidebar: 
  title: app 与 h5 交互
  step: 1
