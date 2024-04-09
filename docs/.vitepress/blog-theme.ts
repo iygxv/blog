@@ -58,20 +58,20 @@ const blogTheme = getThemeConfig({
       url: 'https://sugarat.top',
     }
   ],
- // 看板娘
-  oml2d: {
-    mobileDisplay: true,
-    models: [
-      {
-        "path": "https://model.oml2d.com/Pio/model.json",
-        "scale": 0.4,
-        "position": [0, 50],
-        "stageStyle": {
-          "height": 300
-        }
-      }
-    ]
-  }
+  // 看板娘
+  // oml2d: {
+  //   mobileDisplay: true,
+  //   models: [
+  //     {
+  //       "path": "https://model.oml2d.com/Pio/model.json",
+  //       "scale": 0.4,
+  //       "position": [0, 50],
+  //       "stageStyle": {
+  //         "height": 300
+  //       }
+  //     }
+  //   ]
+  // }
 
   // 公告
   // popover: {
