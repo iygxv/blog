@@ -52,6 +52,15 @@ export default defineConfig({
           // { text: '三月截获知识', link: '/information/3月截获知识.md' },
           // { text: '三月截获知识', link: '/information/3月截获知识.md' },
         ]
+      },
+      { 
+        text: '线上作品',
+        items: [
+          { text: '图床', link: 'https://icodehub.top/imageBed/' },
+          { text: 'Fast Log', link: 'https://github.com/iygxv/fast-log' },
+          { text: 'Ts Transform', link: 'https://icodehub.top/transform/' },
+          { text: 'Vue Next Admin', link: 'https://icodehub.top/vue-next-admin/' },
+        ]
       }
     ],
     socialLinks: [

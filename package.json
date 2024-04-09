@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
-    "@sugarat/theme": "^0.2.14",
+    "@sugarat/theme": "^0.3.0",
     "element-plus": "^2.3.8",
     "pagefind": "^1.0.4",
     "sharp": "^0.33.2",

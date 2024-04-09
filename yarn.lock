@@ -2273,6 +2273,11 @@ normalize-wheel-es@^1.2.0:
   resolved "https://registry.npmmirror.com/normalize-wheel-es/-/normalize-wheel-es-1.2.0.tgz#0fa2593d619f7245a541652619105ab076acf09e"
   integrity sha512-Wj7+EJQ8mSuXr2iWfnujrimU35R2W4FAErEyTmJoJ7ucwTn2hOUSsRehMb5RSYkxXGTM7Y9QpvPmp++w5ftoJw==
 
+oh-my-live2d@^0.15.2:
+  version "0.15.2"
+  resolved "https://registry.npmmirror.com/oh-my-live2d/-/oh-my-live2d-0.15.2.tgz#06d8c5c5e6e1209966837010b739cd5c4dc0bb48"
+  integrity sha512-0+K48pgUrJOzo6ey16KiUCdGX/pWWogRY2JeOf4JnlYo9Rnd1RCfbzMQ4sX85aAMfavNfKfx9XGw6jEl4er9Xw==
+
 pagefind@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmmirror.com/pagefind/-/pagefind-1.0.4.tgz#ada6a17fefdecfaa654e730544f2d827ee35fcc7"
