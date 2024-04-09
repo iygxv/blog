@@ -10,6 +10,8 @@ categories:
  - Vue3
 ---
 
+# 与 vue2 的差别
+
 - 响应式原理 pxoxy / defineProperty
 - Vue3 diff算法（可以根据patchFlag做diff + 最长递增子序列） /  Vue2的区别（全量的diff）
 - compositionApi（tree-sharking） / options Api

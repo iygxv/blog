@@ -10,6 +10,7 @@ categories:
  - Vue3
 ---
 
+# vue3 易忽略知识
 
 ## 组件上使用v-model
 - 属性的双向数据绑定
