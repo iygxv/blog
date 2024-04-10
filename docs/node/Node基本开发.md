@@ -1,16 +1,16 @@
 ---
 sidebar: 
- title: Node 基本开发开发
+ title: Node 基本开发
  step: 1
  isTimeLine: true
-title:  Node 基本开发开发
+title:  Node 基本开发
 tags:
  - Node
 categories:
  - Node
 ---
 
-# Node 基本开发开发
+# Node 基本开发
 
 ## **一. 邂逅Node开发**
 
