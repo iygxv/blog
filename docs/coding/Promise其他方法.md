@@ -11,7 +11,7 @@ categories:
 ---
 
 
-# Promise的全部API
+# Promise 的全部API
 官方 Promise 还有很多API,除了已经实现的核心`then`方法,还有 两个实例方法
 - Promise.prototype.catch
 - Promise.prototype.finally
