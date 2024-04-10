@@ -1,14 +1,18 @@
 ---
 sidebar:
- title: javascript 试炼
+ title: JavaScript 试炼
  step: 1
  isTimeLine: true
-title: javascript 试炼
+title: JavaScript 试炼
 tags:
  - 试炼
 categories:
  - 试炼
 ---
+
+# JavaScript 试炼
+
+## 具体试炼要求
 
 
 ![JavaScript试炼.png](./assets/1621500410361-1f8976b5-7b26-4803-b5c3-d0ec8cd819d8.png)

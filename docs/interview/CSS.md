@@ -1,15 +1,18 @@
 ---
 sidebar:
- title: css 试炼
+ title: CSS 试炼
  step: 1
  isTimeLine: true
-title: css 试炼
+title: CSS 试炼
 tags:
  - 试炼
 categories:
  - 试炼
 ---
 
+# CSS 试炼
+
+## 具体试炼要求
 
 ![img](./assets/1618650369902-a402f0bc-d213-4330-93ea-6cb1a9bd3976-20221006172844453.png)
 

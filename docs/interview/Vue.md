@@ -1,14 +1,18 @@
 ---
 sidebar:
- title: vue2 试炼
+ title: Vue2 试炼
  step: 1
  isTimeLine: true
-title: vue2 试炼
+title: Vue2 试炼
 tags:
  - 试炼
 categories:
  - 试炼
 ---
+
+# Vue2 试炼
+
+## 具体试炼要求
 
 <img src="./assets/vue-interview-detail.png" alt="vue-interview-detail" style="zoom:80%;" />
 

@@ -1,9 +1,9 @@
 ---
 sidebar:
- title: ts 试炼
+ title: TypeScript试炼
  step: 1
  isTimeLine: true
-title: ts 试炼
+title: TypeScript试炼
 tags:
  - 试炼
 categories:
