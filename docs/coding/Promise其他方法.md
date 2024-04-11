@@ -334,7 +334,7 @@ Promise.any = function(promises) {
 一个**待定的** [`Promise`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise) 只要给定的迭代中的一个 promise 解决或拒绝，就采用第一个 promise 的值作为它的值，从而**异步**地解析或拒绝（一旦堆栈为空）。
 
 ```js
-Promise.race = function() {
+Promise.race = function(promises) {
   return new Promise((resolve, reject) => {
     // 参数校验
     if (Array.isArray(promises)) {
