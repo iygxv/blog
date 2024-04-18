@@ -56,6 +56,13 @@ const blogTheme = getThemeConfig({
       avatar:
         'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
       url: 'https://sugarat.top',
+    },
+    {
+      nickname: '知行记',
+      des: '知行记的博客',
+      avatar:
+        'https://codemy.top/upload/2022/06/WechatIMG102.jpeg',
+      url: 'https://codemy.top/',
     }
   ],
   // 看板娘

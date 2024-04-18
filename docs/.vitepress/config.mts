@@ -53,6 +53,17 @@ export default defineConfig({
           // { text: '三月截获知识', link: '/information/3月截获知识.md' },
         ]
       },
+      {
+        text: '编程代码',
+        items: [
+          { text: 'JS 基本编程', link: '/coding/手写题.md' },
+          { text: 'TS 基本编程', link: '/coding/手写题(ts).md' },
+          { text: 'async await 实现', link: '/coding/async-await.md' },
+          { text: 'axios 实现', link: '/coding/axios的基本实现.md' },
+          { text: 'PromiseA+ 实现', link: '/coding/PromiseA+.md' },
+          { text: 'Promise 其他方法实现', link: '/coding/Promise其他方法.md' },
+        ]
+      },
       { 
         text: '线上作品',
         items: [
