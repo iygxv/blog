@@ -92,7 +92,7 @@ categories:
 
 ### **V8引擎的原理**
 
-![image-20220426110708765](../Library/Application Support/typora-user-images/image-20220426110708765.png)
+<img src="./assets/image-20220717173311658.png" alt="image" style="zoom:67%;" />
 
 V8引擎本身的源码非常复杂，大概有超过100w行C++代码，但是我们可以简单了解一下它执行JavaScript代码的原理:
 

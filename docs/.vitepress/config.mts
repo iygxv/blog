@@ -35,6 +35,7 @@ export default defineConfig({
           { text: 'TypeScript', link: '/ts/' },
           { text: 'Vue2', link: '/vue/vue2/' },
           { text: 'Vue3', link: '/vue/vue3/' },
+          { text: 'React', link: '/react/' },
           { text: 'Uniapp', link: '/uniapp/' },
           { text: 'Vite', link: '/vite/' },
           { text: 'Webpack', link: '/webpack/' },

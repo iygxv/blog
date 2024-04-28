@@ -598,10 +598,10 @@
   resolved "https://registry.npmmirror.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.12.0.tgz#9ffdf9ed133a7464f4ae187eb9e1294413fab235"
   integrity sha512-ZYmr5mS2wd4Dew/JjT0Fqi2NPB/ZhZ2VvPp7SmvPZb4Y1CG/LRcS6tcRo2cYU7zLK5A7cdbhWnnWmUjoI4qapg==
 
-"@sugarat/theme@^0.2.14":
-  version "0.2.23"
-  resolved "https://registry.npmmirror.com/@sugarat/theme/-/theme-0.2.23.tgz#c832da21cfaf9ccbba4ce5c187aa22ba9fd6a86f"
-  integrity sha512-1OGF8nDKEljeYW7be8X0aGZkAySamnMYHqMjB0Sop3kv61WQWcJLXHfN9pkzCxAuaLmfV1zKxdCXeUI/Zi/rCg==
+"@sugarat/theme@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.npmmirror.com/@sugarat/theme/-/theme-0.3.0.tgz#00a36cf76e90b85bb9dbceef890357f5f5a5122b"
+  integrity sha512-IozJ74f4bepH+UPEyVQRvxQFEntjC7Ys/ju0CdzW3h5WezHYxnFTKkdWKHhoHnutIDL9+XRkyoaHuVB7UqgBIA==
   dependencies:
     "@giscus/vue" "^2.3.0"
     "@mdit-vue/shared" "^0.12.0"
@@ -612,10 +612,11 @@
     gray-matter "^4.0.3"
     markdown-it-task-checkbox "^1.0.6"
     mermaid "^10.2.4"
+    oh-my-live2d "^0.15.2"
     swiper "^11.0.5"
     vitepress-markdown-timeline "^1.2.1"
     vitepress-plugin-mermaid "2.0.13"
-    vitepress-plugin-pagefind "0.2.12"
+    vitepress-plugin-pagefind "0.2.14"
     vitepress-plugin-rss "0.2.2"
     vitepress-plugin-tabs "0.2.0"
 
@@ -2657,10 +2658,10 @@ vitepress-plugin-mermaid@2.0.13:
   optionalDependencies:
     "@mermaid-js/mermaid-mindmap" "^9.3.0"
 
-vitepress-plugin-pagefind@0.2.12:
-  version "0.2.12"
-  resolved "https://registry.npmmirror.com/vitepress-plugin-pagefind/-/vitepress-plugin-pagefind-0.2.12.tgz#9b1db8e283989bb3ce14616bfce9a92a6fc99e64"
-  integrity sha512-1KAS5KVlXkdiL4PeaSHPYbKROCfmvnvCZ4ejFFnVa66Mf4oW+rsCkXxkyadGog4MBBYXWy3NbQrbeL5+zTFZQw==
+vitepress-plugin-pagefind@0.2.14:
+  version "0.2.14"
+  resolved "https://registry.npmmirror.com/vitepress-plugin-pagefind/-/vitepress-plugin-pagefind-0.2.14.tgz#b1c33fde4be7f4dbb5df6805c08874f1d85eeaf6"
+  integrity sha512-xwx3JtINalPNyMs4NHvgIbzZXwa3wIjj2d5E6+OWbV3FQu9lorHT34mazaDkJxKVdVs8rKucOuxpYLkR9aTYPA==
   dependencies:
     "@vue/shared" "^3.2.45"
     "@vueuse/core" "^9.6.0"
