@@ -44,14 +44,14 @@ export default defineConfig({
         ]
       },
       { 
-        text: '知识中心',
+        text: '知识记录',
         items: [
-          { text: '三月截获知识', link: '/information/3月截获知识.md' },
-          { text: '四月截获知识', link: '/information/4月截获知识.md' },
-          // { text: '三月截获知识', link: '/information/3月截获知识.md' },
-          // { text: '三月截获知识', link: '/information/3月截获知识.md' },
-          // { text: '三月截获知识', link: '/information/3月截获知识.md' },
-          // { text: '三月截获知识', link: '/information/3月截获知识.md' },
+          { text: '⭐️三月记录⭐️', link: '/information/3月.md' },
+          { text: '⭐️四月记录⭐️', link: '/information/4月.md' },
+          { text: '⭐️五月记录⭐️', link: '/information/5月.md' },
+          // { text: '三月', link: '/information/3月.md' },
+          // { text: '三月', link: '/information/3月.md' },
+          // { text: '三月', link: '/information/3月.md' },
         ]
       },
       {
