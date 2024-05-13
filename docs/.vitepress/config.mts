@@ -23,6 +23,7 @@ export default defineConfig({
     logo: '/logo.jpg',
     nav: [
       { text: '首页', link: '/' },
+      { text: '资源导航', link: '/source/资源导航.md' },
       { text: '升阶试炼场', items: [
           { text: '升阶秘籍', link: '/interview/' },
         ] 
