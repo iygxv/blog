@@ -16,7 +16,7 @@ categories:
 Nginx 是一个开源且高性能、可靠的 HTTP 中间件，代理服务。Nginx（发音同 engine x）是一个 Web 服务器，也可以用作反向代理，负载平衡器和 HTTP 缓存。该软件由 Igor Sysoev 创建，并于 2004 年首次公开发布。同名公司成立于 2011 年，以提供支持。
 
 ## 一般常用的Nginx配置详细说明
-```ini
+```nginx
 #定义Nginx运行的用户和用户组
 user www www;
 
@@ -169,6 +169,49 @@ http
   }
 }
 
+```
+
+## 无 www 跳转至有 www
+```nginx
+server {
+    listen 80;
+    server_name example.com;
+
+    return 301 http://www.example.com$request_uri;
+}
+
+server {
+    listen 80;
+    server_name www.example.com;
+
+    location / {
+        proxy_pass          http://localhost:8080;
+        proxy_set_header    X-Forwared-Proto    $scheme;
+        proxy_set_header    Host                $host;
+        proxy_set_header    X-Real-IP           $remote_addr;
+    }
+}
+
+```
+
+##  underscores_in_headers on
+nginx 配置中的 `underscores_in_headers` 指令用于控制 nginx 是否接受带下划线的 HTTP 头部字段。默认情况下，nginx 通常不允许这样的字段，因为 HTTP 头部字段名称通常不应该包含下划线。
+
+解决方案：
+- 如果你需要nginx接受带下划线的头部字段，你可以在nginx配置文件中的http、server或location块中设置underscores_in_headers on。
+
+## HTTP 跳转至 HTTPS
+HTTP 默认端口强制跳转 HTTPS 配置
+```nginx
+server {
+    listen 80;
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+server {
+    listen 443 ssl;
+}
 ```
 
 ## 来源
