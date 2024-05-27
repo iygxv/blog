@@ -2,10 +2,10 @@
 top: 1
 sticky: 1000
 sidebar: 
- title: 5月信息
+ title: 5月记
  step: 1
  isTimeLine: true
-title: 5月信息
+title: 5月记
 tags:
  - 知识中心
 categories:
@@ -173,7 +173,20 @@ Missing dependencies
 - 没有找到则从全局的 node_modules/.bin 中查找
 - 如果全局目录还是没找到，那么就从 path 环境变量中查找有没有其他同名的可执行程序
 
-[去学习](https://blog.51cto.com/u_15077533/4531157)
+详细请看：https://blog.51cto.com/u_15077533/4531157
+
+## 软键盘弹出，视图放大
+通过使用 `<meta name="viewport">` 解决问题，需要设置的内容：
+- 默认视图宽度 为 设备宽度
+- 默认缩放比为 1
+- 最大、最小缩放比为 1
+- 不允许用户手动缩放
+
+```html
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+```
+
+详细请看：https://juejin.cn/post/7358375367340228659?utm_source=gold_browser_extension#heading-5
 
 
 
