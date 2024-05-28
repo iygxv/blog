@@ -1,12 +1,14 @@
 ---
 sidebar: 
- title: git报错收集
+ title: git 中遇到的错误
  step: 1
  isTimeLine: true
-title: git报错收集
+title: git 中遇到的错误
 tags:
+ - 错误收集录
  - Git
 categories:
+ - 错误收集录
  - Git
 ---
 

@@ -68,6 +68,14 @@ export default defineConfig({
           { text: '🛸 Promise 其他方法实现', link: '/coding/Promise其他方法.md' },
         ]
       },
+      {
+        text: '❎ 错误收集处',
+        items: [
+          // 📅 📆 📇 📈 📉 📊 📋 📌 📍 📎 📏 📐 ✂ 🔒 🔮
+          { text: '📈 git 错误处', link: '/problem/git-problem.md' },
+          { text: '📉 vite 错误处', link: '/problem/vite-problem.md' },
+        ]
+      },
       { 
         text: ' 🌁 线上作品',
         items: [
