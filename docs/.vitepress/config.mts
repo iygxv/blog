@@ -16,11 +16,11 @@ export default defineConfig({
   // 详见：https://vitepress.dev/reference/site-config#head
   head: [
     // 配置网站的图标（显示在浏览器的 tab 上）
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
+    ['link', { rel: 'icon',  href: './assets/logo.ico' }]
   ],
   themeConfig: {
     lastUpdatedText: '上次更新于',
-    logo: '/logo.jpg',
+    logo: '/assets/logo.png',
     nav: [
       { text: '🏰 首页', link: '/' },
       { text: '🕋 资源导航', link: '/source/资源导航.md' },
