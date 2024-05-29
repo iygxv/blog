@@ -25,7 +25,17 @@ export default defineConfig({
       { text: '🏰 首页', link: '/' },
       { text: '🕋 资源导航', link: '/source/资源导航.md' },
       { text: '🏚 升阶试炼场', items: [
-          { text: ' 🛩 升阶秘籍', link: '/interview/' },
+          { text: ' 🛩 试炼资源', link: '/interview/source.md' },
+          { text: ' 🛫 CSS 试炼', link: '/interview/CSS.md' },
+          { text: ' 🛬 HTML 试炼', link: '/interview/HTML.md' },
+          { text: ' 🪂 Vue 试炼', link: '/interview/Vue.md' },
+          { text: ' 🚟 Vue3 试炼', link: '/interview/Vue3.md' },
+          { text: ' 💺 TypeScript 试炼', link: '/interview/TypeScript.md' },
+          { text: ' 🚁 JavaScript 试炼', link: '/interview/JavaScript.md' },
+          { text: ' 🚠 性能优化 试炼', link: '/interview/性能优化.md' },
+          { text: ' 🛰️ 代码手写 试炼', link: '/interview/代码手写.md' },
+          { text: ' 🛸 浏览器原理 试炼', link: '/interview/浏览器原理.md' },
+          { text: ' 🛥️ 计算机网络 试炼', link: '/interview/计算机网络.md' },
         ] 
       },
       { 
