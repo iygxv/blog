@@ -66,19 +66,19 @@ const blogTheme = getThemeConfig({
     }
   ],
   // 看板娘
-  oml2d: {
-    mobileDisplay: true,
-    models: [
-      {
-        "path": "https://model.oml2d.com/HK416-1-normal/model.json",
-        "position": [0, 60],
-        "scale": 0.08,
-        "stageStyle": {
-          "height": 350
-        }
-      }
-    ]
-  }
+  // oml2d: {
+  //   mobileDisplay: true,
+  //   models: [
+  //     {
+  //       "path": "https://model.oml2d.com/HK416-1-normal/model.json",
+  //       "position": [0, 60],
+  //       "scale": 0.08,
+  //       "stageStyle": {
+  //         "height": 350
+  //       }
+  //     }
+  //   ]
+  // }
 
   // 公告
   // popover: {
