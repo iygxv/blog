@@ -23,7 +23,7 @@ const blogTheme = getThemeConfig({
   // 搜索
   // 默认开启pagefind离线的全文搜索支持（如使用其它的可以设置为false）
   // 如果npx pagefind 时间过长，可以手动将其安装为项目依赖 pnpm add pagefind
-  // search: false,
+  search: false,
 
   // 页脚
   footer: {
@@ -66,19 +66,19 @@ const blogTheme = getThemeConfig({
     }
   ],
   // 看板娘
-  // oml2d: {
-  //   mobileDisplay: true,
-  //   models: [
-  //     {
-  //       "path": "https://model.oml2d.com/Pio/model.json",
-  //       "scale": 0.4,
-  //       "position": [0, 50],
-  //       "stageStyle": {
-  //         "height": 300
-  //       }
-  //     }
-  //   ]
-  // }
+  oml2d: {
+    mobileDisplay: true,
+    models: [
+      {
+        "path": "https://model.oml2d.com/HK416-1-normal/model.json",
+        "position": [0, 60],
+        "scale": 0.08,
+        "stageStyle": {
+          "height": 350
+        }
+      }
+    ]
+  }
 
   // 公告
   // popover: {
