@@ -188,27 +188,20 @@ Missing dependencies
 
 详细请看：https://juejin.cn/post/7358375367340228659?utm_source=gold_browser_extension#heading-5
 
+## 把 let [a, b, c] = { a: 1, b: 2, c: 3 } 成功解构
+[把let [a, b, c] = { a: 1, b: 2, c: 3 }给成功解构掉](https://juejin.cn/post/7374308419074146313#heading-4)
 
+```js
+Object.prototype[Symbol.iterator] = function () {
+  return Object.values(this)[Symbol.iterator]()
+}
+let [a, b, c] = { a: 1, b: 2, c: 3 }
+```
 
-## 总结
-①：怎么样创建指定的日期对象呢?
-```js
-const date = new Date(2023, 7, 30);
-console.log(date) // Wed Aug 30 2023 00:00:00 GMT+0800 (中国标准时间)
-```
-②：怎么样获取到每个月有多少天呢?
-```js
-// 拿到最后一天的日期
-new Date(2023, 5, 0).getDate() // 31
-new Date(2023, 6, 0).getDate() // 30
-new Date(2023, 7, 0).getDate() // 31
-```
-③：http 数据传输方式的认识?
-- url params
-- query
-- form-urlencoded
-- form-data
-- json
+这样子能解构成功, 是因为在对象原型上添加数组迭代器 
+
+[去了解迭代器](https://github.com/iygxv/practice/tree/main/JavaScript/%E8%BF%AD%E4%BB%A3%E5%99%A8)
+
 
 
 
