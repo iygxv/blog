@@ -1,9 +1,9 @@
 ---
 sidebar: 
- title: git 中遇到的错误
+ title: Git 中遇到的错误
  step: 1
  isTimeLine: true
-title: git 中遇到的错误
+title: Git 中遇到的错误
 tags:
  - 错误收集录
  - Git
@@ -12,7 +12,7 @@ categories:
  - Git
 ---
 
-# git报错收集
+# Git 报错收集
 
 ## 远程的个别分支已经被删除，但是本地仍存在
 ```bash

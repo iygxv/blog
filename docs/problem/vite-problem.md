@@ -1,6 +1,6 @@
 ---
 sidebar:
-  title: vite 中遇到的错误
+  title: Vite 中遇到的错误
   step: 1
   isTimeLine: true
 title: vite 中遇到的错误
@@ -12,7 +12,7 @@ categories:
   - Vite
 ---
 
-# vite 中遇到的问题
+# Vite 中遇到的问题
 
 ## 类型“ImportMeta”上不存在属性“env”
 
