@@ -24,6 +24,7 @@ const foldersPath = [
 ]
 
 const folderNameWhite = ['css']
+
 function traverseFolder(folderPath) {
   let capitalizedFolderName = ''
   const folderName = path.basename(folderPath);
@@ -42,12 +43,12 @@ function traverseFolder(folderPath) {
       return;
     }
     // 过滤 index.md 并排序
-    const realFiles = files.sort((a, b) => a - b );
+    const realFiles = files.sort((a, b) => a - b);
 
     const p = new Promise((resolve) => {
       if (realFiles.length === 0) {
         resolve()
-    }
+      }
       console.log(files)
       realFiles.forEach((file, index) => {
         const filePath = path.join(folderPath, file);
@@ -62,9 +63,9 @@ function traverseFolder(folderPath) {
             const fileName = path.basename(file, '.md');
             indexContent += `* [${fileName}](./${file})\n`;
           }
-         setTimeout(() => {
-          index === files.length - 1 && resolve();
-         }, 200)
+          setTimeout(() => {
+            index === files.length - 1 && resolve();
+          }, 200)
         });
       });
     })
@@ -83,6 +84,6 @@ function traverseFolder(folderPath) {
 }
 
 foldersPath.forEach(item => {
-// console.log('item:', item)
+  // console.log('item:', item)
   traverseFolder(item);
 })

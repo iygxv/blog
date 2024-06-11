@@ -23,12 +23,12 @@ function compressAndReplaceImage(filePath) {
   originalSizes.push(originalSize); // 将原始图片文件大小存入数组
 
   return sharp(filePath, {
-    animated: true,
-    limitInputPixels: false,
-  }).png({
-    compressionLevel: 9,
-    quality: 90 // 使用达到给定质量所需的最低数量的颜色
-  }).toBuffer().then(data => {
+      animated: true,
+      limitInputPixels: false,
+    }).png({
+      compressionLevel: 9,
+      quality: 90 // 使用达到给定质量所需的最低数量的颜色
+    }).toBuffer().then(data => {
       fs.writeFileSync(filePath, data); // 覆盖原始图片
 
       const compressedSize = fs.statSync(filePath).size; // 获取压缩后的图片文件大小

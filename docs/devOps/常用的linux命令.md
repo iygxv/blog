@@ -27,6 +27,12 @@ find . -name nginx.conf
 scp -P 22 -r dist/* root@192.168.5.66:/web/xxx
 ```
 
+## 赋予权限
+```shell
+# 赋予可执行权限
+chmod -x /web/xxx
+```
+
 <br/>
 <hr />
 
