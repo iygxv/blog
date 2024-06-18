@@ -24,6 +24,12 @@ categories:
 - build: 打包
 :::
 
+参考：Angular提交信息规范，链接：
+https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines
+
+https://github.com/Document-Collection/git-guide/blob/master/docs/message/Angular%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%E8%A7%84%E8%8C%83.md
+
+
 
 <br/>
 <hr />

@@ -66,7 +66,6 @@ git config pull.ff only
 git pull origin main
 ```
 
-
 <br/>
 <hr />
 
