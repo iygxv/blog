@@ -61,6 +61,7 @@ export default defineConfig({
           { text: '🔯 四月记', link: '/information/April.md' },
           { text: '☪️  五月记', link: '/information/May.md' },
           { text: '⛎ 六月记', link: '/information/June.md' },
+          { text: '⛎ 七月记', link: '/information/July.md' },
           // { text: '三月', link: '/information/3月.md' },
           // { text: '三月', link: '/information/3月.md' },
           // 💟 ☮️ ✝️ ☪️ 🕉 ☸️ ✡️ 🔯 🕎 ☯️ ☦️ 🛐 ⛎ ♈️ ♉️ ♊️ ♋️ ♌️ ♍️ ♎️ ♏️ ♐️ ♑️ ♒️ ♓️ 🆔 ⚛️

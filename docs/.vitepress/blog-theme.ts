@@ -23,7 +23,7 @@ const blogTheme = getThemeConfig({
   // 搜索
   // 默认开启pagefind离线的全文搜索支持（如使用其它的可以设置为false）
   // 如果npx pagefind 时间过长，可以手动将其安装为项目依赖 pnpm add pagefind
-  search: false,
+  search: true,
 
   // 页脚
   footer: {
