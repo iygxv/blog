@@ -8,4 +8,5 @@ hidden: true
 * [⭐️5月记](./May.md)
 * [⭐️6月记](./June.md)
 * [⭐️7月记](./July.md)
+* [⭐️8月记](./August.md)
 * [⭐️实战技巧](./PracticalSkills.md)

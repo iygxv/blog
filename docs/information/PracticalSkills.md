@@ -18,7 +18,7 @@ categories:
 
 来源于`抖音渡一 Web 前端学习频道 - 前端高薪实战技巧`
 
-## 140集：模块自动导入
+## 140集：模块自动导入（Vite 中使用）
 
 安装一下 unplugin-auto-import 插件
 
