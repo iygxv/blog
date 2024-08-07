@@ -15,7 +15,7 @@
     "@element-plus/icons-vue": "^2.1.0",
     "@sugarat/theme": "^0.3.0",
     "element-plus": "^2.3.8",
-    "pagefind": "^1.0.4",
+    "pagefind": "^1.1.0",
     "sharp": "^0.33.2",
     "vue": "3.3.13"
   },

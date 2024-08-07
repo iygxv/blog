@@ -7,9 +7,9 @@ sidebar:
  isTimeLine: true
 title: 7月记
 tags:
- - 知识中心
+ - 每月记
 categories:
- - 知识中心
+ - 每月记
 ---
 
 # 7月记

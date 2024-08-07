@@ -7,9 +7,9 @@ sidebar:
  isTimeLine: true
 title: 实战技巧
 tags:
- - 知识中心
+ - 每月记
 categories:
- - 知识中心
+ - 每月记
 ---
 
 # 实战技巧

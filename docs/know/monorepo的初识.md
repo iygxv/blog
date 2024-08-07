@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: pnpm workspace构建monorepo仓库
 tags:
- - 不懂的知识
+ - 其他
 categories:
- - 不懂的知识
+ - 其他
 ---
 
 

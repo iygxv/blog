@@ -23,7 +23,9 @@ const blogTheme = getThemeConfig({
   // 搜索
   // 默认开启pagefind离线的全文搜索支持（如使用其它的可以设置为false）
   // 如果npx pagefind 时间过长，可以手动将其安装为项目依赖 pnpm add pagefind
-  search: true,
+  // search: {
+  //   pageResultCount: 5
+  // },
 
   // 页脚
   footer: {
@@ -40,6 +42,13 @@ const blogTheme = getThemeConfig({
 
   // 文章默认作者
   author: '随缘',
+
+  recommend: {
+    nextText: '下一页',
+    sort(a, b) {
+      return +new Date(b.meta.date) - +new Date(a.meta.date)
+    },
+  },
 
   // 友链
   friend: [

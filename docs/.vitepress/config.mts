@@ -55,7 +55,7 @@ export default defineConfig({
         ]
       },
       { 
-        text: '⛲ 知识记录',
+        text: '⛲ 每月记录',
         items: [
           { text: '🕎 三月记', link: '/information/March.md' },
           { text: '🔯 四月记', link: '/information/April.md' },
@@ -78,22 +78,14 @@ export default defineConfig({
           { text: '🛸 Promise 其他方法实现', link: '/coding/Promise其他方法.md' },
         ]
       },
-      {
-        text: '❎ 错误收集处',
-        items: [
-          // 📅 📆 📇 📈 📉 📊 📋 📌 📍 📎 📏 📐 ✂ 🔒 🔮
-          { text: '📈 git 错误处', link: '/problem/git-problem.md' },
-          { text: '📉 vite 错误处', link: '/problem/vite-problem.md' },
-        ]
-      },
       { 
-        text: ' 🌁 线上作品',
+        text: ' 🌁 线上成果',
         items: [
           // ⌚️ 📱 📲 💻 ⌨️ 🖥 🖨 🖱
           { text: '⌚️ 图床', link: 'https://icodehub.top/imageBed/' },
           { text: '📱 Fast Log', link: 'https://github.com/iygxv/fast-log' },
           { text: '🖨 Ts Transform', link: 'https://icodehub.top/transform/' },
-          { text: '💻 Vue Next Admin', link: 'https://icodehub.top/vue-next-admin/' },
+          // { text: '💻 Vue Next Admin', link: 'https://icodehub.top/vue-next-admin/' },
         ]
       }
     ],

@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: release-it
 tags:
- - Tools
+ - 工具
 categories:
- - Tools
+ - 工具
 ---
 
 # release-it

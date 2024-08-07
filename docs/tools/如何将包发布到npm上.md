@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: 如何将包发布到npm上
 tags:
- - Tools
+ - 工具
 categories:
- - Tools
+ - 工具
 ---
 
 

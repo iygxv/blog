@@ -5,9 +5,9 @@ sidebar:
  isTimeLine: true
 title: vscode 常用快捷键
 tags:
- - 不懂的知识
+ - 其他
 categories:
- - 不懂的知识
+ - 其他
 ---
 
 ## **代码格式自动整理**
