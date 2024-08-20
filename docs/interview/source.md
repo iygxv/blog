@@ -25,6 +25,9 @@ categories:
 
 [木及简历](https://www.mujicv.com)
 
+## AI 智能面试
+[多面鹅](https://offergoose.cn/)
+
 
 
 <br/>

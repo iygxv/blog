@@ -22,6 +22,7 @@ export default defineConfig({
     lastUpdatedText: '上次更新于',
     logo: 'https://www.icodehub.top/blob/logo.png',
     nav: [
+      // emoji 大全： https://remeins.com/index/app/emojilist
       { text: '🏰 首页', link: '/' },
       { text: '🕋 资源导航', link: '/source/资源导航.md' },
       { text: '🏚 升阶试炼场', items: [

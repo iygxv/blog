@@ -53,6 +53,13 @@ const blogTheme = getThemeConfig({
   // 友链
   friend: [
     {
+      nickname: 'HLP',
+      des: 'HLP的博客',
+      avatar:
+        'https://www.icodehub.top/hlp/avatar.png',
+      url: 'https://hlp.icodehub.top',
+    },
+    {
       nickname: '冴羽',
       des: '冴羽的JavaScript博客',
       avatar:
@@ -71,7 +78,7 @@ const blogTheme = getThemeConfig({
       des: '知行记的博客',
       avatar:
         'https://codemy.top/upload/2022/06/WechatIMG102.jpeg',
-      url: 'https://codemy.top/',
+      url: 'https://codemy.top',
     }
   ],
   // 看板娘
