@@ -66,6 +66,7 @@ export default defineConfig({
           { text: '♓️  八月记', link: '/information/August.md' },
           // 💟 ☮️ ✝️ ☪️ 🕉 ☸️ ✡️ 🔯 🕎 ☯️ ☦️ 🛐 ⛎ ♈️ ♉️ ♊️ ♋️ ♌️ ♍️ ♎️ ♏️ ♐️ ♑️ ♒️ ♓️ 🆔 ⚛️
           { text: '🛐 实战技巧', link: '/information/PracticalSkills.md' },
+          { text: '♑️  EveryT', link: '/information/EveryT.md' },
         ]
       },
       {
