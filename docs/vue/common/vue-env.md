@@ -1,5 +1,4 @@
 ---
-
 sidebar: 
  title: vue 项目中 env 详解
  step: 1
@@ -7,8 +6,12 @@ sidebar:
 title: vue 项目中 env 详解
 tags:
  - 项目
+ - Vue2
+ - Vue3
 categories:
  - 项目
+ - Vue2
+ - Vue3
 ---
 
 # vue 项目中 env 详解
@@ -46,6 +49,8 @@ categories:
 在配置文件中定义的属性可以在项目的其他文件中通过 `process.env.xxx` 来访问。例如，如果在 `.env` 文件中定义了一个名为`VUE_APP_TITLE` 的属性，那么可以在项目的其他文件中通过 `process.env.VUE_APP_TITLE` 来访问这个属性的值。
 
 总的来说，`.env` 文件是 `Vue` 项目中非常重要的一个配置文件，它允许开发者为不同的环境设置不同的配置信息，并通过 `process.env` 在项目的任何位置访问这些配置。
+
+Vue cli 可以加载.env文件，详情可查看：[Vue cli-环境变量和模式](https://cli.vuejs.org/zh/guide/mode-and-env.html#%E6%A8%A1%E5%BC%8F)
 
 
 
