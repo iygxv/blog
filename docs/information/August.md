@@ -45,7 +45,7 @@ local-web-server 可以设置代理
 [vue3编译原理揭秘](https://vue-compiler.iamouyang.cn/)
 
 ## 为什么 vue:deep、/deep/、>>> 样式能穿透到子组件
-[为什么 vue:deep、/deep/、>>> 样式能穿透到子组件](https://icodehub.top/blob/vue/vue3/deep-style-penetrate.html)
+[为什么 vue:deep、/deep/、>>> 样式能穿透到子组件](https://icodehub.top/blog/vue/vue3/deep-style-penetrate.html)
 
 <br/>
 <hr />

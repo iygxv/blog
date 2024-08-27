@@ -17,7 +17,7 @@ categories:
 实际开发中，APP和 H5 往往有很多业务场景需要来回跳转，这里主要介绍2种跳转方式供大家参考。
 
 ## 微信内部 - wx-open-launch-weapp 微信开放标签
-要想使用这个开放标签，必须先接入 wx-sdk，接入的过程如下[点击查看](https://icodehub.top/blob/project/h5%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%85%A5.html#wx-sdk-%E6%B3%A8%E5%85%A5%E5%92%8C%E4%BD%BF%E7%94%A8)
+要想使用这个开放标签，必须先接入 wx-sdk，接入的过程如下[点击查看](https://icodehub.top/blog/project/h5%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%85%A5.html#wx-sdk-%E6%B3%A8%E5%85%A5%E5%92%8C%E4%BD%BF%E7%94%A8)
 
 然后申请所需开放标签
 
