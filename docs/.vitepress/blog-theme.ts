@@ -52,13 +52,13 @@ const blogTheme = getThemeConfig({
 
   // 友链
   friend: [
-    {
-      nickname: 'HLP',
-      des: 'HLP的博客',
-      avatar:
-        'https://www.icodehub.top/hlp/avatar.png',
-      url: 'https://hlp.icodehub.top',
-    },
+    // {
+    //   nickname: 'HLP',
+    //   des: 'HLP的博客',
+    //   avatar:
+    //     'https://www.icodehub.top/hlp/avatar.png',
+    //   url: 'https://hlp.icodehub.top',
+    // },
     {
       nickname: '冴羽',
       des: '冴羽的JavaScript博客',

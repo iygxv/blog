@@ -1,6 +1,6 @@
 ---
-top: 5
-sticky: 997
+top: 1
+sticky: 1000
 sidebar: 
  title: EveryT
  step: 5

@@ -1,6 +1,4 @@
 ---
-top: 2
-sticky: 999
 sidebar: 
  title: 4月记
  step: 1

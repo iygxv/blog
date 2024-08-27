@@ -1,6 +1,4 @@
 ---
-top: 2
-sticky: 993
 sidebar: 
  title: 7月记
  step: 1

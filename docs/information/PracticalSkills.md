@@ -1,6 +1,6 @@
 ---
-top: 99
-sticky: 99
+top: 2
+sticky: 999
 sidebar: 
  title: 实战技巧
  step: 1

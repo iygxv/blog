@@ -1,6 +1,4 @@
 ---
-top: 3
-sticky: 998
 sidebar: 
  title: 5月记
  step: 1
