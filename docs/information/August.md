@@ -45,6 +45,9 @@ local-web-server 可以设置代理
 ## 为什么 vue:deep、/deep/、>>> 样式能穿透到子组件
 [为什么 vue:deep、/deep/、>>> 样式能穿透到子组件](https://icodehub.top/blog/vue/vue3/deep-style-penetrate.html)
 
+## vite-plugin-inspect 源码分析 插件
+[vite-plugin-inspect 插件的使用](https://blog.csdn.net/qq_45634593/article/details/139617472)
+
 <br/>
 <hr />
 
