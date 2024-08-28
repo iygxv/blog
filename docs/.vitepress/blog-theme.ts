@@ -26,6 +26,7 @@ const blogTheme = getThemeConfig({
   // search: {
   //   pageResultCount: 5
   // },
+  search: false,
 
   // 页脚
   footer: {
