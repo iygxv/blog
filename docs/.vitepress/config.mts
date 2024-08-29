@@ -81,7 +81,7 @@ export default defineConfig({
         ]
       },
       { 
-        text: ' 🌁 线上成果',
+        text: ' 🌁 线上作品',
         items: [
           // ⌚️ 📱 📲 💻 ⌨️ 🖥 🖨 🖱
           { text: '⌚️ 图床', link: 'https://icodehub.top/imageBed/' },
