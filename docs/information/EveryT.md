@@ -14,6 +14,68 @@ categories:
 
 # EveryT
 
+## 每日 3 问（2024-08-31）
+### vue 中的 key 有什么作用呢？
+每个元素都有一个唯一的 key 值，Vue 使用这个 key 来跟踪每个节点的身份，从而复用现有元素，提高渲染性能
+
+```js
+const isSameVNodeType = (n1, n2) => {
+  return n1.type === n2.type && n1.key === n2.key
+}
+
+function diff(oldVNode, newVNode) {
+  if (isSameVNodeType(oldVNode, newVNode)) {
+    // 比较节点
+  }else {
+    // 没啥好比，直接整个节点替换
+  }
+}
+
+```
+### scope 作用域隔离的原理
+- 通过给组件里面的元素添加一个唯一的 `data-v-xxx` 属性来保证他的唯一性
+- 会在每句编译后的 css 选择器末尾添加一个当前组件的属性选择器（如[data-v-69538f99]）来私有化样式
+- 如果组件内部还有其他组件，只会给`其他组件的最外层元素添加当前组件的 data-v-xxx 属性`，这也就是为什么我们修改一些第三方ui库的样式时需要使用深度选择器 `:deep()` 实现样式穿透的原因，因为第三方的子组件内部的元素不会添加当前组件的 `data-v-xxx` 属性，而转译后的 css 又会在末尾添加含有该 `data-v-xxx` 属性的属性选择器，这样就会导致设置的样式无法准确命中。
+
+<img src="./assets/scope-example.png" alt="deep-example" />
+
+### vue 样式穿透（deep）的原理
+先来看一个例子，下面为 input 使用 还是未使用 deep 都 展示了css 样式编译后的结果
+```css
+<style scoped lang="scss">
+.deep-scope-demo {
+  /* 不加 depp */
+  input {
+    background-color: skyblue;
+  }
+  /* 加入 depp */
+  :deep(input) {
+    background-color: skyblue;
+  }
+}
+</style>
+```
+**没使用:deep()之前，css 样式编译后的结果是**
+
+```css
+.deep-scope-demo input[data-v-7a7a37b1] {
+   background-color: skyblue;
+}
+```
+但是 scoped 的特性只会在子组件的最外层元素添加上父组件的 data-v-xxx 属性， 所以 input 是没有 data-v-xxx 属性的，因此编译后的 css 样式无法找到该元素。
+
+**使用:deep()之前，css 样式编译后的结果是**
+
+```css
+.deep-scope-demo[data-v-7a7a37b1] input {
+   background-color: skyblue;
+}
+```
+可以看到，使用:deep()之后，编译后的 css 样式中，添加了上层元素添加了 data-v-xxx 属性，因此可以找到该元素。
+
+因此：**使用 deep 之后，编译后的 css 样式中，添加了上层元素添加了 data-v-xxx 属性，因此可以找到该元素。**
+
+
 ## token 无感刷新你了解多少呢？（2024-08-30）
 
 ### token 无感刷新的定义
