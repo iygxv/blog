@@ -14,7 +14,108 @@ categories:
 
 # EveryT
 
-## 每日 3 问（2024-08-31）
+## 每日 3 问（2024-9-1）
+
+### img 标签的 title 和 alt 有什么作用呢？
+`img` 标签在 HTML 中用于嵌入图像。对于图像来说，`title` 和 `alt` 属性各自扮演着重要的角色，它们的作用如下：
+
+**title 属性** 
+
+`title` 属性用于为元素提供额外的信息，通常作为提示信息（tooltip）显示。当鼠标悬停在具有 `title` 属性的元素上时，会显示这个属性的值作为一个小框（通常称为“工具提示”）。对于 `img` 标签来说，`title` 属性可以用来提供图像的额外信息，比如图像的版权信息、作者的姓名或者图像的简短描述等。但需要注意的是，`title` 属性并不应该用来替代 `alt` 属性，因为 `title` 属性提供的信息并不是对图像内容的替代描述，而是为了增强用户体验或提供额外信息。
+
+**alt 属性** 
+
+`alt（alternative text，替代文本）`属性用于指定图像的替代文本。这个属性对于无法查看图像的用户（如视力障碍者使用屏幕阅读器）来说尤为重要，因为它提供了图像内容的描述。此外，当图像因为某些原因（如加载失败或网络延迟）无法显示时，`alt` 文本也会被显示在图像原本应该出现的位置，从而保证了网页内容的可访问性和完整性。
+
+**总结：**
+- **alt**：提供图像的替代文本，主要用于提高网页的可访问性，确保图像内容能够被所有人理解，包括那些无法看到图像的用户。
+- **title**：为元素提供额外的信息，通常作为工具提示显示，用于增强用户体验或提供图像的额外信息，但不应该替代 alt 属性。
+
+### script 标签中 defer 和 async 的区别
+如果没有 defer 或 async 属性，浏览器会立即加载并执行相应的脚本。它不会等待后续加载的文档元素，读取到就会开始加载和执行，这样就阻塞了后续文档的加载。
+
+下图可以直观的看出三者之间的区别:
+
+<img src="./assets/script-defer-async.png" alt="deep-example" />
+
+其中蓝色代表 js 脚本网络加载时间，红色代表 js 脚本执行时间，绿色代表 html 解析。
+
+**defer 和 async 属性都是去异步加载外部的 JS 脚本文件，它们都不会阻塞页面的解析**，其区别如下：
+
+- **执行顺序**：
+  - 多个带 async 属性的标签，不能保证加载的顺序
+  - 多个带 defer 属性的标签，按照加载顺序执行
+- **脚本是否并行执行**：
+  - async 属性，表示**后续文档的加载和执行与 js 脚本的加载和执行是并行进行的**，即异步执行
+  - defer 属性，加载后续文档的过程和 js 脚本的加载(此时仅加载不执行)是并行进行的(异步)，js 脚本需要等到文档所有元素解析完成之后才执行，DOMContentLoaded 事件触发执行之前。
+
+**总结：**
+- `defer` 是延迟
+- `async` 是异步执行
+
+### 常⽤的 meta 标签有哪些
+`meta` 标签由 `name` 和 `content` 属性定义，**用来描述网页文档的属性**，比如网页的作者，网页描述，关键词等，除了 HTTP 标准固定了一些`name`作为大家使用的共识，开发者还可以自定义 name。
+
+常用的 meta 标签：
+
+（1）`charset`，用来描述 HTML 文档的编码类型：
+
+```html
+<meta charset="UTF-8" >
+```
+
+（2） `keywords`，页面关键词：
+
+```html
+<meta name="keywords" content="关键词" />
+```
+
+（3）`description`，页面描述：
+
+```html
+<meta name="description" content="页面描述内容" />
+```
+
+（4）`refresh`，页面重定向和刷新：
+
+```html
+<meta http-equiv="refresh" content="0;url=" />
+```
+
+（5）`viewport`，适配移动端，可以控制视口的大小和比例：
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+```
+
+其中，`content` 参数有以下几种：
+
+- `width viewport` ：宽度(数值/device-width)
+- `height viewport` ：高度(数值/device-height)
+- `initial-scale` ：初始缩放比例
+- `maximum-scale` ：最大缩放比例
+- `minimum-scale` ：最小缩放比例
+- `user-scalable` ：是否允许用户缩放(yes/no）
+
+（6）搜索引擎索引方式：
+
+```html
+<meta name="robots" content="index,follow" />
+```
+
+其中，`content` 参数有以下几种：
+
+- `all`：文件将被检索，且页面上的链接可以被查询；
+- `none`：文件将不被检索，且页面上的链接不可以被查询；
+- `index`：文件将被检索；
+- `follow`：页面上的链接可以被查询；
+- `noindex`：文件将不被检索；
+- `nofollow`：页面上的链接不可以被查询。
+
+
+
+## 每日 3 问（2024-8-31）
+
 ### vue 中的 key 有什么作用呢？
 每个元素都有一个唯一的 key 值，Vue 使用这个 key 来跟踪每个节点的身份，从而复用现有元素，提高渲染性能
 
@@ -76,7 +177,7 @@ function diff(oldVNode, newVNode) {
 因此：**使用 deep 之后，编译后的 css 样式中，添加了上层元素添加了 data-v-xxx 属性，因此可以找到该元素。**
 
 
-## token 无感刷新你了解多少呢？（2024-08-30）
+## token 无感刷新你了解多少呢？（2024-8-30）
 
 ### token 无感刷新的定义
 
@@ -232,7 +333,7 @@ service.interceptors.response.use(
 );
 ```
 
-## 单点登录（SSO） 你了解多少呢？（2024-08-29）
+## 单点登录（SSO） 你了解多少呢？（2024-8-29）
 
 ### 单点登录的定义
 
@@ -293,7 +394,7 @@ service.interceptors.response.use(
 
 [一站式登录：揭秘 CAS 单点登录的原理与流程](https://juejin.cn/post/7351700046486487049)
 
-## 浏览器的缓存机制你了解多少呢？（2024-08-28）
+## 浏览器的缓存机制你了解多少呢？（2024-8-28）
 
 览器缓存机制主要通过将用户之前请求过的资源（如 HTML、CSS、JavaScript、图片等）保存在本地，以便在后续请求时直接使用这些缓存的资源，而无需再次从服务器下载。这样可以显著提高页面加载速度，提升用户体验。
 
@@ -341,7 +442,7 @@ service.interceptors.response.use(
 
 <img src="./assets/bs-cache.png" alt="浏览器资源缓存过程图" />
 
-## 浏览器的 Cookie 你了解多少呢？（2024-08-27）
+## 浏览器的 Cookie 你了解多少呢？（2024-8-27）
 
 ### 1、Cookie 的组成
 
