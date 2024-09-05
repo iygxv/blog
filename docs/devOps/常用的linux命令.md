@@ -52,6 +52,20 @@ scp -P 22 -r dist/* root@192.168.5.66:/web/xxx
 chmod -x /web/xxx
 ```
 
+## 杀死进程
+```shell
+kill -9 进程号
+```
+
+## 查看端口占用情况
+```shell
+netstat -lntp
+```
+- l 表示显示监听状态的端口
+- n 表示显示端口对应的 ip 地址和端口号
+- t 表示显示 tcp 协议
+- p 表示显示进程号和进程名
+
 <br/>
 <hr />
 

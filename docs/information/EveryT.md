@@ -14,6 +14,42 @@ categories:
 
 # EveryT
 
+## 每日 3 问（2024-9-5）
+
+### flex:1 代表啥?
+
+**flex:1 实际代表的是三个属性的简写**
+
+- flex-grow 是用来增大盒子的，比如，当父盒子的宽度大于子盒子的宽度，父盒子的剩余空间可以利用 flex-grow 来设置子盒子增大的占比
+- flex-shrink 用来设置子盒子超过父盒子的宽度后，超出部分进行缩小的取值比例
+- flex-basis 是用来设置盒子的基准宽度，并且 basis 和 width 同时存在 basis 会把 width 干掉
+
+```css
+.box {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
+```
+
+**总结**
+
+- flex-grow 控制 设置子盒子`放大`比例
+- flex-shrink 控制 设置子盒子`缩小`比例
+- flex-basis 用来设置盒子的基准`宽度`
+
+### setTimeout 延时写成 0，我们一般什么情况会这么做？
+
+在 JavaScript 中，`setTimeout` 函数用于延迟执行一段代码。通常情况下，`setTimeout` 函数的第二个参数表示延迟的时间（以毫秒为单位），**但将这个参数设置为 0 时，并不意味着代码会立即执行，而是将指定的函数作为异步任务添加到异步任务队列中**，等到当前同步任务执行完毕后，再执行 setTimeout 队列中的任务。实际上，这样做是为了改变任务执行的先后顺序，延迟该任务的发生，使之异步执行。
+
+## Promise.all 和 Promise.race 和 Promise.allSettled 有什么区别？
+
+- `Promise.all()`: 接受一个 promise 数组作为参数，如果不是则会调用`Promise.resolve()`方法，将参数转为`Promise`实例再进一步处理(参数可以不是数组，但必须具有`Iterator`接口，且返回的每个成员都是`Promise`实例)，当数组内每个成员的状态变为成功状态时，返回由成员返回值组成的数组。当数组内有一个或多个成员变为失败状态时，返回第一个失败状态成员的返回值
+
+- `Promise.race()`: 参数同`Promise.all()`，只要数组成员有一个成员状态改变，`Promise.race()`返回的 promise 实例状态就会改变
+
+- `Promise.allSettled()`(ES2020)：参数同`Promise.all()`，`Promise.all()`可以确定所有请求都成功了，但是只要有一个请求失败，他就会报错，不管另外的请求是否结束，而`Promise.allSettled()`来确定一组异步操作是否都结束了(不管成功或失败)，当数组每个成员状态都改变时，`Promise.allSettled()`返回的新 promise 对象状态才会改变
+
 ## 如何解决前端常见的竞态问题？（2024-9-4）
 
 ### 什么是竞态问题
@@ -40,7 +76,7 @@ categories:
 - XMLHttpRequest (XHR): 使用 abort()方法立即中止请求
   ```js
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://example.com/data");
+  xhr.open("GET"， "https://example.com/data");
   xhr.send();
   // 当需要取消请求时
   xhr.abort();
@@ -49,10 +85,10 @@ categories:
   ```js
   const controller = new AbortController();
   const signal = controller.signal;
-  fetch("https://example.com/data", { signal })
+  fetch("https://example.com/data"， { signal })
     .then((response) => response.json())
     .then((data) => console.log(data))
-    .catch((err) => console.error("Fetch error:", err));
+    .catch((err) => console.error("Fetch error:"， err));
   // 当需要取消请求时
   controller.abort();
   ```
@@ -62,13 +98,13 @@ categories:
   // v0.22.0 之后（包括 v0.22.0）
   const controller = new AbortController();
   axios
-    .get("/xxx", { signal: controller.signal })
+    .get("/xxx"， { signal: controller.signal })
     .then(function (response) {
       // 处理成功情况
     })
     .catch(function (error) {
       if (axios.isCancel(error)) {
-        console.log("Request canceled", error.message);
+        console.log("Request canceled"， error.message);
       } else {
         // 处理错误情况
       }
@@ -81,13 +117,13 @@ categories:
   // v0.22.0 之前
   const source = axios.CancelToken.source();
   axios
-    .get("/xxx", {
-      cancelToken: source.token,
+    .get("/xxx"， {
+      cancelToken: source.token，
     })
     .then(function (response) {
       // ...
     });
-
+  
   source.cancel(); // 取消请求
   ```
 
@@ -117,10 +153,10 @@ function onlyResolvesLast(fn) {
     // 当前请求执行前，先 cancel 上一个请求
     cancelPrevious && cancelPrevious();
     // 执行当前请求
-    const result = fn.apply(this, args);
+    const result = fn.apply(this， args);
 
     // 创建指令式的 promise，暴露 cancel 方法并保存
-    const { promise, cancel } = createImperativePromise(result);
+    const { promise， cancel } = createImperativePromise(result);
     cancelPrevious = cancel;
 
     return promise;
@@ -132,7 +168,7 @@ function onlyResolvesLast(fn) {
 // 使用
 const fn = (duration) =>
   new Promise((r) => {
-    setTimeout(r, duration);
+    setTimeout(r， duration);
   });
 
 const wrappedFn = onlyResolvesLast(fn);
@@ -167,9 +203,9 @@ function onlyResolvesLast(fn) {
     id = fetchId;
 
     // 执行请求
-    const result = fn.apply(this, args);
+    const result = fn.apply(this， args);
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve， reject) => {
       // result 可能不是 promise，需要包装成 promise
       Promise.resolve(result).then(
         (value) => {
@@ -177,7 +213,7 @@ function onlyResolvesLast(fn) {
           if (fetchId === id) {
             resolve(value);
           }
-        },
+        }，
         (error) => {
           // 只处理最新一次请求
           if (fetchId === id) {
@@ -235,7 +271,7 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 - **position: absolute**：通过使用绝对定位将元素移除可视区域内，以此来实现元素的隐藏。
 - **z-index: 负值**：来使其他元素遮盖住该元素，以此来实现隐藏。
 - **clip/clip-path** ：使用元素裁剪的方法来实现元素的隐藏，这种方法下，元素仍在页面中占据位置，但是不会响应绑定的监听事件。
-- **transform: scale(0,0)**：将元素缩放为 0，来实现元素的隐藏。这种方法下，元素仍在页面中占据位置，但是不会响应绑定的监听事件。
+- **transform: scale(0，0)**：将元素缩放为 0，来实现元素的隐藏。这种方法下，元素仍在页面中占据位置，但是不会响应绑定的监听事件。
 
 ### display:none 与 visibility:hidden 的区别
 
@@ -368,7 +404,7 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 ```html
 <meta
   name="viewport"
-  content="width=device-width, initial-scale=1, maximum-scale=1"
+  content="width=device-width， initial-scale=1， maximum-scale=1"
 />
 ```
 
@@ -384,7 +420,7 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 （6）搜索引擎索引方式：
 
 ```html
-<meta name="robots" content="index,follow" />
+<meta name="robots" content="index，follow" />
 ```
 
 其中，`content` 参数有以下几种：
@@ -403,12 +439,12 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 每个元素都有一个唯一的 key 值，Vue 使用这个 key 来跟踪每个节点的身份，从而复用现有元素，提高渲染性能
 
 ```js
-const isSameVNodeType = (n1, n2) => {
+const isSameVNodeType = (n1， n2) => {
   return n1.type === n2.type && n1.key === n2.key;
 };
 
-function diff(oldVNode, newVNode) {
-  if (isSameVNodeType(oldVNode, newVNode)) {
+function diff(oldVNode， newVNode) {
+  if (isSameVNodeType(oldVNode， newVNode)) {
     // 比较节点
   } else {
     // 没啥好比，直接整个节点替换
@@ -537,8 +573,8 @@ service.interceptors.response.use(
       if (!isRefreshing) {
         isRefreshing = true;
         return refreshToken({
-          refreshToken: localStorage.getItem("refreshToken"),
-          token: getToken(),
+          refreshToken: localStorage.getItem("refreshToken")，
+          token: getToken()，
         })
           .then((res) => {
             const { token } = res.data;
@@ -556,7 +592,7 @@ service.interceptors.response.use(
       }
     }
     return response && response.data;
-  },
+  }，
   (error) => {
     Message.error(error.response.data.msg);
     return Promise.reject(error);
@@ -583,8 +619,8 @@ service.interceptors.response.use(
         isRefreshing = true;
         //调用刷新token的接口
         return refreshToken({
-          refreshToken: localStorage.getItem("refreshToken"),
-          token: getToken(),
+          refreshToken: localStorage.getItem("refreshToken")，
+          token: getToken()，
         })
           .then((res) => {
             const { token } = res.data;
@@ -617,7 +653,7 @@ service.interceptors.response.use(
       }
     }
     return response && response.data;
-  },
+  }，
   (error) => {
     return Promise.reject(error);
   }
