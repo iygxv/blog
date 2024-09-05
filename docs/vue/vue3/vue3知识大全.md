@@ -1,26 +1,24 @@
 ---
-sidebar: 
- title: vue3 知识定位
- step: 1
- isTimeLine: true
+sidebar:
+  title: vue3 知识定位
+  step: 1
+  isTimeLine: true
 title: vue3 知识定位
 tags:
- - Vue3
+  - Vue3
 categories:
- - Vue3
+  - Vue3
 ---
 
 # vue3 知识定位
 
 ## 描述
 
-专门用于定位vue3官方文档知识
+专门用于定位 vue3 官方文档知识
 
 ## API 参考
 
 [`API 参考`](https://cn.vuejs.org/api/)
-
-
 
 ## script setup
 
@@ -32,12 +30,11 @@ categories:
 
 [`watchEffect`](https://cn.vuejs.org/api/reactivity-core.html#watcheffect)
 
-
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

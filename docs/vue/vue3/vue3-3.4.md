@@ -1,18 +1,19 @@
 ---
-sidebar: 
- title: Vue3.4 主要新特性详解
- step: 1
- isTimeLine: true
+sidebar:
+  title: Vue3.4 主要新特性详解
+  step: 1
+  isTimeLine: true
 title: Vue3.4 主要新特性详解
 tags:
- - Vue3
+  - Vue3 版本更新变化
 categories:
- - Vue3
+  - Vue3 版本更新变化
 ---
 
-#  Vue3.4 主要新特性详解
+# Vue3.4 主要新特性详解
 
 ## 前言
+
 Vue 3.4 此版本包括若干重量级内部优化 —— 最大有可观的是，重写的模板解析器速度提高了整整 2 倍，以及重构的响应性系统，使得作用（effect）更精准高效。它还包含了一大坨生活质量 API 优化，包括但不限于：
 
 - `defineModel` 的稳定性
@@ -32,8 +33,6 @@ Vue 3.4 此版本包括若干重量级内部优化 —— 最大有可观的是�
 - 全局 JSX 命名空间
 - 其他已删除功能
 
-
-
 ## 解析器速度提高 2 倍，优化 SFC 的构建性能
 
 在 Vue 3.4 中，我们完全重写了模板解析器。之前，Vue 使用递归下降解析器，该解析器依赖一大坨正则表达式和前向搜索。新的解析器使用基于 `htmlparser2` 的状态机 tokenizer（分词器），它有且仅有迭代整个模板字符串一次。结果是对于所有尺寸的模板而言，解析器始终优化 2 倍。多亏了我们广泛的测试用例和 ecosystem-ci，它也 100% 向后兼容 Vue 终端用户。
@@ -42,8 +41,6 @@ Vue 3.4 此版本包括若干重量级内部优化 —— 最大有可观的是�
 
 在 Vue 核心库之外，新的解析器还将优化 Volar/vue-tsc，以及需要解析 Vue SFC 或模板的社区插件的性能，比如 Vue Macros。
 
-
-
 ## 更高效的响应性系统
 
 Vue 3.4 还对响应性系统进行了重大重构，旨在优化计算属性重新计算的效率。
@@ -51,12 +48,12 @@ Vue 3.4 还对响应性系统进行了重大重构，旨在优化计算属性重
 为了说明正在优化的细节，让我们瞄一下以下场景：
 
 ```js
-const count = ref(0)
-const isEven = computed(() => count.value % 2 === 0)
+const count = ref(0);
+const isEven = computed(() => count.value % 2 === 0);
 
-watchEffect(() => console.log(isEven.value)) // 打印 true
+watchEffect(() => console.log(isEven.value)); // 打印 true
 
-count.value = 2 // 再次打印 true
+count.value = 2; // 再次打印 true
 ```
 
 在 Vue 3.4 之前，每当 `count.value` 变更时，即使计算结果不变，也会触发 `watchEffect` 的回调。通过 Vue 3.4 优化之后，现在当且仅当仅计算结果实际变更时，才会触发回调。
@@ -72,7 +69,7 @@ count.value = 2 // 再次打印 true
 
 `defineModel` 是一个新的 `<script setup>` 宏，旨在简化支持 `v-model` 的组件的实现。它之前作为实验性功能在 Vue 3.3 中发布，并在 Vue 3.4 中尘埃落定。现在，它还为 `v-model` 修饰符的使用提供了更好的支持。
 
-用于简化自定义v-model双向绑定语法，在原来需要声明props，并定义update:propName事件
+用于简化自定义 v-model 双向绑定语法，在原来需要声明 props，并定义 update:propName 事件
 
 ```ts
 <template>
@@ -151,7 +148,7 @@ Vue 3.4 对水合不匹配错误消息进行了多项优化：
 - 模板中的 `@vnodeXXX` 事件侦听器现在是编译器错误，而不是废弃警告。请改用 `@vue:XXX` 侦听器。
 - `v-is` 指令已被移除。它在 Vue 3.3 中已废弃。请改用带有 `vue:` 前缀的 `is` 属性。
 
-##  关于依赖
+## 关于依赖
 
 Volar/vue-tsc@^1.8.27（**必要**）
 
@@ -161,31 +158,23 @@ nuxt@^3.9.0（如果使用了 Nuxt）
 
 vue-loader@^17.4.0（如果使用了 webpack 或 vue-cli）
 
-
-
-
-
-## 
-
-
-
 ## 参考
+
 https://blog.vuejs.org/posts/vue-3-4
 
 https://juejin.cn/post/7329280514627256361?searchId=20240628151722FE01B126E05E636BEC30
 
 ## 最后
+
 Vue Macros: 由 Vue 团队成员维护的一个 超前版 Vue
 
 [Vue Macros](https://vue-macros.dev/zh-CN/)
 
-
-
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

@@ -14,6 +14,188 @@ categories:
 
 # EveryT
 
+## 如何解决前端常见的竞态问题？（2024-9-4）
+
+### 什么是竞态问题
+
+**竞态问题，又叫竞态条件（race condition），它旨在描述一个系统或者进程的输出依赖于不受控制的事件出现顺序或者出现时机。**
+
+**此词源自于两个信号试着彼此竞争，来影响谁先输出。**
+
+简单来说，竞态问题出现的原因是无法保证异步操作的完成会按照他们开始时同样的顺序。举个例子：
+
+- 有一个分页列表，快速地切换第二页，第三页；
+- 先后请求 data2 与 data3，分页器显示当前在第三页，并且进入 loading；
+- 但由于网络的不确定性，先发出的请求不一定先响应，所以有可能 data3 比 data2 先返回；
+- 在 data2 最终返回后，分页器指示当前在第三页，但展示的是第二页的数据。
+
+这就是竞态条件，在前端开发中，常见于搜索，分页，选项卡等切换的场景。
+
+为了有效解决这些问题，可以采取以下几种策略：
+
+### 取消旧请求
+
+当发起新的请求时，取消尚未完成的旧请求是防止竞态问题的一种有效方法。这可以通过不同的 HTTP 请求库来实现：
+
+- XMLHttpRequest (XHR): 使用 abort()方法立即中止请求
+  ```js
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://example.com/data");
+  xhr.send();
+  // 当需要取消请求时
+  xhr.abort();
+  ```
+- Fetch API: 利用 AbortController 来取消请求
+  ```js
+  const controller = new AbortController();
+  const signal = controller.signal;
+  fetch("https://example.com/data", { signal })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.error("Fetch error:", err));
+  // 当需要取消请求时
+  controller.abort();
+  ```
+- Axios: 从 v0.22.0 开始，axios 支持通过 AbortController 来取消请求，v0.22.0 之前可以使用 CancelToken 来取消请求
+
+  ```js
+  // v0.22.0 之后（包括 v0.22.0）
+  const controller = new AbortController();
+  axios
+    .get("/xxx", { signal: controller.signal })
+    .then(function (response) {
+      // 处理成功情况
+    })
+    .catch(function (error) {
+      if (axios.isCancel(error)) {
+        console.log("Request canceled", error.message);
+      } else {
+        // 处理错误情况
+      }
+    });
+  // 当需要取消请求时
+  controller.abort();
+  ```
+
+  ```js
+  // v0.22.0 之前
+  const source = axios.CancelToken.source();
+  axios
+    .get("/xxx", {
+      cancelToken: source.token,
+    })
+    .then(function (response) {
+      // ...
+    });
+
+  source.cancel(); // 取消请求
+  ```
+
+### 忽略旧请求
+
+另一种策略是忽略旧请求的响应，我们又有哪些方式来忽略旧的请求呢？：
+
+- 封装指令式 promise
+- 使用唯一 id 标识每次请求
+
+### 封装指令式 promise
+
+利用指令式 promise，我们可以手动调用 cancel API 来忽略上次请求。
+
+但是如果每次都需要手动调用，会导致项目中相同的模板代码过多，偶尔也可能忘记 cancel。
+
+我们可以基于指令式 promise 封装一个自动忽略过期请求的高阶函数 onlyResolvesLast。
+
+在每次发送新请求前，cancel 掉上一次的请求，忽略它的回调。
+
+```js
+function onlyResolvesLast(fn) {
+  // 保存上一个请求的 cancel 方法
+  let cancelPrevious = null;
+
+  const wrappedFn = (...args) => {
+    // 当前请求执行前，先 cancel 上一个请求
+    cancelPrevious && cancelPrevious();
+    // 执行当前请求
+    const result = fn.apply(this, args);
+
+    // 创建指令式的 promise，暴露 cancel 方法并保存
+    const { promise, cancel } = createImperativePromise(result);
+    cancelPrevious = cancel;
+
+    return promise;
+  };
+
+  return wrappedFn;
+}
+
+// 使用
+const fn = (duration) =>
+  new Promise((r) => {
+    setTimeout(r, duration);
+  });
+
+const wrappedFn = onlyResolvesLast(fn);
+
+wrappedFn(500).then(() => console.log(1));
+wrappedFn(1000).then(() => console.log(2));
+wrappedFn(100).then(() => console.log(3));
+
+// 输出 3
+```
+
+#### 使用唯一 id 标识每次请求
+
+除了指令式 promise，我们还可以给「请求标记 id」的方式来忽略上次请求。
+
+具体思路是：
+
+- 利用全局变量记录最新一次的请求 id
+- 在发请求前，生成唯一 id 标识该次请求
+- 在请求回调中，判断 id 是否是最新的 id，如果不是，则忽略该请求的回调
+
+伪代码如下：
+
+```js
+function onlyResolvesLast(fn) {
+  // 利用闭包保存最新的请求 id
+  let id = 0;
+
+  const wrappedFn = (...args) => {
+    // 发起请求前，生成新的 id 并保存
+    const fetchId = id + 1;
+    id = fetchId;
+
+    // 执行请求
+    const result = fn.apply(this, args);
+
+    return new Promise((resolve, reject) => {
+      // result 可能不是 promise，需要包装成 promise
+      Promise.resolve(result).then(
+        (value) => {
+          // 只处理最新一次请求
+          if (fetchId === id) {
+            resolve(value);
+          }
+        },
+        (error) => {
+          // 只处理最新一次请求
+          if (fetchId === id) {
+            reject(error);
+          }
+        }
+      );
+    });
+  };
+
+  return wrappedFn;
+}
+```
+
+### 总结
+
+关于前端方面的竞态的问题，取消请求可以使用 **abort()** 方法进行终止；忽略请求方面是可以 **使用唯一 id 标识每次请求** 忽略上次请求；还可以使用 防抖节流 等方案处理问题；在实际业务场景中需要根据真实的业务场景合理考虑技术方案，在复杂的业务中可能也需要结合 loading 等 UI 层的效果来提升用户的体验
+
 ## 什么情况下会产生跨域？（2024-9-3）
 
 跨域主要是由于**浏览器的同源策略**引用的，同源策略是浏览器的安全机制，**当协议，域名，端口三者有一个不同，浏览器就禁止访问资源**
@@ -80,7 +262,7 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 ```css
 .box {
   /* 溢出隐藏 */
-  overflow: hidden;     
+  overflow: hidden;
   /* 溢出用省略号显示 */
   text-overflow: ellipsis;
   /* 文本不换行 */
@@ -92,10 +274,10 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 
 ```css
 .box {
-   /* 溢出隐藏 */
-  overflow: hidden;  
+  /* 溢出隐藏 */
+  overflow: hidden;
   /* 作为弹性伸缩盒子模型显示 */
-  display: -webkit-box;  
+  display: -webkit-box;
   /* 溢出用省略号显示 */
   text-overflow: ellipsis;
   /* 设置伸缩盒子的子元素排列方式：从上到下垂直排列 */
@@ -108,26 +290,27 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 **注意：**
 由于上面的三个属性都是 CSS3 的属性，没有浏览器可以兼容，所以要在前面加一个`-webkit-` 来兼容一部分浏览器。
 
-
-
 ## 每日 3 问（2024-9-1）
 
 ### img 标签的 title 和 alt 有什么作用呢？
+
 `img` 标签在 HTML 中用于嵌入图像。对于图像来说，`title` 和 `alt` 属性各自扮演着重要的角色，它们的作用如下：
 
-**title 属性** 
+**title 属性**
 
 `title` 属性用于为元素提供额外的信息，通常作为提示信息（tooltip）显示。当鼠标悬停在具有 `title` 属性的元素上时，会显示这个属性的值作为一个小框（通常称为“工具提示”）。对于 `img` 标签来说，`title` 属性可以用来提供图像的额外信息，比如图像的版权信息、作者的姓名或者图像的简短描述等。但需要注意的是，`title` 属性并不应该用来替代 `alt` 属性，因为 `title` 属性提供的信息并不是对图像内容的替代描述，而是为了增强用户体验或提供额外信息。
 
-**alt 属性** 
+**alt 属性**
 
 `alt（alternative text，替代文本）`属性用于指定图像的替代文本。这个属性对于无法查看图像的用户（如视力障碍者使用屏幕阅读器）来说尤为重要，因为它提供了图像内容的描述。此外，当图像因为某些原因（如加载失败或网络延迟）无法显示时，`alt` 文本也会被显示在图像原本应该出现的位置，从而保证了网页内容的可访问性和完整性。
 
 **总结：**
+
 - **alt**：提供图像的替代文本，主要用于提高网页的可访问性，确保图像内容能够被所有人理解，包括那些无法看到图像的用户。
 - **title**：为元素提供额外的信息，通常作为工具提示显示，用于增强用户体验或提供图像的额外信息，但不应该替代 alt 属性。
 
 ### script 标签中 defer 和 async 的区别
+
 如果没有 defer 或 async 属性，浏览器会立即加载并执行相应的脚本。它不会等待后续加载的文档元素，读取到就会开始加载和执行，这样就阻塞了后续文档的加载。
 
 下图可以直观的看出三者之间的区别:
@@ -146,10 +329,12 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
   - defer 属性，加载后续文档的过程和 js 脚本的加载(此时仅加载不执行)是并行进行的(异步)，js 脚本需要等到文档所有元素解析完成之后才执行，DOMContentLoaded 事件触发执行之前。
 
 **总结：**
+
 - `defer` 是延迟
 - `async` 是异步执行
 
 ### 常⽤的 meta 标签有哪些
+
 `meta` 标签由 `name` 和 `content` 属性定义，**用来描述网页文档的属性**，比如网页的作者，网页描述，关键词等，除了 HTTP 标准固定了一些`name`作为大家使用的共识，开发者还可以自定义 name。
 
 常用的 meta 标签：
@@ -157,7 +342,7 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 （1）`charset`，用来描述 HTML 文档的编码类型：
 
 ```html
-<meta charset="UTF-8" >
+<meta charset="UTF-8" />
 ```
 
 （2） `keywords`，页面关键词：
@@ -181,7 +366,10 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 （5）`viewport`，适配移动端，可以控制视口的大小和比例：
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1"
+/>
 ```
 
 其中，`content` 参数有以下几种：
@@ -211,31 +399,35 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 ## 每日 3 问（2024-8-31）
 
 ### vue 中的 key 有什么作用呢？
+
 每个元素都有一个唯一的 key 值，Vue 使用这个 key 来跟踪每个节点的身份，从而复用现有元素，提高渲染性能
 
 ```js
 const isSameVNodeType = (n1, n2) => {
-  return n1.type === n2.type && n1.key === n2.key
-}
+  return n1.type === n2.type && n1.key === n2.key;
+};
 
 function diff(oldVNode, newVNode) {
   if (isSameVNodeType(oldVNode, newVNode)) {
     // 比较节点
-  }else {
+  } else {
     // 没啥好比，直接整个节点替换
   }
 }
-
 ```
+
 ### scope 作用域隔离的原理
+
 - 通过给组件里面的元素添加一个唯一的 `data-v-xxx` 属性来保证他的唯一性
 - 会在每句编译后的 css 选择器末尾添加一个当前组件的属性选择器（如[data-v-69538f99]）来私有化样式
-- 如果组件内部还有其他组件，只会给`其他组件的最外层元素添加当前组件的 data-v-xxx 属性`，这也就是为什么我们修改一些第三方ui库的样式时需要使用深度选择器 `:deep()` 实现样式穿透的原因，因为第三方的子组件内部的元素不会添加当前组件的 `data-v-xxx` 属性，而转译后的 css 又会在末尾添加含有该 `data-v-xxx` 属性的属性选择器，这样就会导致设置的样式无法准确命中。
+- 如果组件内部还有其他组件，只会给`其他组件的最外层元素添加当前组件的 data-v-xxx 属性`，这也就是为什么我们修改一些第三方 ui 库的样式时需要使用深度选择器 `:deep()` 实现样式穿透的原因，因为第三方的子组件内部的元素不会添加当前组件的 `data-v-xxx` 属性，而转译后的 css 又会在末尾添加含有该 `data-v-xxx` 属性的属性选择器，这样就会导致设置的样式无法准确命中。
 
 <img src="./assets/scope-example.png" alt="deep-example" />
 
 ### vue 样式穿透（deep）的原理
-先来看一个例子，下面为 input 使用 还是未使用 deep 都 展示了css 样式编译后的结果
+
+先来看一个例子，下面为 input 使用 还是未使用 deep 都 展示了 css 样式编译后的结果
+
 ```css
 <style scoped lang="scss">
 .deep-scope-demo {
@@ -250,26 +442,28 @@ function diff(oldVNode, newVNode) {
 }
 </style>
 ```
+
 **没使用:deep()之前，css 样式编译后的结果是**
 
 ```css
 .deep-scope-demo input[data-v-7a7a37b1] {
-   background-color: skyblue;
+  background-color: skyblue;
 }
 ```
+
 但是 scoped 的特性只会在子组件的最外层元素添加上父组件的 data-v-xxx 属性， 所以 input 是没有 data-v-xxx 属性的，因此编译后的 css 样式无法找到该元素。
 
 **使用:deep()之前，css 样式编译后的结果是**
 
 ```css
 .deep-scope-demo[data-v-7a7a37b1] input {
-   background-color: skyblue;
+  background-color: skyblue;
 }
 ```
+
 可以看到，使用:deep()之后，编译后的 css 样式中，添加了上层元素添加了 data-v-xxx 属性，因此可以找到该元素。
 
 因此：**使用 deep 之后，编译后的 css 样式中，添加了上层元素添加了 data-v-xxx 属性，因此可以找到该元素。**
-
 
 ## token 无感刷新你了解多少呢？（2024-8-30）
 
@@ -322,7 +516,7 @@ token 无感刷新的实现主要依赖于双 token 机制，即 accessToken 和
 - **安全性**：确保 refreshToken 的安全存储和传输，避免被窃取
 - **时间同步**：客户端和服务器之间的时间同步对于 token 有效性的判断至关重要
 - **错误处理**：在 token 刷新过程中，应妥善处理可能出现的错误情况，如 refreshToken 过期或无效等
-:::
+  :::
 
 ### 代码实现
 
@@ -391,7 +585,8 @@ service.interceptors.response.use(
         return refreshToken({
           refreshToken: localStorage.getItem("refreshToken"),
           token: getToken(),
-        }).then((res) => {
+        })
+          .then((res) => {
             const { token } = res.data;
             // 替换token
             setToken(token);
@@ -400,12 +595,14 @@ service.interceptors.response.use(
             requests.forEach((cb) => cb(token));
             requests = []; // 重新请求完清空
             return service(response.config);
-          }).catch((err) => {
+          })
+          .catch((err) => {
             //跳到登录页
             removeToken();
             router.push("/login");
             return Promise.reject(err);
-          }).finally(() => {
+          })
+          .finally(() => {
             isRefreshing = false;
           });
       } else {

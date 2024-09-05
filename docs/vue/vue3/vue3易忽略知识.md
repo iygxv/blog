@@ -1,20 +1,21 @@
 ---
-sidebar: 
- title: vue3 易忽略知识
- step: 1
- isTimeLine: true
+sidebar:
+  title: vue3 易忽略知识
+  step: 1
+  isTimeLine: true
 title: vue3 易忽略知识
 tags:
- - Vue3
+  - Vue3
 categories:
- - Vue3
+  - Vue3
 ---
 
 # vue3 易忽略知识
 
-## 组件上使用v-model
+## 组件上使用 v-model
+
 - 属性的双向数据绑定
-在一个组件上时，`v-model` 会被展开为如下的形式 
+  在一个组件上时，`v-model` 会被展开为如下的形式
 
 ```html
 <CustomInput
@@ -33,8 +34,8 @@ categories:
 ```vue
 <!-- CustomInput.vue -->
 <script setup>
-defineProps(['modelValue'])
-defineEmits(['update:modelValue'])
+defineProps(["modelValue"]);
+defineEmits(["update:modelValue"]);
 </script>
 
 <template>
@@ -43,7 +44,6 @@ defineEmits(['update:modelValue'])
     @input="$emit('update:modelValue', $event.target.value)"
   />
 </template>
-
 ```
 
 现在 `v-model` 也可以在这个组件上正常工作了：
@@ -65,8 +65,8 @@ defineEmits(['update:modelValue'])
 ```vue
 <!-- MyComponent.vue -->
 <script setup>
-defineProps(['title'])
-defineEmits(['update:title'])
+defineProps(["title"]);
+defineEmits(["update:title"]);
 </script>
 
 <template>
@@ -78,12 +78,11 @@ defineEmits(['update:title'])
 </template>
 ```
 
-
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸
