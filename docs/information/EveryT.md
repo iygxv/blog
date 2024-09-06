@@ -14,6 +14,37 @@ categories:
 
 # EveryT
 
+## 每日 3 问（2024-9-6）
+
+### forEach 中 return 有效果吗？如何中断 forEach 循环？
+
+有效果,但是只是不走本次循环,后边的还是会走 **使用`break/continue`无效,会报语法错误**
+
+```js
+let arr = [1, 2, 3];
+arr.forEach((item, index) => {
+  return; //无效
+});
+```
+
+中断方法：
+**官方推荐方法（替换方法）**
+- 用 every 和 some 替代 forEach 函数
+- every 在碰到 return false 的时候，中止循环
+- some 在碰到 return true 的时候，中止循环
+
+### localhost:3000 与 localhost:5000 的 cookie 信息是否共享
+
+**共享**，原因：根据同源策略，cookie 是区分端口的，但是浏览器可以实现 cookie 区分域，而不区分端口，也就是说，同一个 ip 下的多个端口下的 cookie 是共享的！
+
+例如, 在设置 cookie 时, 服务器应该发送类似以下的 HTTP 头部: `Set-Cookie: name=value; Path=/; Domain=localhost; HttpOnly`
+
+这样设置后, 只要浏览器允许, localhost 下的任何端口都可以访问这个 cookie。但是出于安全考虑, 开发者应该谨慎地共享 cookie, 特别是在涉及敏感数据时。
+
+### Array(100).map(x => 1) 结果是多少
+
+`Array(100)` 将会创建一个稀疏数组 (sparse array)，即不存在真实元素，节省内存空间。在控制台上显示为`[empty]`，正因为没有元素，所以它也不会有 `map`操作，所以`Array(100).map(x => 1)`仍然返回为 `[empty]`
+
 ## 每日 3 问（2024-9-5）
 
 ### flex:1 代表啥?
@@ -123,7 +154,7 @@ categories:
     .then(function (response) {
       // ...
     });
-  
+
   source.cancel(); // 取消请求
   ```
 
