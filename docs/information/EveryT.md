@@ -14,6 +14,307 @@ categories:
 
 # EveryT
 
+## 每日 3 问（2024-9-10）
+
+### Javascript 本地存储的方式有哪些，有什么区别，及有哪些应用场景？
+
+`javaScript` 本地缓存的方法我们主要讲述以下四种：
+
+- cookie
+- sessionStorage
+- localStorage
+- indexedDB
+
+**cookie**
+
+`Cookie`，类型为「小型文本文件」，指某些网站为了辨别用户身份而储存在用户本地终端上的数据。是为了`解决 HTTP 无状态导致的问题`
+
+作为一段一般不超过 4KB 的小型文本数据，它由一个名称（Name）、一个值（Value）和其它几个用于控制 cookie 有效期、安全性、使用范围的可选属性组成
+
+但是 cookie 在每次请求中都会被发送，如果不使用 HTTPS 并对其加密，其保存的信息很容易被窃取，导致安全风险。举个例子，在一些使用 cookie 保持登录态的网站上，如果 cookie 被窃取，他人很容易利用你的 cookie 来假扮成你登录网站
+
+**localStorage**
+
+- 生命周期：持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的
+- 存储的信息在同一域中是共享的
+- 当本页操作（新增、修改、删除）了`localStorage` 的时候，本页面不会触发 storage 事件,但是别的页面会触发`storage` 事件。
+- 大小：5M（跟浏览器厂商有关系）
+- `localStorage` 本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡
+- 受同源策略的限制
+
+**sessionStorage**
+
+`sessionStorage` 和 `localStorage` 使用方法基本一致，唯一不同的是生命周期，一旦页面（会话）关闭，`sessionStorage` 将会删除数据
+
+**indexedDB**
+
+`indexedDB` 是一种低级 API，用于客户端存储大量结构化数据(包括, 文件/ blobs)。该 API 使用索引来实现对该数据的高性能搜索
+
+虽然 Web Storage 对于存储较少量的数据很有用，但对于存储更大量的结构化数据来说，这种方法不太有用。`IndexedDB` 提供了一个解决方案
+
+**区别**
+
+- 存储大小： `cookie` 数据大小不能超过 4k，`sessionStorage` 和`localStorage` 虽然也有存储大小的限制，但比`cookie` 大得多，可以达到 5M 或更大
+
+- 有效时间：`localStorage `存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；` sessionStorage` 数据在当前浏览器窗口关闭后自动删除；`cookie`设置的 `cookie` 过期时间之前一直有效，即使窗口或浏览器关闭
+
+- 数据与服务器之间的交互方式， `cookie` 的数据会自动的传递到服务器，服务器端也可以写 cookie 到客户端；` sessionStorage` 和` localStorage` 不会自动把数据发给服务器，仅在本地保存
+
+**应用场景**
+
+在了解了上述的前端的缓存方式后，我们可以看看针对不对场景的使用选择：
+
+- 标记用户与跟踪用户行为的情况，推荐使用`cookie`
+- 适合长期保存在本地的数据（令牌），推荐使用`localStorage`
+- 敏感账号一次性登录，推荐使用`sessionStorage`
+- 存储大量数据的情况、在线文档（富文本编辑器）保存编辑历史的情况，推荐使用`indexedDB`
+
+### 前端跨页面通信，你知道哪些方法？
+
+在前端中，有几种方法可用于实现跨页面通信：
+
+- **LocalStorage 或 SessionStorage**：这两个 Web 存储 API 可以在不同页面之间共享数据。一个页面可以将数据存储在本地存储中，另一个页面则可以读取该数据并进行相应处理。通过监听 storage 事件，可以实现数据的实时更新。
+
+- **Cookies**：使用 Cookies 也可以在不同页面之间传递数据。通过设置和读取 Cookie 值，可以在同一域名下的不同页面之间交换信息。
+
+- **PostMessage**：window.postMessage() 方法允许从一个窗口向另一个窗口发送消息，并在目标窗口上触发 message 事件。通过指定目标窗口的 origin，可以确保只有特定窗口能够接收和处理消息。
+
+- **Broadcast Channel**：Broadcast Channel API 允许在同一浏览器下的不同上下文（例如，在不同标签页或 iframe 中）之间进行双向通信。它提供了一个类似于发布-订阅模式的机制，通过创建一个广播频道，并在不同上下文中加入该频道，可以实现消息的广播和接收。
+
+- **SharedWorker**：SharedWorker 是一个可由多个窗口或标签页共享的 Web Worker，它可以在不同页面之间进行跨页面通信。通过 SharedWorker，多个页面可以通过 postMessage 进行双向通信，并共享数据和执行操作。
+
+- **IndexedDB**：IndexedDB 是浏览器提供的一个客户端数据库，可以在不同页面之间存储和共享数据。通过在一个页面中写入数据，另一个页面可以读取该数据。
+
+- **WebSockets**：WebSockets 提供了全双工的、双向通信通道，可以在客户端和服务器之间进行实时通信。通过建立 WebSocket 连接，可以在不同页面之间通过服务器传递数据并实现实时更新。
+
+### 如何判断元素是否在可视区域？
+
+**如何判断元素是否在可视区域？主要有三种方法**
+
+**方法一**
+
+- 通过 document.documentElement.clientHeight 获取屏幕可视窗口高度
+- 通过 element.offsetTop 获取元素相对于文档顶部的距离
+- 通过 document.documentElement.scrollTop 获取浏览器窗口顶部与文档顶部之间的距离，也就是滚动条滚动的距离
+
+然后判断 ②-③<① 是否成立，如果成立，元素就在可视区域内。
+
+<img class="question-img"  src="https://www.icodehub.top/seeking-wd/assets/js-view-methods-1.png" alt="image" style="zoom:50%;" />
+
+**方法二：通过 getBoundingClientRect 方法**
+通过 getBoundingClientRect()方法来获取元素的大小以及位置，MDN 上是这样描述的：
+`Element.getBoundingClientRect() 方法返回一个 DOMRect 对象，其提供了元素的大小及其相对于视口的位置。`
+
+<img class="question-img"  src="https://www.icodehub.top/seeking-wd/assets/element-box-diagram.png" alt="image" style="zoom:70%;" />
+
+我们这样判断：
+
+```js
+function isInSight(el) {
+  const bound = el.getBoundingClientRect();
+  const clientHeight = window.innerHeigh;
+  // 这里有个+100是为了提前加载。
+  return bound.top <= clientHeight + 100;
+}
+```
+
+**方法三：通过 IntersectionObserver 方法**
+IntersectionObserver 可以自动观察元素是否在视口内。
+
+```js
+const io = new IntersectionObserver((ioes) => {
+  ioes.forEach((ioe) => {
+    const el = ioe.target;
+    const intersectionRatio = ioe.intersectionRatio;
+    if (intersectionRatio > 0 && intersectionRatio <= 1) {
+      // intersectionRatio来判断是否在可视区域内，当intersectionRatio > 0 && intersectionRatio <= 1即在可视区域内。
+    }
+    el.onload = el.onerror = () => io.unobserve(el);
+  });
+});
+```
+
+**总结：**
+
+判断元素是否在可视区域的三种方法
+
+- 通过 document 中的一些方法
+- 通过 getBoundingClientRect 方法
+- 通过 IntersectionObserver 方法
+
+## 每日 3 问（2024-9-9）
+
+### vue 中怎么缓存当前的组件？缓存后怎么更新？
+
+开发中缓存组件使用 **keep-alive 组件，keep-alive 是 vue 内置组件**，keep-alive 包裹动态组件 component 时，会缓存不活动的组件实例，而不是销毁它们，这样在组件切换过程中将状态保留在内存中，防止重复渲染 DOM。
+
+结合属性 include 和 exclude 可以明确指定缓存哪些组件或排除缓存指定组件。
+
+vue3 中结合 vue-router 时变化较大，之前是 keep-alive 包裹 router-view，现在需要反过来用 router-view 包裹 keep-alive
+
+缓存后如果要获取数据，解决方案可以有以下两种：
+
+- beforeRouteEnter：在有 vue-router 的项目，每次进入路由的时候，都会执行 beforeRouteEnter
+- actived：在 keep-alive 缓存的组件被激活的时候，都会执行 actived 钩子
+
+### 为什么 [ ] == [ ] 为 false, [ ] == ![ ] 为 true？
+
+①：为什么 [ ] == [ ] 为 false
+
+在 JS 中对象（包括数组）的`比较是基于它们的引用地址`，而不是它们的内容。即使两个对象的内容相同，它们的引用地址也不同，所以比较结果是 false
+
+②：为什么 [ ] == ![ ] 为 true
+
+- 因为`！`的优先级高于 `==`，首先将空数组转换为 `true`，再取反得 `false`；
+- 接着是 `[] == false`，这是布尔值和非布尔值类型比较，首先将 `false` 转换为 `0`，然后调用对象的`toString `方法，返回一个空对象''
+- 最后`空对象转换为数值0`，即 `0 == 0 `，结果返回 `true `。
+
+### 三个页面地址为www.baidu.com/a、www.baidu.com/b、www.qq.com` sessionStorage 是否能在这些页面共享，为什么? localStorage 呢?
+
+**sessionStorage 和 localStorage** 只能在同一个域名下共享，不同域名下是不共享的。
+
+所以`www.baidu.com/a`、`www.baidu.com/b` 可以共享，但是和`www.qq.com` 不共享。
+
+## 每日 3 问（2024-9-8）
+
+### vue3 中 watch 和 watchEffect 的区别？
+
+vue3 中 watch 和 watchEffect 的区别主要分下面四个方面来说
+
+**触发时机**
+
+- watch 显式指定依赖源，依赖源更新时执行回调函数
+- watchEffect 自动收集依赖源，依赖源更新时重新执行自身
+
+**使用场景**
+
+- watch 适用于比较复杂的场景
+- watchEffect 适用于比较简单的场景
+
+**返回值**
+
+- watch:返回一个取消函数，可以使用该函数来取消对数据的监听
+- watchEffect:没有返回值
+
+**初始情况**
+
+- watchEffect 在使用时，传入的函数会立刻执行一次。
+- watch 默认情况下并不会执行回调函数，除非我们手动设置 immediate 选项
+
+### slot 是什么？有什么作用？原理是什么？
+
+`slot` 又名插槽，是 Vue 的内容分发机制，组件内部的模板引擎使用 slot 元素作为承载分发内容的出口。插槽 slot 是子组件的一个模板标签元素，而这一个标签元素是否显示，以及怎么显示是由父组件决定的。slot 又分三类，`默认插槽`、`具名插槽`和`作用域插槽`。
+
+**默认插槽**：又名匿名查抄，当 slot 没有指定 name 属性值的时候一个默认显示插槽，一个组件内只能有一个匿名插槽。
+**具名插槽**：带有具体名字的插槽，也就是带有 name 属性的 slot，一个组件可以出现多个具名插槽。
+**作用域插槽**：默认插槽、具名插槽的一个变体，可以是匿名插槽，也可以是具名插槽，该插槽的不同点是在子组件渲染作用域插槽时，可以将子组件内部的数据传递给父组件，让父组件根据子组件的传递过来的数据决定如何渲染该插槽。
+
+实现原理：当子组件 vm 实例化时，获取到父组件传入的 slot 标签的内容，存放在 `vm.$slot` 中，默认插槽为 `vm.$slot.default` ，具名插槽为 `vm.$slot.xxx`，xxx 为插槽名，当组件执行渲染函数时候，遇到 slot 标签，使用 `$slot` 中的内容进行替换，此时可以为插槽传递数据，若存在数据，则可称该插槽为作用域插槽。
+
+### Vue3 通过 proxy 监听数组和对象有何区别？
+
+在 Vue 3 中，使用 Proxy 来监听数组和对象的变化是通过 reactive API 实现的。reactive 函数用于创建响应式对象，而 ref 用于创建响应式基本类型（比如字符串、数字、布尔值）或者可响应式引用对象（比如数组或对象）。
+
+当你使用 reactive 对象时，Vue 会通过 Proxy 包装你的对象，从而在对象内部的属性被访问、修改、添加或删除时，都能够触发响应性系统的更新。
+
+对于数组，Vue 3 为数组的变异方法（例如 push、splice 等）提供了特殊处理，使得它们能够触发视图更新，而不需要额外的操作。
+
+```js
+import { reactive, ref } from "vue";
+
+// 响应式对象
+const state = reactive({
+  object: {
+    key: "value",
+  },
+  array: [1, 2, 3],
+});
+
+// 响应式基本类型
+const count = ref(0);
+
+// 监听对象属性的变化
+state.object.key = "new value"; // 触发更新
+
+// 监听数组的变化
+state.array.push(4); // 触发更新
+
+// 监听基本类型的变化
+count.value++; // 触发更新
+```
+
+## 每日 3 问（2024-9-7）
+
+### reactive 和 ref 的区别, ref 可以定义响应式对象吗?
+
+reactive 和 ref 的区别
+
+- reactive 主要用于定义响应式对象
+- ref 主要用于定义响应式基础数据
+
+**总结：**
+
+ref 也是可以定义响应式对象的但是会走 reactive 的逻辑
+
+**最后**
+
+`reactive是通过proxy实现的, 而proxy只支持对象`
+
+`ref是通过Object.defineProperty实现的`
+
+### 说说 vue 中的 nextTick 的使用和原理？
+
+**nextTick 是等待下一次 DOM 更新刷新的工具方法。**
+
+Vue 有个异步更新策略，意思是如果数据变化，Vue 不会立刻更新 DOM，而是开启一个队列，把组件更新函数保存在队列中，在同一事件循环中发生的所有数据变更会异步的批量更新。这一策略导致我们对数据的修改不会立刻体现在 DOM 上，此时如果想要获取更新后的 DOM 状态，就需要使用 nextTick。
+
+开发时，有两个场景我们会用到 nextTick：
+
+- created 中想要获取 DOM 时
+- 响应式数据变化后获取 DOM 更新后的状态，比如希望获取列表更新后的高度。
+
+在 Vue 内部，nextTick 之所以能够让我们看到 DOM 更新后的结果·是因为我们传入的 callback 会被添加到队列刷新函数(flushSchedulerQueue)的后面，这样等队列内部的更新函数都执行完毕，所有 DOM 操作也就结束了，callback 自然能够获取到最新的 DOM 值。
+
+### v-model 是如何实现的，语法糖实际是什么？
+
+**① 作用在表单元素上**
+
+动态绑定了 input 的 value 指向了 message 变量，并且在触发 input 事件的时候去动态把 message 设置为目标值：
+
+```html
+<input v-model="sth" />
+<!-- 等同于 -->
+<input v-bind:value="message" v-on:input="message=$event.target.value" />
+
+<!-- $event 指代当前触发的事件对象;
+$event.target 指代当前触发的事件对象的dom;
+$event.target.value 就是当前dom的value值;
+在@input方法中，value => sth;
+在:value中,sth => value; -->
+```
+
+**② 作用在组件上**
+
+在自定义组件中，v-model 默认会利用名为 value 的 prop 和名为 input 的事件
+
+**本质是一个父子组件通信的语法糖，通过 prop 和 emit 实现** 。 因此父组件 v-model 语法糖本质上可以修改为：
+
+```vue
+<child
+  :value="message"
+  @input="
+    function (e) {
+      message = e;
+    }
+  "
+></child>
+```
+
+**扩展**
+
+- 使用 `model `选项 可以定义 prop 和 emit
+- 使用了 sync 修饰符, 就不用再父组件中接受子组件发射的事件
+
 ## 每日 3 问（2024-9-6）
 
 ### forEach 中 return 有效果吗？如何中断 forEach 循环？
@@ -29,6 +330,7 @@ arr.forEach((item, index) => {
 
 中断方法：
 **官方推荐方法（替换方法）**
+
 - 用 every 和 some 替代 forEach 函数
 - every 在碰到 return false 的时候，中止循环
 - some 在碰到 return true 的时候，中止循环
