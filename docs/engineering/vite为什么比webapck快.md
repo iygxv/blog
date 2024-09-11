@@ -1,17 +1,17 @@
 ---
-sidebar: 
- title: vite为什么比webapck快?
- step: 1
- isTimeLine: true
-title:  vite为什么比webapck快?
+sidebar:
+  title: vite 为什么比 webapck 快?
+  step: 1
+  isTimeLine: true
+title: vite 为什么比 webapck快?
 tags:
- - 工程化
- - Vite
- - Webpack
+  - 工程化
+  - Vite
+  - Webpack
 categories:
- - 工程化
- - Vite
- - Webpack
+  - 工程化
+  - Vite
+  - Webpack
 ---
 
 # vite 为什么比 webapck 快?
