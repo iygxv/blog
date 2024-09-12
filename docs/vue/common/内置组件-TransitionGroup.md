@@ -1,18 +1,19 @@
 ---
-sidebar: 
- title: 内置组件-TransitionGroup
- step: 1
- isTimeLine: true
+sidebar:
+  title: 内置组件-TransitionGroup
+  step: 1
+  isTimeLine: true
 title: 内置组件-TransitionGroup
 tags:
- - Vue2
- - Vue3
+  - Vue2
+  - Vue3
 categories:
- - Vue2
- - Vue3
+  - Vue2
+  - Vue3
 ---
 
 # 内置组件-TransitionGroup
+
 TransitionGroup 是一个内置组件，用于对 v-for 列表中的元素或组件的插入、移除和顺序改变添加动画效果。
 
 ## 和 `Transition` 的区别
@@ -27,8 +28,6 @@ TransitionGroup 支持和 Transition 基本相同的 props、CSS 过渡 class �
 
 CSS 过渡 class 会被应用在列表内的元素上，而不是容器元素上。
 
-
-
 :::tip Tip
 
 当在 [DOM 内模板](https://cn.vuejs.org/guide/essentials/component-basics.html#in-dom-template-parsing-caveats)中使用时，组件名需要写为 `<transition-group>`。
@@ -41,9 +40,7 @@ CSS 过渡 class 会被应用在列表内的元素上，而不是容器元素上
 
 ```html
 <TransitionGroup name="list" tag="ul">
-  <li v-for="item in items" :key="item">
-    {{ item }}
-  </li>
+  <li v-for="item in items" :key="item">{{ item }}</li>
 </TransitionGroup>
 ```
 
@@ -95,11 +92,7 @@ CSS 过渡 class 会被应用在列表内的元素上，而不是容器元素上
   @enter="onEnter"
   @leave="onLeave"
 >
-  <li
-    v-for="(item, index) in computedList"
-    :key="item.msg"
-    :data-index="index"
-  >
+  <li v-for="(item, index) in computedList" :key="item.msg" :data-index="index">
     {{ item.msg }}
   </li>
 </TransitionGroup>
@@ -114,16 +107,16 @@ CSS 过渡 class 会被应用在列表内的元素上，而不是容器元素上
 `TransitionGroup` 拥有与 `Transition` 除了 `mode` 以外所有的 props，并增加了两个额外的 props：
 
 ```ts
-interface TransitionGroupProps extends Omit<TransitionProps, 'mode'> {
+interface TransitionGroupProps extends Omit<TransitionProps, "mode"> {
   /**
    * 如果未定义，则渲染为片段 (fragment)。
    */
-  tag?: string
+  tag?: string;
   /**
    * 用于自定义过渡期间被应用的 CSS class。
    * 在模板中使用 kebab-case，例如 move-class="xxx"
    */
-  moveClass?: string
+  moveClass?: string;
 }
 ```
 
@@ -143,22 +136,18 @@ interface TransitionGroupProps extends Omit<TransitionProps, 'mode'> {
 
 ```html
 <TransitionGroup tag="ul" name="slide">
-  <li v-for="item in items" :key="item.id">
-    {{ item.text }}
-  </li>
+  <li v-for="item in items" :key="item.id">{{ item.text }}</li>
 </TransitionGroup>
 ```
 
 - **参考**[指南 - TransitionGroup](https://cn.vuejs.org/guide/built-ins/transition-group.html)
 
-
-
 <br/>
 
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

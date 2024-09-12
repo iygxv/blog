@@ -1,13 +1,13 @@
 ---
 sidebar:
- title: CSS 试炼
- step: 1
- isTimeLine: true
+  title: CSS 试炼
+  step: 1
+  isTimeLine: true
 title: CSS 试炼
 tags:
- - 试炼
+  - 试炼
 categories:
- - 试炼
+  - 试炼
 ---
 
 # CSS 试炼
@@ -24,7 +24,7 @@ categories:
 | -------------- | ------------- | -------------- |
 | id 选择器      | #id           | 100            |
 | 类选择器       | #classname    | 10             |
-| 属性选择器     | a[ref=eee]  | 10             |
+| 属性选择器     | a[ref=eee]    | 10             |
 | 伪类选择器     | li:last-child | 10             |
 | 标签选择器     | div           | 1              |
 | 伪元素选择器   | li:after      | 1              |
@@ -182,17 +182,29 @@ categories:
 - 伪元素：在内容元素的前后插入额外的元素或样式，但是这些元素实际上并不在文档中生成。它们只在外部显示可见，但不会在文档的源代码中找到它们，因此，称为伪元素。例如：
 
 ```css
-p::before {content:"第一章：";}
-p::after {content:"Hot!";}
-p::first-line {background:red;}
-p::first-letter {font-size:30px;}
+p::before {
+  content: "第一章：";
+}
+p::after {
+  content: "Hot!";
+}
+p::first-line {
+  background: red;
+}
+p::first-letter {
+  font-size: 30px;
+}
 ```
 
 - 伪类：将特殊的效果添加到特定选择器上。它是已有元素上添加类别的，不会产生新的元素。例如：
 
 ```css
-a:hover {color: #FF00FF}
-p:first-child {color: red}
+a:hover {
+  color: #ff00ff;
+}
+p:first-child {
+  color: red;
+}
 ```
 
 **总结**：伪类是通过在元素选择器上加⼊伪类改变元素状态，⽽伪元素通过对元素的操作进⾏对元素的改变。
@@ -260,7 +272,7 @@ translate 是 transform 属性的⼀个值。改变 transform 或 opacity 不会
 
 ### 14. CSS3 中有哪些新特性
 
-- 新增各种 CSS 选择器 （: not(.input)：所有 class 不是input的节点）
+- 新增各种 CSS 选择器 （: not(.input)：所有 class 不是 input 的节点）
 - 圆角 （border-radius:8px）
 - 多列布局 （multi-column layout）
 - 阴影和反射 （Shadoweflect）
@@ -276,8 +288,6 @@ border-radius 和 border-image不能一起使用
 代替
 border-radius + background
 ```
-
-
 
 ### 15. 替换元素的概念及计算规则---不需要看
 
@@ -360,9 +370,13 @@ CSSSprites（精灵图），将一个页面涉及到的所有图片都包含到�
 还可以使用 CSS 媒体查询来判断不同的像素密度，从而选择不同的图片:
 
 ```css
-my-image { background: (low.png); }
+my-image {
+  background: (low.png);
+}
 @media only screen and (min-device-pixel-ratio: 1.5) {
-  #my-image { background: (high.png); }
+  #my-image {
+    background: (high.png);
+  }
 }
 ```
 
@@ -478,19 +492,19 @@ my-image { background: (low.png); }
 - 单行文本溢出
 
 ```css
-overflow: hidden;            // 溢出隐藏
-text-overflow: ellipsis;      // 溢出用省略号显示
-white-space: nowrap;         // 规定段落中的文本不进行换行
+overflow: hidden; // 溢出隐藏
+text-overflow: ellipsis; // 溢出用省略号显示
+white-space: nowrap; // 规定段落中的文本不进行换行
 ```
 
 - 多行文本溢出
 
 ```css
-overflow: hidden;            // 溢出隐藏
-text-overflow: ellipsis;     // 溢出用省略号显示
-display:-webkit-box;         // 作为弹性伸缩盒子模型显示。
--webkit-box-orient:vertical; // 设置伸缩盒子的子元素排列方式：从上到下垂直排列
--webkit-line-clamp:3;        // 显示的行数
+overflow: hidden; // 溢出隐藏
+text-overflow: ellipsis; // 溢出用省略号显示
+display: -webkit-box; // 作为弹性伸缩盒子模型显示。
+-webkit-box-orient: vertical; // 设置伸缩盒子的子元素排列方式：从上到下垂直排列
+-webkit-line-clamp: 3; // 显示的行数
 ```
 
 注意：由于上面的三个属性都是 CSS3 的属性，没有浏览器可以兼容，所以要在前面加一个`-webkit-` 来兼容一部分浏览器。
@@ -548,7 +562,7 @@ CSS 工程化是为了解决以下问题：
 
 ![image](./assets/1615998492170-c294084b-84d5-4537-87bb-b32da4bf0cd6-20221006173303466.png)
 
-那为什么写 CSS 代码写得好好的，偏偏要转去写类 CSS呢？这就和本来用 JS 也可以实现所有功能，但最后却写 React 的 jsx 或者 Vue 的模板语法一样——为了爽！要想知道有了预处理器有多爽，首先要知道的是传统 CSS 有多不爽。随着前端业务复杂度的提高，前端工程中对 CSS 提出了以下的诉求：
+那为什么写 CSS 代码写得好好的，偏偏要转去写类 CSS 呢？这就和本来用 JS 也可以实现所有功能，但最后却写 React 的 jsx 或者 Vue 的模板语法一样——为了爽！要想知道有了预处理器有多爽，首先要知道的是传统 CSS 有多不爽。随着前端业务复杂度的提高，前端工程中对 CSS 提出了以下的诉求：
 
 1. 宏观设计上：我们希望能优化 CSS 文件的目录结构，对现有的 CSS 文件实现复用；
 2. 编码优化上：我们希望能写出结构清晰、简明易懂的 CSS，需要它具有一目了然的嵌套层级关系，而不是无差别的一铺到底写法；我们希望它具有变量特征、计算能力、循环能力等等更强的可编程性，这样我们可以少写一些无用的代码；
@@ -685,17 +699,17 @@ z-index 属性在下列情况下会失效：
 - 利用浮动，左侧元素设置固定大小，并左浮动，右侧元素设置 overflow: hidden; 这样右边就触发了 BFC，BFC 的区域不会与浮动元素发生重叠，所以两侧就不会发生重叠。
 
 ```css
-.left{
-     width: 100px;
-     height: 200px;
-     background: red;
-     float: left;
- }
- .right{
-     height: 300px;
-     background: blue;
-     overflow: hidden;
- }
+.left {
+  width: 100px;
+  height: 200px;
+  background: red;
+  float: left;
+}
+.right {
+  height: 300px;
+  background: blue;
+  overflow: hidden;
+}
 ```
 
 - 利用 flex 布局，将左边元素设置为固定宽度 200px，将右边的元素设置为 flex:1。
@@ -932,14 +946,14 @@ z-index 属性在下列情况下会失效：
 
 ```css
 .parent {
-    position: relative;
+  position: relative;
 }
 
 .child {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 ```
 
@@ -947,16 +961,16 @@ z-index 属性在下列情况下会失效：
 
 ```css
 .parent {
-    position: relative;
+  position: relative;
 }
 
 .child {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 ```
 
@@ -964,15 +978,15 @@ z-index 属性在下列情况下会失效：
 
 ```css
 .parent {
-    position: relative;
+  position: relative;
 }
 
 .child {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;     /* 自身 height 的一半 */
-    margin-left: -50px;    /* 自身 width 的一半 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px; /* 自身 height 的一半 */
+  margin-left: -50px; /* 自身 width 的一半 */
 }
 ```
 
@@ -980,9 +994,9 @@ z-index 属性在下列情况下会失效：
 
 ```css
 .parent {
-    display: flex;
-    justify-content:center;
-    align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 ```
 
@@ -1060,15 +1074,15 @@ flex 布局是 CSS3 新增的一种布局方式，可以通过将一个元素的
 - 使用 :after 伪元素。由于 IE6-7 不支持 :after，使用 zoom:1 触发 hasLayout
 
 ```css
-.clearfix:after{
-    content: "\200B";
-    display: table;
-    height: 0;
-    clear: both;
-  }
-  .clearfix{
-    *zoom: 1;
-  }
+.clearfix:after {
+  content: "\200B";
+  display: table;
+  height: 0;
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
 ```
 
 ### 2. 使用 clear 属性清除浮动的原理？
@@ -1076,7 +1090,7 @@ flex 布局是 CSS3 新增的一种布局方式，可以通过将一个元素的
 使用 clear 属性清除浮动，其语法如下：
 
 ```css
-clear:none|left|right|both
+clear: none|left|right|both;
 ```
 
 如果单看字面意思，clear:left 是清除左浮动，clear:right 是清除右浮动，实际上，这种解释是有问题的，因为浮动一直还在，并没有清除。
@@ -1088,10 +1102,10 @@ clear:none|left|right|both
 一般使用伪元素的方式清除浮动：
 
 ```css
-.clear::after{
-  content:'';
+.clear::after {
+  content: "";
   display: block;
-  clear:both;
+  clear: both;
 }
 ```
 
@@ -1272,10 +1286,10 @@ CSS 绘制三角形主要用到的是 border 属性，也就是边框。
 
 ```css
 div {
-    width: 0;
-    height: 0;
-    border: 100px solid;
-    border-color: orange blue red green;
+  width: 0;
+  height: 0;
+  border: 100px solid;
+  border-color: orange blue red green;
 }
 ```
 
@@ -1289,11 +1303,11 @@ div {
 
 ```css
 div {
-    width: 0;
-    height: 0;
-    border-top: 50px solid red;
-    border-right: 50px solid transparent;
-    border-left: 50px solid transparent;
+  width: 0;
+  height: 0;
+  border-top: 50px solid red;
+  border-right: 50px solid transparent;
+  border-left: 50px solid transparent;
 }
 ```
 
@@ -1303,11 +1317,11 @@ div {
 
 ```css
 div {
-    width: 0;
-    height: 0;
-    border-bottom: 50px solid red;
-    border-right: 50px solid transparent;
-    border-left: 50px solid transparent;
+  width: 0;
+  height: 0;
+  border-bottom: 50px solid red;
+  border-right: 50px solid transparent;
+  border-left: 50px solid transparent;
 }
 ```
 
@@ -1317,11 +1331,11 @@ div {
 
 ```css
 div {
-    width: 0;
-    height: 0;
-    border-left: 50px solid red;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
+  width: 0;
+  height: 0;
+  border-left: 50px solid red;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
 }
 ```
 
@@ -1331,11 +1345,11 @@ div {
 
 ```css
 sdiv {
-    width: 0;
-    height: 0;
-    border-right: 50px solid red;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
+  width: 0;
+  height: 0;
+  border-right: 50px solid red;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
 }
 ```
 
@@ -1345,10 +1359,10 @@ sdiv {
 
 ```css
 div {
-    width: 0;
-    height: 0;
-    border-top: 100px solid red;
-    border-right: 100px solid transparent;
+  width: 0;
+  height: 0;
+  border-top: 100px solid red;
+  border-right: 100px solid transparent;
 }
 ```
 
@@ -1361,12 +1375,12 @@ div {
 用 CSS 实现扇形的思路和三角形基本一致，就是多了一个圆角的样式，实现一个 90° 的扇形：
 
 ```css
-div{
-    border: 100px solid transparent;
-    width: 0;
-    height: 0;
-    border-radius: 100px;
-    border-top-color: red;
+div {
+  border: 100px solid transparent;
+  width: 0;
+  height: 0;
+  border-radius: 100px;
+  border-top-color: red;
 }
 ```
 
@@ -1404,7 +1418,7 @@ div{
   background: yellow;
 }
 .square::after {
-  content: '';
+  content: "";
   display: block;
   margin-top: 100%;
 }
@@ -1415,7 +1429,7 @@ div{
 - **采用 transform: scale()的方式**，该方法用来定义元素的 2D 缩放转换：
 
 ```css
-transform: scale(0.5,0.5);
+transform: scale(0.5, 0.5);
 ```
 
 - **采用 meta viewport 的方式**
@@ -1457,7 +1471,7 @@ window.devicePixelRatio = 设备的物理像素 / CSS像素。
 如果之前 1px 的样式这样写：
 
 ```css
-border:1px solid #333
+border: 1px solid #333;
 ```
 
 可以先在 JS 中拿到 window.devicePixelRatio 的值，然后把这个值通过 JSX 或者模板语法给到 CSS 的 data 里，达到这样的效果（这里用 JSX 语法做示范）：
@@ -1470,7 +1484,7 @@ border:1px solid #333
 
 ```css
 #container[data-device="2"] {
-  border:0.5px solid #333
+  border: 0.5px solid #333;
 }
 ```
 
@@ -1525,12 +1539,11 @@ metaEl.setAttribute('content', `width=device-width,user-scalable=no,initial-scal
 
 这样解决了，但这样做的副作用也很大，整个页面被缩放了。这时 1px 已经被处理成物理像素大小，这样的大小在手机上显示边框很合适。但是，一些原本不需要被缩小的内容，比如文字、图片等，也被无差别缩小掉了。
 
-
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

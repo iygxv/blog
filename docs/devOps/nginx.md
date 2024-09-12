@@ -1,21 +1,23 @@
 ---
-sidebar: 
- title: Nginx
- step: 1
- isTimeLine: true
+sidebar:
+  title: Nginx
+  step: 1
+  isTimeLine: true
 title: Nginx
 tags:
- - 运维
+  - 运维
 categories:
- - 运维
+  - 运维
 ---
 
 # Nginx 学习
 
 ## Nginx 是什么？
+
 Nginx 是一个开源且高性能、可靠的 HTTP 中间件，代理服务。Nginx（发音同 engine x）是一个 Web 服务器，也可以用作反向代理，负载平衡器和 HTTP 缓存。该软件由 Igor Sysoev 创建，并于 2004 年首次公开发布。同名公司成立于 2011 年，以提供支持。
 
-## 一般常用的Nginx配置详细说明
+## 一般常用的 Nginx 配置详细说明
+
 ```nginx
 #定义Nginx运行的用户和用户组
 user www www;
@@ -46,7 +48,7 @@ http
 {
   include mime.types; #文件扩展名与文件类型映射表
   default_type application/octet-stream; #默认文件类型
-  
+
   #charset utf-8; #默认编码
   server_names_hash_bucket_size 128; #服务器名字的hash表大小
   client_header_buffer_size 32k; #上传文件大小限制
@@ -57,7 +59,7 @@ http
   tcp_nopush on; #防止网络阻塞
   tcp_nodelay on; #防止网络阻塞
   keepalive_timeout 120; #长连接超时时间，单位是秒
-  
+
   #FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。
   fastcgi_connect_timeout 300;
   fastcgi_send_timeout 300;
@@ -66,7 +68,7 @@ http
   fastcgi_buffers 4 64k;
   fastcgi_busy_buffers_size 128k;
   fastcgi_temp_file_write_size 128k;
-  
+
   #gzip模块设置
   gzip on; #开启gzip压缩输出
   gzip_min_length 1k; #最小压缩文件大小
@@ -77,7 +79,7 @@ http
   #压缩类型，默认就已经包含text/html，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。
   gzip_vary on;
   #limit_zone crawler $binary_remote_addr 10m; #开启限制IP连接数的时候需要使用
-  
+
   upstream blog.ha97.com {
     #upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。
     server 192.168.80.121:80 weight=3;
@@ -116,7 +118,7 @@ http
     '"$http_user_agent" $http_x_forwarded_for';
     #定义本虚拟主机的访问日志
     access_log /var/log/nginx/ha97access.log access;
-    
+
     #对 "/" 启用反向代理
     location / {
       proxy_pass http://127.0.0.1:88;
@@ -137,13 +139,13 @@ http
       proxy_temp_file_write_size 64k;
       #设定缓存文件夹大小，大于这个值，将从upstream服务器传
     }
-    
+
     # 部署Vue单页应用的资源，需要配置Nginx以将所有非静态文件请求重定向到`index.html`
-    location / { 
-      root /path/to/vue-app/dist; 
-      try_files $uri $uri/ /index.html; 
+    location / {
+      root /path/to/vue-app/dist;
+      try_files $uri $uri/ /index.html;
     }
-    
+
     #设定查看Nginx状态的地址
     location /NginxStatus {
       stub_status on;
@@ -152,7 +154,7 @@ http
       auth_basic_user_file conf/htpasswd;
       #htpasswd文件的内容可以用apache提供的htpasswd工具来产生。
     }
-    
+
     #本地动静分离反向代理配置
     #所有jsp的页面均交由tomcat或resin处理
     location ~ .(jsp|jspx|do)?$ {
@@ -172,6 +174,7 @@ http
 ```
 
 ## 无 www 跳转至有 www
+
 ```nginx
 server {
     listen 80;
@@ -194,14 +197,18 @@ server {
 
 ```
 
-##  underscores_in_headers on
+## underscores_in_headers on
+
 nginx 配置中的 `underscores_in_headers` 指令用于控制 nginx 是否接受带下划线的 HTTP 头部字段。默认情况下，nginx 通常不允许这样的字段，因为 HTTP 头部字段名称通常不应该包含下划线。
 
 解决方案：
-- 如果你需要nginx接受带下划线的头部字段，你可以在nginx配置文件中的http、server或location块中设置underscores_in_headers on。
+
+- 如果你需要 nginx 接受带下划线的头部字段，你可以在 nginx 配置文件中的 http、server 或 location 块中设置 underscores_in_headers on。
 
 ## HTTP 跳转至 HTTPS
+
 HTTP 默认端口强制跳转 HTTPS 配置
+
 ```nginx
 server {
     listen 80;
@@ -215,14 +222,14 @@ server {
 ```
 
 ## 来源
-学习地址：https://tsejx.github.io/devops-guidebook/server/nginx
 
+学习地址：https://tsejx.github.io/devops-guidebook/server/nginx
 
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

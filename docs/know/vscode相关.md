@@ -1,13 +1,13 @@
 ---
-sidebar: 
- title: vscode 常用快捷键
- step: 1
- isTimeLine: true
+sidebar:
+  title: vscode 常用快捷键
+  step: 1
+  isTimeLine: true
 title: vscode 常用快捷键
 tags:
- - 其他
+  - 其他
 categories:
- - 其他
+  - 其他
 ---
 
 ## **代码格式自动整理**
@@ -49,13 +49,13 @@ Shift + Option + ↑ / ↓
 定位到行首尾：
 
 ```html
-Fn + ← / → 
+Fn + ← / →
 ```
 
 定位到单词首尾：
 
 ```html
-Option + ← / → 
+Option + ← / →
 ```
 
 添加多个光标：
@@ -67,25 +67,26 @@ Cmd + Option + ↑ / ↓
 选中一块区域：
 
 ```html
-Shift  +  Option  +  拖动鼠标
+Shift + Option + 拖动鼠标
 ```
 
 移动本行代码
+
 ```html
 Alt + ↑ / ↓
 ```
 
 ## **快速定位到某一行**
-```html
- ctrl + g
-```
 
+```html
+ctrl + g
+```
 
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

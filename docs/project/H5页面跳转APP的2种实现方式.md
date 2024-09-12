@@ -1,22 +1,23 @@
 ---
-sidebar: 
- title: H5页面跳转APP的2种实现方式
- step: 1
- isTimeLine: true
+sidebar:
+  title: H5页面跳转APP的2种实现方式
+  step: 1
+  isTimeLine: true
 title: H5页面跳转APP的2种实现方式
 tags:
- - 项目
+  - 项目
 categories:
- - 项目
+  - 项目
 ---
 
-
-# H5 页面跳转APP的 2 种实现方式
+# H5 页面跳转 APP 的 2 种实现方式
 
 ## 前言
-实际开发中，APP和 H5 往往有很多业务场景需要来回跳转，这里主要介绍2种跳转方式供大家参考。
+
+实际开发中，APP 和 H5 往往有很多业务场景需要来回跳转，这里主要介绍 2 种跳转方式供大家参考。
 
 ## 微信内部 - wx-open-launch-weapp 微信开放标签
+
 要想使用这个开放标签，必须先接入 wx-sdk，接入的过程如下[点击查看](https://icodehub.top/blog/project/h5%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%85%A5.html#wx-sdk-%E6%B3%A8%E5%85%A5%E5%92%8C%E4%BD%BF%E7%94%A8)
 
 然后申请所需开放标签
@@ -41,15 +42,15 @@ wx.config({
   appid="wx12345678"
   path="pages/home/index?user=123&action=abc"
 >
- <button class="btn">打开小程序</button>
+  <button class="btn">打开小程序</button>
 </wx-open-launch-weapp>
 <script>
-  var btn = document.getElementById('launch-btn');
-  btn.addEventListener('launch', function (e) {
-    console.log('success');
+  var btn = document.getElementById("launch-btn");
+  btn.addEventListener("launch", function (e) {
+    console.log("success");
   });
-  btn.addEventListener('error', function (e) {
-    console.log('fail', e.detail);
+  btn.addEventListener("error", function (e) {
+    console.log("fail", e.detail);
   });
 </script>
 ```
@@ -72,27 +73,26 @@ URL Scheme 的格式通常为 `[scheme]://[host]/[path]?[query]`，具体的内�
 
 ```vue
 <template>
- <el-button @click="jumpToApp">点击跳转至 APP</el-button>
+  <el-button @click="jumpToApp">点击跳转至 APP</el-button>
 </template>
 
 <script setup lang="ts">
 const jumpToApp = () => {
-  window.location.href = 'alipays://platformapi/startapp';
-}
+  window.location.href = "alipays://platformapi/startapp";
+};
 </script>
 ```
 
 ## 总结
+
 - 微信内部：使用微信开放标签，可以无需配置 App 端，直接在 H5 页面中嵌入标签即可实现跳转。
 - 微信外部：使用 URL Scheme，需要配置 App 端，并在 H5 页面中嵌入 `a` 链接或 `iframe` 进行跳转。
-
-
 
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

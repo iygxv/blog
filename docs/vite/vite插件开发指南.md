@@ -11,9 +11,8 @@ categories:
 ---
 
 # vite 插件开发指南
->原文视频： [bilibili](https://www.bilibili.com/video/BV1jb4y1R7UV/)
-><br/>作者： [前端杨村长](https://space.bilibili.com/480140591)
-><br/>发布时间：2021-02-17
+
+> 原文视频： [bilibili](https://www.bilibili.com/video/BV1jb4y1R7UV/) ><br/>作者： [前端杨村长](https://space.bilibili.com/480140591) ><br/>发布时间：2021-02-17
 
 ## Vite 插件是什么
 
@@ -247,8 +246,8 @@ export default function (options = {}) {
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

@@ -1,15 +1,15 @@
 ---
-sidebar: 
- title: 组件中$message是如何实现的呢？
- step: 1
- isTimeLine: true
+sidebar:
+  title: 组件中$message是如何实现的呢？
+  step: 1
+  isTimeLine: true
 title: 组件中$message是如何实现的呢？
 tags:
- - Vue2
- - Vue3
+  - Vue2
+  - Vue3
 categories:
- - Vue2
- - Vue3
+  - Vue2
+  - Vue3
 ---
 
 # 组件中$message 是如何实现的呢？
@@ -17,9 +17,9 @@ categories:
 我们可以在组件库中发现一些组件可以通过 `$message` 来调用，例如在 `element-ui` 中的 el-message，它的调用方法
 
 ```js
- this.$message({
-  message: '恭喜你，这是一条成功消息',
-  type: 'success'
+this.$message({
+  message: "恭喜你，这是一条成功消息",
+  type: "success",
 });
 ```
 
@@ -48,8 +48,18 @@ Vue.extend 使用基础 Vue 构造器，创建一个`子类`。参数是一个�
 ```vue
 <template>
   <transition name="w-message-fade">
-    <div :class="['w-message', `w-message-${type}`]" :style="positionStyle" v-show="visible">
-      <i :class="['w-icon-message', 'w-message-before-icon', `w-message-before-icon-${type}`]"></i>
+    <div
+      :class="['w-message', `w-message-${type}`]"
+      :style="positionStyle"
+      v-show="visible"
+    >
+      <i
+        :class="[
+          'w-icon-message',
+          'w-message-before-icon',
+          `w-message-before-icon-${type}`,
+        ]"
+      ></i>
       <div :class="['w-message__content']">{{ message }}</div>
     </div>
   </transition>
@@ -57,37 +67,37 @@ Vue.extend 使用基础 Vue 构造器，创建一个`子类`。参数是一个�
 
 <script>
 export default {
-  name: 'Message',
+  name: "Message",
   data() {
     return {
       closed: false,
       visible: false,
-      message: 'message',
-      type: 'warning',
+      message: "message",
+      type: "warning",
       duration: 3000,
       top: 20,
-    }
+    };
   },
   computed: {
     positionStyle() {
       return {
-        'top': `${this.top}px`
+        top: `${this.top}px`,
       };
-    }
+    },
   },
   watch: {
     closed(newVal) {
       if (newVal) {
         this.visible = false;
         this.$destroy(true);
-        this.$el.parentNode.removeChild(this.$el)
+        this.$el.parentNode.removeChild(this.$el);
       }
-    }
+    },
   },
   methods: {
     close() {
       this.closed = true;
-      this.onClone(this.id)
+      this.onClone(this.id);
     },
     clearTimer() {
       clearTimeout(this.timer);
@@ -108,20 +118,19 @@ export default {
   beforeDestroy() {
     this.clearTimer();
   },
-}
+};
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @use "sass:math";
 
-$--color-primary: #409EFF !default;
-$--color-white: #FFFFFF !default;
+$--color-primary: #409eff !default;
+$--color-white: #ffffff !default;
 $--color-black: #000000 !default;
-$--color-success: #67C23A !default;
-$--color-warning: #E6A23C !default;
-$--color-danger: #F56C6C !default;
+$--color-success: #67c23a !default;
+$--color-warning: #e6a23c !default;
+$--color-danger: #f56c6c !default;
 $--color-info: #909399 !default;
-
 
 $--color-success-light: mix($--color-white, $--color-success, 80%) !default;
 $--color-warning-light: mix($--color-white, $--color-warning, 80%) !default;
@@ -148,7 +157,7 @@ $--message-danger-font-color: $--color-danger !default;
   top: 20px;
   transform: translateX(-50%);
   background-color: #edf2fc;
-  transition: opacity .3s, transform .4s, top .4s;
+  transition: opacity 0.3s, transform 0.4s, top 0.4s;
   overflow: hidden;
   padding: 15px 15px 15px 20px;
   display: flex;
@@ -184,7 +193,7 @@ $--message-danger-font-color: $--color-danger !default;
   }
 
   &-danger {
-    background-color: $--color-danger-lighter ;
+    background-color: $--color-danger-lighter;
     border-color: $--color-danger-light;
 
     .w-message__content {
@@ -229,7 +238,6 @@ $--message-danger-font-color: $--color-danger !default;
   transform: translate(-50%, -100%);
 }
 </style>
-
 ```
 
 上面就是 message 的相关代码，代码理解比较简单，这里就不介绍了
@@ -237,8 +245,8 @@ $--message-danger-font-color: $--color-danger !default;
 ## 通过 vue.extend, 创建子类实例
 
 ```js
-import Vue from 'vue';
-import Message from './Message.vue';
+import Vue from "vue";
+import Message from "./Message.vue";
 const MessageConstructor = Vue.extend(Message);
 ```
 
@@ -257,9 +265,9 @@ const instance  = new MessageConstructor({
 在上面代码中，我们已经创建好了实例 instance， 然后我们需要将子类的节点（$el）,挂载到 body 中
 
 ```js
- // 在实例挂载之后，元素可以用 vm.$el 访问。
-instance.$mount()
- document.body.appendChild(instance.$el)
+// 在实例挂载之后，元素可以用 vm.$el 访问。
+instance.$mount();
+document.body.appendChild(instance.$el);
 ```
 
 这里需要注意的一点是 实例是需要通过 `$mount()` 挂载之后，元素可以用 vm.$el 访问
@@ -267,8 +275,8 @@ instance.$mount()
 ## createMessage 方法
 
 ```js
-import Vue from 'vue';
-import Message from './Message.vue';
+import Vue from "vue";
+import Message from "./Message.vue";
 // Vue.extend 使用基础 Vue 构造器，创建一个“子类”。参数是一个包含组件选项的对象。
 let MessageConstructor = Vue.extend(Message);
 
@@ -277,14 +285,13 @@ let instances = [];
 let seed = 1;
 let zIndex = 2000;
 
-
 const createMessage = function (options) {
   options = options || {};
-  let id = 'message_' + seed++; // 唯一标识
+  let id = "message_" + seed++; // 唯一标识
   instance = new MessageConstructor({
-    data: options
+    data: options,
   });
-  instance.onClone = function(id) {
+  instance.onClone = function (id) {
     let len = instances.length;
     let index = -1;
     let removedHeight;
@@ -297,11 +304,11 @@ const createMessage = function (options) {
       }
     }
     if (len <= 1 || index === -1 || index > instances.length - 1) return;
-    for (let i = index; i < len - 1 ; i++) {
+    for (let i = index; i < len - 1; i++) {
       let dom = instances[i].$el;
       // 其他实例的top值减去当前实例的高度
-      dom.style['top'] =
-        parseInt(dom.style['top'], 10) - removedHeight - 16 + 'px';
+      dom.style["top"] =
+        parseInt(dom.style["top"], 10) - removedHeight - 16 + "px";
     }
   };
   instance.id = id;
@@ -309,7 +316,7 @@ const createMessage = function (options) {
   instance.$mount();
   document.body.appendChild(instance.$el);
   let top = options.offset || 40;
-  instances.forEach(item => {
+  instances.forEach((item) => {
     top += item.$el.offsetHeight + 16;
   });
   instance.top = top;
@@ -318,7 +325,6 @@ const createMessage = function (options) {
   instances.push(instance);
   return instance;
 };
-
 ```
 
 ## 挂载到 Vue 原型上面
@@ -326,8 +332,8 @@ const createMessage = function (options) {
 ```js
 Message.install = function (Vue) {
   // Vue.component(Message.name, Message)
-  Vue.prototype.$message = createMessage
-}
+  Vue.prototype.$message = createMessage;
+};
 ```
 
 ## demo 项目
@@ -344,13 +350,12 @@ vue3 的方式也差不多一样
 
 https://github.com/iygxv/demo/tree/main/vue3-message-demo
 
-
 <br/>
 
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

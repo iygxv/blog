@@ -1,19 +1,18 @@
 ---
-sidebar: 
- title: 如何将包发布到npm上
- step: 1
- isTimeLine: true
+sidebar:
+  title: 如何将包发布到npm上
+  step: 1
+  isTimeLine: true
 title: 如何将包发布到npm上
 tags:
- - 工具
+  - 工具
 categories:
- - 工具
+  - 工具
 ---
 
+# 如何将包发布到 npm 上
 
-# 如何将包发布到npm上
-
-## **创建一个npm包**
+## **创建一个 npm 包**
 
 执行命令
 
@@ -21,9 +20,9 @@ categories:
 npm init
 ```
 
-一步一步按提示完成，输入完成之后，系统会要你确认文件的内容是否有误，如果没有问题就直接输入yes或者按enter，所有步骤都完成后会生成一个package.json文件。
+一步一步按提示完成，输入完成之后，系统会要你确认文件的内容是否有误，如果没有问题就直接输入 yes 或者按 enter，所有步骤都完成后会生成一个 package.json 文件。
 
-**package.json属性说明**
+**package.json 属性说明**
 
 ```json
 name - 包名。
@@ -39,13 +38,13 @@ main - main 字段指定了程序的主入口文件，require(‘moduleName’)
 keywords - 在npm社区的搜索关键字
 ```
 
-接下来可以自己创建一个index.js文件，里面就是你要发布出去的函数代码。
+接下来可以自己创建一个 index.js 文件，里面就是你要发布出去的函数代码。
 
-## **发布packege包**
+## **发布 packege 包**
 
 - 先去[npm](https://www.npmjs.com/)中注册一个账号
 
-- 登陆npm账号
+- 登陆 npm 账号
 
   ```shell
   npm login
@@ -59,16 +58,14 @@ keywords - 在npm社区的搜索关键字
 
   输入完毕之后会就发送在你的`邮箱`一次性验证码, 验证码通过后就完成登陆了
 
-- 将包发布到npm中
+- 将包发布到 npm 中
 
   - 对于私有包和无作用域的包，请使用 `npm publish`
   - 对于作用域公共包，使用 `npm publish --access public`
 
-  
+  **登陆 npm 是 403 问题**
 
-  **登陆npm是403问题**
-
-  很多人开发是已将把npm 源换成了淘宝镜像或者自己公司内部的，但是发布需要npm本身的源。
+  很多人开发是已将把 npm 源换成了淘宝镜像或者自己公司内部的，但是发布需要 npm 本身的源。
 
   ```shell
   npm config set registry https://registry.npmjs.org/
@@ -76,23 +73,11 @@ keywords - 在npm社区的搜索关键字
 
   通过上面命令可以设置回来
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

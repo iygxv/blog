@@ -1,32 +1,33 @@
 ---
-sidebar: 
- title: release-it
- step: 1
- isTimeLine: true
+sidebar:
+  title: release-it
+  step: 1
+  isTimeLine: true
 title: release-it
 tags:
- - 工具
+  - 工具
 categories:
- - 工具
+  - 工具
 ---
 
 # release-it
-描述
-release-it可以帮我们自动提升版本、打tag、生成changelog
 
-## **release-it是什么**
+描述
+release-it 可以帮我们自动提升版本、打 tag、生成 changelog
+
+## **release-it 是什么**
 
 [release-it 官网仓库](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Frelease-it%2Frelease-it)
 
-- Bump版本（例如package.json）
-- Git提交、标记、推送
+- Bump 版本（例如 package.json）
+- Git 提交、标记、推送
 - 使用钩子执行任何（测试或构建）命令
-- 在GitHub或GitLab上创建版本
+- 在 GitHub 或 GitLab 上创建版本
 - 生成变更日志
-- 发布到npm
+- 发布到 npm
 - 管理预发布
 - 插件扩展
-- 任何CI/CD环境中发布
+- 任何 CI/CD 环境中发布
 
 ## **使用**
 
@@ -81,14 +82,12 @@ npm i git-cz -D
 }
 ```
 
-git提交时执行`npm run commit`
-
-
+git 提交时执行`npm run commit`
 
 ## **总结**
 
-- release-it可以自动提升版本、打tag、生成changelog
-- Git-cz可以进行commit 规范
+- release-it 可以自动提升版本、打 tag、生成 changelog
+- Git-cz 可以进行 commit 规范
 
 ## **参考文档**
 
@@ -97,8 +96,8 @@ git提交时执行`npm run commit`
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

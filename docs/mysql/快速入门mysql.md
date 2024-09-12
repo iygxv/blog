@@ -1,18 +1,19 @@
 ---
-sidebar: 
- title: 快速入门mysql
- step: 1
- isTimeLine: true
+sidebar:
+  title: 快速入门mysql
+  step: 1
+  isTimeLine: true
 title: 快速入门mysql
 tags:
- - mysql
+  - mysql
 categories:
- - mysql
+  - mysql
 ---
 
-# 快速入门mysql
+# 快速入门 mysql
 
 ## 常用的字段类型
+
 - INT：存储整数
 - VARCHAR(100): 存储变长字符串，可以指定长度
 - CHAR：定长字符串，不够的自动在末尾填充空格
@@ -22,9 +23,11 @@ categories:
 - DATETIME：存储日期和时间 2023-05-27 10:13
 
 ## 表的基本使用
+
 例如：现有一张名为 user 表，包含 id, name, age, sex 字段，用这张表来展示基本的 sql 语句
 
 ### 创建表
+
 ```sql
 CREATE TABLE user(
     id INT PRIMARY KEY AUTO_INCREMENT COMMENT 'Id',
@@ -34,6 +37,7 @@ CREATE TABLE user(
 ```
 
 ### 查询
+
 ```sql
 SELECT * FROM user;
 SELECT * FROM user WHERE id = 1;
@@ -42,26 +46,34 @@ SELECT * FROM user WHERE id = 1 OR name = '小缘';
 SELECT * FROM user WHERE id = 1 AND name = '小缘' OR sex = '男';
 SELECT * FROM user WHERE id = 1 AND name = '小缘' AND sex = '男';
 ```
+
 ### 更新
+
 ```sql
 UPDATE user SET name = '随缘' WHERE id = 1;
 UPDATE user SET name = '随缘', age = 20 WHERE id = 1;
-UPDATE user SET name = '随缘', age = 20, sex = '男' WHERE id = 1; 
+UPDATE user SET name = '随缘', age = 20, sex = '男' WHERE id = 1;
 ```
+
 ### 删除
+
 ```sql
 DELETE FROM user WHERE id = 1;
 DELETE FROM user WHERE id = 1 AND name = '随缘';
 DELETE FROM user WHERE id = 1 AND name = '随缘' AND sex = '男';
 ```
+
 ### 插入
+
 ```sql
 INSERT INTO user (id, name, age, sex) VALUES (1, '随缘', 20, '男');
 INSERT INTO user (id, name, age, sex) VALUES (1, '随缘', 20, '男'), (2, '王五', 21, '女');
 ```
 
 ## 查询语法和函数
+
 ### 查询语法
+
 - where：查询条件，比如 where id=1
   ```sql
   SELECT * FROM user WHERE id=1;
@@ -78,7 +90,7 @@ INSERT INTO user (id, name, age, sex) VALUES (1, '随缘', 20, '男'), (2, '王�
   ```sql
     -- 在 id 为 1、2、3 寻找
     SELECT * FROM user WHERE id in (1,2,3);
-    
+
     -- 不在 id 为 1、2、3 寻找
     SELECT * FROM user WHERE id not in (1,2,3);
   ```
@@ -113,6 +125,7 @@ INSERT INTO user (id, name, age, sex) VALUES (1, '随缘', 20, '男'), (2, '王�
   ```
 
 ### 函数
+
 - 聚合函数：avg、count、sum、min、max
   ```sql
   -- 聚合函数：avg、count、sum、min、max
@@ -154,12 +167,11 @@ INSERT INTO user (id, name, age, sex) VALUES (1, '随缘', 20, '男'), (2, '王�
   SELECT nullif(xxx, xxx), coalesce(xxx, xxx), greatest(xxx, xxx), least(xxx, xxx) FROM user;
   ```
 
-
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

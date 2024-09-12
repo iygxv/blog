@@ -12,7 +12,6 @@ categories:
 
 # async await 实现
 
-
 ## 理解 generator
 
 理解 async 函数需要先理解 Generator 函数，因为`async函数是Generator函数的语法糖`。
@@ -50,6 +49,7 @@ Generator 函数是一个普通函数，但是有两个特征。
 ### 2.调用 next()方法返回的值
 
 可知调用 next()方法返回的还是一个**对象 Object{value:指的是 yield 的值,done:表示 fn 函数是否执行完毕}**
+
 ```js
 {
   value: 1,
@@ -172,8 +172,8 @@ function asyncToGenerator(generatorFunc) {
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

@@ -14,6 +14,96 @@ categories:
 
 # EveryT
 
+## 每日 3 问（2024-9-12）
+
+### ES 如何实现 let 和 const 呢？
+
+**let 的特性**
+
+- 在块级作用域内有效
+- 不能重复声明
+- 不能预处理，不存在变量提升，即未声明之前的代码不能调用
+
+我们可以通过匿名函数和闭包的形式来模拟 let
+
+```js
+(function () {
+  var c = 3;
+  console.log(c); // 1
+})();
+console.log(c); // c is not defined
+```
+
+**count 的特性**
+
+- 在块级作用域内有效
+- 不能重复声明
+- 不能预处理，不存在变量提升，即未声明之前的代码不能调用
+
+我们可以通过 Object.defineProperty 来模拟 const
+
+```js
+function _const(key, value) {
+  window[key] = value;
+  Object.defineProperty(window, key, {
+    enumerable: false, // 不可枚举
+    configurable: false, // 不可配置
+    get: function () {
+      return value;
+    },
+    set: function (newValue) {
+      if (newValue !== value) {
+        throw TypeError("这是只读变量，不可修改");
+      } else {
+        return value;
+      }
+    },
+  });
+}
+```
+
+### base64 为什么比 png 大？
+
+一般情况下，base64 编码后的字符串长度会比原始图片的大小大约为 4/3 左右。这是因为 base64 编码将 3 个字节转换为 4 个字符，同时可能会添加一些填充字符。
+此外，图片在编码为 base64 格式时，通常会进行二进制转换，将每个像素的颜色信息转换为二进制数据，然后再将这些二进制数据编码为 base64 字符串。由于 base64 编码使用的是文本形式表示二进制数据，因此在编码过程中可能会引入一些额外的开销和填充，从而导致编码后的字符串比原始图片的大小更大。
+
+### 为什么 Vue3 中使用 ref 定义的变量要用 .value 呢?
+
+源码中 使用 了 get value 函数和 set value 函数, 在使用 getter 和 setter 的时候为实例创建一个伪属性（value）
+
+大概源码展示:
+
+```js
+class RefImpl {
+  private _value // 私有的值
+  private _rawValue // 私有的原始值
+  public readonly __v_isRef = true
+  constructor(value, public readonly __v_isShallow: boolean) {
+    this._rawValue = value
+    this._value = __v_isShallow ? value : toReactive(value)
+  }
+
+  // 代理
+  get value() {
+    // 收集依赖
+    track(this, trackOpTypes.GET, 'value')
+    return this._value
+  }
+  set value(newVal) {
+    if(hasChanged(newVal, this._rawValue)) {
+       this._rawValue = newVal
+       this._value =  this.__v_isShallow ? newVal : toReactive(newVal)
+       // 触发依赖
+       trigger(this, TriggerOrTypes.SET, 'value', newVal)
+    }
+  }
+}
+```
+
+## npm、yarn、pnpm 的区别？（2024-9-11）
+
+[npm、yarn、pnpm 的区别？](https://icodehub.top/blog/engineering/npm%E3%80%81yarn%E3%80%81pnpm%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F.html)
+
 ## 每日 3 问（2024-9-10）
 
 ### Javascript 本地存储的方式有哪些，有什么区别，及有哪些应用场景？

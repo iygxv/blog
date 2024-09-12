@@ -1,15 +1,15 @@
 ---
-sidebar: 
- title: 内置组件-Transition
- step: 1
- isTimeLine: true
+sidebar:
+  title: 内置组件-Transition
+  step: 1
+  isTimeLine: true
 title: 内置组件-Transition
 tags:
- - Vue2
- - Vue3
+  - Vue2
+  - Vue3
 categories:
- - Vue2
- - Vue3
+  - Vue2
+  - Vue3
 ---
 
 # 内置组件-Transition
@@ -45,13 +45,9 @@ categories:
 }
 ```
 
-
-
 :::tip Tip
 `Transition` 仅支持单个元素或组件作为其插槽内容。如果内容是一个组件，这个组件必须仅有一个根元素。
 :::
-
-
 
 当一个 `Transition` 组件中的元素被插入或移除时，会发生下面这些事情：
 
@@ -67,8 +63,6 @@ categories:
 
 <img src="https://cn.vuejs.org/assets/transition-classes.2BufuvZR.png" alt="" />
 
-
-
 1. `v-enter-from`：进入动画的起始状态。在元素插入之前添加，在元素插入完成后的下一帧移除。
 2. `v-enter-active`：进入动画的生效状态。应用于整个进入动画阶段。在元素被插入之前添加，在过渡或动画完成之后移除。这个 class 可以被用来定义进入动画的持续时间、延迟与速度曲线类型。
 3. `v-enter-to`：进入动画的结束状态。在元素插入完成后的下一帧被添加 (也就是 `v-enter-from` 被移除的同时)，在过渡或动画完成之后移除。
@@ -78,16 +72,12 @@ categories:
 
 `v-enter-active` 和 `v-leave-active` 给我们提供了为进入和离开动画指定不同速度曲线的能力，我们将在下面的小节中看到一个示例。
 
-
-
 ### 为过渡效果命名
 
 我们可以给 `Transition` 组件传一个 `name` prop 来声明一个过渡效果名：
 
 ```html
-<Transition name="fade">
-  ...
-</Transition>
+<Transition name="fade"> ... </Transition>
 ```
 
 对于一个有名字的过渡效果，对它起作用的过渡 class 会以其名字而不是 `v` 作为前缀。比如，上方例子中被应用的 class 将会是 `fade-enter-active` 而不是 `v-enter-active`。这个“fade”过渡的 class 应该是这样：
@@ -144,9 +134,7 @@ categories:
 
 ```html
 <Transition name="bounce">
-  <p v-if="show" style="text-align: center;">
-    Hello here is some bouncy text!
-  </p>
+  <p v-if="show" style="text-align: center;">Hello here is some bouncy text!</p>
 </Transition>
 ```
 
@@ -211,9 +199,7 @@ Vue 需要附加事件监听器，以便知道过渡何时结束。可以是 `tr
 ```html
 <Transition name="nested">
   <div v-if="show" class="outer">
-    <div class="inner">
-      Hello
-    </div>
+    <div class="inner">Hello</div>
   </div>
 </Transition>
 ```
@@ -248,13 +234,13 @@ Vue 需要附加事件监听器，以便知道过渡何时结束。可以是 `tr
 在这种情况下，你可以通过向 `Transition` 组件传入 `duration` prop 来显式指定过渡的持续时间 (以毫秒为单位)。总持续时间应该匹配延迟加上内部元素的过渡持续时间：
 
 ```css
-<Transition :duration="550">...</Transition>
+<transition: duration= "550" >...</Transition>;
 ```
 
 如果有必要的话，你也可以用对象的形式传入，分开指定进入和离开所需的时间：
 
 ```css
-<Transition :duration="{ enter: 500, leave: 800 }">...</Transition>
+<transition: duration= "{ enter: 500, leave: 800 }" >...</Transition>;
 ```
 
 ### 性能考量
@@ -295,7 +281,7 @@ function onBeforeEnter(el) {}
 function onEnter(el, done) {
   // 调用回调函数 done 表示过渡结束
   // 如果与 CSS 结合使用，则这个回调是可选参数
-  done()
+  done();
 }
 
 // 当进入过渡完成时调用。
@@ -313,7 +299,7 @@ function onBeforeLeave(el) {}
 function onLeave(el, done) {
   // 调用回调函数 done 表示过渡结束
   // 如果与 CSS 结合使用，则这个回调是可选参数
-  done()
+  done();
 }
 
 // 在离开过渡完成、
@@ -329,12 +315,8 @@ function onLeaveCancelled(el) {}
 在使用仅由 JavaScript 执行的动画时，最好是添加一个 `:css="false"` prop。这显式地向 Vue 表明可以跳过对 CSS 过渡的自动探测。除了性能稍好一些之外，还可以防止 CSS 规则意外地干扰过渡效果：
 
 ```css
-<Transition
-  ...
-  :css="false"
->
-  ...
-</Transition>
+<transition...
+  : css= "false" >... </Transition>;
 ```
 
 在有了 `:css="false"` 后，我们就自己全权负责控制什么时候过渡结束了。这种情况下对于 `@enter` 和 `@leave` 钩子来说，回调函数 `done` 就是必须的。否则，钩子将被同步调用，过渡将立即完成。
@@ -351,11 +333,9 @@ function onLeaveCancelled(el) {}
 
 <template>
   <!-- 包装内置的 Transition 组件 -->
-  <Transition
-    name="my-transition"
-    @enter="onEnter"
-    @leave="onLeave">
-    <slot></slot> <!-- 向内传递插槽内容 -->
+  <Transition name="my-transition" @enter="onEnter" @leave="onLeave">
+    <slot></slot>
+    <!-- 向内传递插槽内容 -->
   </Transition>
 </template>
 
@@ -381,9 +361,7 @@ function onLeaveCancelled(el) {}
 如果你想在某个节点初次渲染时应用一个过渡效果，你可以添加 `appear` prop：
 
 ```html
-<Transition appear>
-  ...
-</Transition>
+<Transition appear> ... </Transition>
 ```
 
 ## 元素间过渡
@@ -405,9 +383,7 @@ function onLeaveCancelled(el) {}
 然而，很多情况下这可能并不符合需求。我们可能想要先执行离开动画，然后在其完成**之后**再执行元素的进入动画。手动编排这样的动画是非常复杂的，好在我们可以通过向 `Transition` 传入一个 `mode` prop 来实现这个行为：
 
 ```html
-<Transition mode="out-in">
-  ...
-</Transition>
+<Transition mode="out-in"> ... </Transition>
 ```
 
 ## 组件间过渡
@@ -442,7 +418,7 @@ function onLeaveCancelled(el) {}
 
 ```vue
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 const count = ref(0);
 
 setInterval(() => count.value++, 1000);
@@ -460,7 +436,9 @@ setInterval(() => count.value++, 1000);
 ## API 参考
 
 - [ API 参考](https://cn.vuejs.org/api/built-in-components.html#transition)
+
 ### props 属性
+
 ```ts
 interface TransitionProps {
   /**
@@ -468,51 +446,52 @@ interface TransitionProps {
    * 例如 `name: 'fade'` 将自动扩展为 `.fade-enter`、
    * `.fade-enter-active` 等。
    */
-  name?: string
+  name?: string;
   /**
    * 是否应用 CSS 过渡 class。
    * 默认：true
    */
-  css?: boolean
+  css?: boolean;
   /**
    * 指定要等待的过渡事件类型
    * 来确定过渡结束的时间。
    * 默认情况下会自动检测
    * 持续时间较长的类型。
    */
-  type?: 'transition' | 'animation'
+  type?: "transition" | "animation";
   /**
    * 显式指定过渡的持续时间。
    * 默认情况下是等待过渡效果的根元素的第一个 `transitionend`
    * 或`animationend`事件。
    */
-  duration?: number | { enter: number; leave: number }
+  duration?: number | { enter: number; leave: number };
   /**
    * 控制离开/进入过渡的时序。
    * 默认情况下是同时的。
    */
-  mode?: 'in-out' | 'out-in' | 'default'
+  mode?: "in-out" | "out-in" | "default";
   /**
    * 是否对初始渲染使用过渡。
    * 默认：false
    */
-  appear?: boolean
+  appear?: boolean;
 
   /**
    * 用于自定义过渡 class 的 prop。
    * 在模板中使用短横线命名，例如：enter-from-class="xxx"
    */
-  enterFromClass?: string
-  enterActiveClass?: string
-  enterToClass?: string
-  appearFromClass?: string
-  appearActiveClass?: string
-  appearToClass?: string
-  leaveFromClass?: string
-  leaveActiveClass?: string
-  leaveToClass?: string
+  enterFromClass?: string;
+  enterActiveClass?: string;
+  enterToClass?: string;
+  appearFromClass?: string;
+  appearActiveClass?: string;
+  appearToClass?: string;
+  leaveFromClass?: string;
+  leaveActiveClass?: string;
+  leaveToClass?: string;
 }
 ```
+
 ### 事件
 
 - `@before-enter`
@@ -527,25 +506,14 @@ interface TransitionProps {
 - `@leave-cancelled` (`v-show` only)
 - `@appear-cancelled`
 
-
-
-
-
 - [`参考指南`](https://cn.vuejs.org/guide/built-ins/transition.html)
-
-
-
-
-
-
-
 
 <br/>
 
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

@@ -1,19 +1,18 @@
 ---
 sidebar:
- title: HTML 试炼
- step: 1
- isTimeLine: true
+  title: HTML 试炼
+  step: 1
+  isTimeLine: true
 title: HTML 试炼
 tags:
- - 试炼
+  - 试炼
 categories:
- - 试炼
+  - 试炼
 ---
 
 # HTML 试炼
 
 ## 具体试炼要求
-
 
 <img src="./assets/1621600195788-acab59b1-a654-4ec4-b9c2-0a491a660671.png" alt="HTML试炼.png" style="zoom:50%;" />
 
@@ -36,19 +35,26 @@ src 和 href 都是**用来引用外部的资源**，它们的区别如下：
 常见的语义化标签：
 
 ```html
-<header></header>  头部
+<header></header>
+头部
 
-<nav></nav>  导航栏
+<nav></nav>
+导航栏
 
-<section></section>  区块（有语义化的div）
+<section></section>
+区块（有语义化的div）
 
-<main></main>  主要区域
+<main></main>
+主要区域
 
-<article></article>  主要内容
+<article></article>
+主要内容
 
-<aside></aside>  侧边栏
+<aside></aside>
+侧边栏
 
-<footer></footer>  底部
+<footer></footer>
+底部
 ```
 
 ## 3. DOCTYPE(⽂档类型) 的作⽤
@@ -90,7 +96,7 @@ DOCTYPE 是 HTML5 中一种标准通用标记语言的文档类型声明，它�
 （1）`charset`，用来描述 HTML 文档的编码类型：
 
 ```html
-<meta charset="UTF-8" >
+<meta charset="UTF-8" />
 ```
 
 （2） `keywords`，页面关键词：
@@ -114,7 +120,10 @@ DOCTYPE 是 HTML5 中一种标准通用标记语言的文档类型声明，它�
 （5）`viewport`，适配移动端，可以控制视口的大小和比例：
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1"
+/>
 ```
 
 其中，`content` 参数有以下几种：
@@ -157,7 +166,7 @@ DOCTYPE 是 HTML5 中一种标准通用标记语言的文档类型声明，它�
 （1） audio：音频
 
 ```html
-<audio src='' controls autoplay loop='true'></audio>
+<audio src="" controls autoplay loop="true"></audio>
 ```
 
 属性：
@@ -169,7 +178,7 @@ DOCTYPE 是 HTML5 中一种标准通用标记语言的文档类型声明，它�
 （2）video 视频
 
 ```html
-<video src='' poster='imgs/aa.jpg' controls></video>
+<video src="" poster="imgs/aa.jpg" controls></video>
 ```
 
 属性：
@@ -300,9 +309,11 @@ HTML5 提供了两种在客户端存储数据的新方法：
 按照上面的实现，不同的屏幕密度都要设置图片地址，目前的屏幕密度有 1x,2x,3x,4x 四种，如果每一个图片都设置 4 张图片，加载就会很慢。所以就有了新的 srcset 标准。代码如下：
 
 ```html
-<img src="image-128.png"
-     srcset="image-128.png 128w, image-256.png 256w, image-512.png 512w"
-     sizes="(max-width: 360px) 340px, 128px" />
+<img
+  src="image-128.png"
+  srcset="image-128.png 128w, image-256.png 256w, image-512.png 512w"
+  sizes="(max-width: 360px) 340px, 128px"
+/>
 ```
 
 其中 srcset 指定图片的地址和对应的图片质量。sizes 用来设置图片的尺寸零界点。对于 srcset 中的 w 单位，可以理解成图片质量。如果可视区域小于这个质量的值，就可以使用。浏览器会自动选择一个最小的可用图片。
@@ -346,7 +357,7 @@ sizes 就是指默认显示 128px, 如果视区宽度大于 360px, 则显示 340
 （1）创建一个和 html 同名的 manifest 文件，然后在页面头部加入 manifest 属性：
 
 ```html
-<html lang="en" manifest="index.manifest">
+<html lang="en" manifest="index.manifest"></html>
 ```
 
 （2）在 `cache.manifest` 文件中编写需要离线存储的资源：
@@ -427,14 +438,13 @@ label 标签来定义表单控件的关系：当用户选择 label 标签时，�
 - 使用方法 1：
 
 ```html
-<label for="mobile">Number:</label>
-<input type="text" id="mobile"/>
+<label for="mobile">Number:</label> <input type="text" id="mobile" />
 ```
 
 - 使用方法 2：
 
 ```html
-<label>Date:<input type="text"/></label>
+<label>Date:<input type="text" /></label>
 ```
 
 ## 15. Canvas 和 SVG 的区别
@@ -477,14 +487,14 @@ Canvas 是画布，通过 Javascript 来绘制 2D 图形，是逐像素进行渲
 其中 <title> 定义文档的标题，它是 head 部分中唯一必需的元素
 ```
 
-
-
 ## 17. 文档声明（Doctype）和（!Doctype html）有何作用? 严格模式与混杂模式如何区分？它们有何意义?
 
 **文档声明的作用**：文档声明是为了告诉浏览器，当前`HTML`文档使用什么版本的`HTML`来写的，这样浏览器才能按照声明的版本来正确的解析。
 
 ```html
-<!Doctype html>的作用：<!doctype html> 的作用就是让浏览器进入标准模式，使用最新的 HTML5 标准来解析渲染页面；如果不写，浏览器就会进入混杂模式，我们需要避免此类情况发生。
+<!DOCTYPE html>的作用：<!DOCTYPE html>
+的作用就是让浏览器进入标准模式，使用最新的 HTML5
+标准来解析渲染页面；如果不写，浏览器就会进入混杂模式，我们需要避免此类情况发生。
 ```
 
 **严格模式与混杂模式的区分**：
@@ -540,12 +550,11 @@ Canvas 是画布，通过 Javascript 来绘制 2D 图形，是逐像素进行渲
 - drop：事件主体是目标元素，在目标元素完全接受被拖放元素时触发。
 - dragend：事件主体是被拖放元素，在整个拖放操作结束时触发。
 
-
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

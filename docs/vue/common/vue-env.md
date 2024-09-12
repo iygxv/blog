@@ -1,30 +1,32 @@
 ---
-sidebar: 
- title: vue 项目中 env 详解
- step: 1
- isTimeLine: true
+sidebar:
+  title: vue 项目中 env 详解
+  step: 1
+  isTimeLine: true
 title: vue 项目中 env 详解
 tags:
- - 项目
- - Vue2
- - Vue3
+  - 项目
+  - Vue2
+  - Vue3
 categories:
- - 项目
- - Vue2
- - Vue3
+  - 项目
+  - Vue2
+  - Vue3
 ---
 
 # vue 项目中 env 详解
 
 ## 简介
-在Vue项目中，`.env` 文件用于存储项目的环境配置信息。这个文件可以被 `vue cli` 自动加载，并且可以在项目的任何位置通过 `process.env.xxx` 来访问这些配置。下面是对vue项目 `.env` 配置的详细解释：
+
+在 Vue 项目中，`.env` 文件用于存储项目的环境配置信息。这个文件可以被 `vue cli` 自动加载，并且可以在项目的任何位置通过 `process.env.xxx` 来访问这些配置。下面是对 vue 项目 `.env` 配置的详细解释：
 
 ## 文件类型
+
 - `.env`：这是全局默认配置文件，无论什么环境都会加载合并
 - `.env.development`：这是开发环境的配置文件
 - `.env.beta`：这是测试环境的配置文件
 - `.env.production`：这是生产环境的配置文件
-- `.env.xxx`：运行项目中需要带模式  mode: 'xxx'
+- `.env.xxx`：运行项目中需要带模式 mode: 'xxx'
 
 如果后面加了`.local（.env.local）`不应该被提交到版本控制系统（如 Git）
 
@@ -50,17 +52,13 @@ categories:
 
 总的来说，`.env` 文件是 `Vue` 项目中非常重要的一个配置文件，它允许开发者为不同的环境设置不同的配置信息，并通过 `process.env` 在项目的任何位置访问这些配置。
 
-Vue cli 可以加载.env文件，详情可查看：[Vue cli-环境变量和模式](https://cli.vuejs.org/zh/guide/mode-and-env.html#%E6%A8%A1%E5%BC%8F)
-
-
-
-
+Vue cli 可以加载.env 文件，详情可查看：[Vue cli-环境变量和模式](https://cli.vuejs.org/zh/guide/mode-and-env.html#%E6%A8%A1%E5%BC%8F)
 
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

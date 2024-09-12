@@ -1,13 +1,13 @@
 ---
-sidebar: 
- title: webpack 相关知识
- step: 1
- recommend: 4
+sidebar:
+  title: webpack 相关知识
+  step: 1
+  recommend: 4
 title: webpack 相关知识
 tags:
- - Webpack
+  - Webpack
 categories:
- - Webpack
+  - Webpack
 ---
 
 # webpack 相关知识
@@ -46,141 +46,122 @@ Webpack 底层的工作流程大致可以总结为这么几个阶段：
 
 不过，这些性能问题是可以被优化的！
 
+## 2.babel 原理
 
+### 什么是 babel?
 
-## 2.babel原理
+是一个工具链，主要用于旧浏览器或者缓解中将 ECMAScript 2015+代码转换为向后兼容版本的 JavaScript
 
-### 什么是babel?
+包括：语法转换、源代码转换、Polyfill 实现目标缓解缺少的功能等
 
-是一个工具链，主要用于旧浏览器或者缓解中将ECMAScript 2015+代码转换为向后兼容版本的JavaScript
+### babel 原理
 
-包括：语法转换、源代码转换、Polyfill实现目标缓解缺少的功能等
-
-### babel原理
-
-Babel也拥有编译器的工作流程：
+Babel 也拥有编译器的工作流程：
 
 - 解析阶段（Parsing）
 - 转换阶段（Transformation）
 - 生成阶段（Code Generation）
 
-
-
 ![image-20220111103611954](assets/image-20220111103611954-6257343.png)
 
-## 3.HMR原理
+## 3.HMR 原理
 
-### 什么是HMR
+### 什么是 HMR
 
-HMR的全称是Hot Module Replacement，翻译为模块热替换；
+HMR 的全称是 Hot Module Replacement，翻译为模块热替换；
 模块热替换是指在 应用程序运行过程中，替换、添加、删除模块，`而无需重新刷新整个页面`。
 
-HMR通过如下几种方式，来提高开发的速度：
+HMR 通过如下几种方式，来提高开发的速度：
+
 - 不重新加载整个页面，这样可以保留某些应用程序的状态不丢失
 - 只更新需要变化的内容，节省开发的时间
-- 修改了css、js源代码，会立即在浏览器更新，相当于直接在浏览器的devtools中直接修改样式
+- 修改了 css、js 源代码，会立即在浏览器更新，相当于直接在浏览器的 devtools 中直接修改样式
 
-### HMR原理
+### HMR 原理
 
-webpack-dev-server会创建两个服务：`提供静态资源的服务（express）和Socket服务（net.Socket）`
+webpack-dev-server 会创建两个服务：`提供静态资源的服务（express）和Socket服务（net.Socket）`
 
+express server 负责直接提供静态资源的服务（打包后的资源直接被浏览器请求和解析）。
 
-
-express server负责直接提供静态资源的服务（打包后的资源直接被浏览器请求和解析）。
-
-HMR Socket Server，是一个socket的长连接：
+HMR Socket Server，是一个 socket 的长连接：
 
 - 长连接有一个最好的好处是建立连接后双方可以通信（服务器可以直接发送文件到客户端）
 
-- 当服务器监听到对应的模块发生变化时，会生成两个文件.json（manifest文件）和.js文件（update chunk）
+- 当服务器监听到对应的模块发生变化时，会生成两个文件.json（manifest 文件）和.js 文件（update chunk）
 
 - 通过长连接，可以直接将这两个文件主动发送给客户端（浏览器）
 
-- 浏览器拿到两个新的文件后，通过HMR runtime机制，加载这两个文件，并且针对修改的模块进行更新
-
-
+- 浏览器拿到两个新的文件后，通过 HMR runtime 机制，加载这两个文件，并且针对修改的模块进行更新
 
 ![image-20220111104021349](assets/image-20220111104021349-6257343.png)
 
-## 4.自定义loader
+## 4.自定义 loader
 
-### **什么是loader?**
+### **什么是 loader?**
 
- loader是用于对模块的源代码进行转换（处理），之前我们已经使用过很多Loader，比如css-loader、style-loader、babel-loader等
+loader 是用于对模块的源代码进行转换（处理），之前我们已经使用过很多 Loader，比如 css-loader、style-loader、babel-loader 等
 
+### **如何自定义 loader?**
 
+loader 本质上是一个导出为函数的 JavaScript 模块；
+**loader runner 库**会调用这个函数，然后将上一个 loader 产生的结果或者资源文件传入进去
 
-### **如何自定义loader?**
-
-loader本质上是一个导出为函数的JavaScript模块；
-**loader runner库**会调用这个函数，然后将上一个loader产生的结果或者资源文件传入进去
-
-
-
-### **自定义的md-loader(解析md文档)**
+### **自定义的 md-loader(解析 md 文档)**
 
 ```js
-const marked = require('marked');
-const hljs = require('highlight.js');
+const marked = require("marked");
+const hljs = require("highlight.js");
 
 /*
-* content：资源文件的内容
-* map：sourcemap相关的数据
-* meta：一些元数据
-*/
-module.exports = function(content, map, meta) {
+ * content：资源文件的内容
+ * map：sourcemap相关的数据
+ * meta：一些元数据
+ */
+module.exports = function (content, map, meta) {
   marked.setOptions({
-    highlight: function(code, lang) {
+    highlight: function (code, lang) {
       return hljs.highlight(lang, code).value;
-    }
-  })
+    },
+  });
 
   const htmlContent = marked(content);
   const innerContent = "`" + htmlContent + "`";
-  const moduleCode = `var code=${innerContent}; export default code;`
+  const moduleCode = `var code=${innerContent}; export default code;`;
   return moduleCode;
-} 
+};
 ```
 
 ### **使用**
 
 ```js
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   mode: "development",
   entry: "./src/main.js",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "./build")
+    path: path.resolve(__dirname, "./build"),
   },
   module: {
     rules: [
       {
         test: /\.md$/i,
-        use: [
-          "md-loader"
-        ]
+        use: ["md-loader"],
       },
       {
         test: /\.css$/i,
-        use: [
-          "style-loader",
-          "css-loader"
-        ]
-      }
-    ]
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
   resolveLoader: {
-    modules: ["node_modules", "./my-loader"]
-  }
-}
-
+    modules: ["node_modules", "./my-loader"],
+  },
+};
 ```
 
-
-
-## 5.自定义Plugin
+## 5.自定义 Plugin
 
 `webpack` 插件由以下组成：
 
@@ -192,19 +173,20 @@ module.exports = {
 
 ```js
 // 一个 JavaScript 命名函数。
-function MyExampleWebpackPlugin() {
-
-};
+function MyExampleWebpackPlugin() {}
 
 // 在插件函数的 prototype 上定义一个 `apply` 方法。
-MyExampleWebpackPlugin.prototype.apply = function(compiler) {
+MyExampleWebpackPlugin.prototype.apply = function (compiler) {
   // 指定一个挂载到 webpack 自身的事件钩子。
-  compiler.plugin('webpacksEventHook', function(compilation /* 处理 webpack 内部实例的特定数据。*/, callback) {
-    console.log("This is an example plugin!!!");
+  compiler.plugin(
+    "webpacksEventHook",
+    function (compilation /* 处理 webpack 内部实例的特定数据。*/, callback) {
+      console.log("This is an example plugin!!!");
 
-    // 功能完成后调用 webpack 提供的回调。
-    callback();
-  });
+      // 功能完成后调用 webpack 提供的回调。
+      callback();
+    }
+  );
 };
 ```
 
@@ -224,9 +206,9 @@ function HelloWorldPlugin(options) {
   // 使用 options 设置插件实例……
 }
 
-HelloWorldPlugin.prototype.apply = function(compiler) {
-  compiler.plugin('done', function() {
-    console.log('Hello World!');
+HelloWorldPlugin.prototype.apply = function (compiler) {
+  compiler.plugin("done", function () {
+    console.log("Hello World!");
   });
 };
 
@@ -236,13 +218,11 @@ module.exports = HelloWorldPlugin;
 然后，要安装这个插件，只需要在你的 webpack 配置的 `plugin` 数组中添加一个实例：
 
 ```javascript
-var HelloWorldPlugin = require('hello-world');
+var HelloWorldPlugin = require("hello-world");
 
 var webpackConfig = {
   // ... 这里是其他配置 ...
-  plugins: [
-    new HelloWorldPlugin({options: true})
-  ]
+  plugins: [new HelloWorldPlugin({ options: true })],
 };
 ```
 
@@ -253,13 +233,11 @@ var webpackConfig = {
 ```javascript
 function HelloCompilationPlugin(options) {}
 
-HelloCompilationPlugin.prototype.apply = function(compiler) {
-
+HelloCompilationPlugin.prototype.apply = function (compiler) {
   // 设置回调来访问 compilation 对象：
-  compiler.plugin("compilation", function(compilation) {
-
+  compiler.plugin("compilation", function (compilation) {
     // 现在，设置回调来访问 compilation 中的步骤：
-    compilation.plugin("optimize", function() {
+    compilation.plugin("optimize", function () {
       console.log("Assets are being optimized.");
     });
   });
@@ -272,20 +250,18 @@ module.exports = HelloCompilationPlugin;
 
 ### 异步编译插件
 
-有一些编译插件中的步骤是异步的，这样就需要额外传入一个 callback 回调函数，并且在插件运行结束时，_必须_调用这个回调函数。
+有一些编译插件中的步骤是异步的，这样就需要额外传入一个 callback 回调函数，并且在插件运行结束时，*必须*调用这个回调函数。
 
 ```javascript
 function HelloAsyncPlugin(options) {}
 
-HelloAsyncPlugin.prototype.apply = function(compiler) {
-  compiler.plugin("emit", function(compilation, callback) {
-
+HelloAsyncPlugin.prototype.apply = function (compiler) {
+  compiler.plugin("emit", function (compilation, callback) {
     // 做一些异步处理……
-    setTimeout(function() {
+    setTimeout(function () {
       console.log("Done with async work...");
       callback();
     }, 1000);
-
   });
 };
 
@@ -301,25 +277,25 @@ module.exports = HelloAsyncPlugin;
 ```javascript
 function FileListPlugin(options) {}
 
-FileListPlugin.prototype.apply = function(compiler) {
-  compiler.plugin('emit', function(compilation, callback) {
+FileListPlugin.prototype.apply = function (compiler) {
+  compiler.plugin("emit", function (compilation, callback) {
     // 在生成文件中，创建一个头部字符串：
-    var filelist = 'In this build:\n\n';
+    var filelist = "In this build:\n\n";
 
     // 遍历所有编译过的资源文件，
     // 对于每个文件名称，都添加一行内容。
     for (var filename in compilation.assets) {
-      filelist += ('- '+ filename +'\n');
+      filelist += "- " + filename + "\n";
     }
 
     // 将这个列表作为一个新的文件资源，插入到 webpack 构建中：
-    compilation.assets['filelist.md'] = {
-      source: function() {
+    compilation.assets["filelist.md"] = {
+      source: function () {
         return filelist;
       },
-      size: function() {
+      size: function () {
         return filelist.length;
-      }
+      },
     };
 
     callback();
@@ -372,7 +348,7 @@ applyPluginsAsyncWaterfall(name: string, init: any, callback: (err: Error, resul
 applyPluginsAsyncSeries(name: string, args: any..., callback: (err: Error, result: any) -> void)
 ```
 
-- **并行(parallel)** 
+- **并行(parallel)**
 
 ```js
 applyPluginsParallel(name: string, args: any..., callback: (err?: Error) -> void)
@@ -382,8 +358,8 @@ applyPluginsParallelBailResult(name: string, args: any..., callback: (err: Error
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

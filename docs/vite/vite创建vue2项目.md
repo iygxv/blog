@@ -1,15 +1,14 @@
 ---
 sidebar:
- title: vite创建vue2项目
- step: 1
- isTimeLine: true
+  title: vite创建vue2项目
+  step: 1
+  isTimeLine: true
 title: vite创建vue2项目
 tags:
- - Vite
+  - Vite
 categories:
- - Vite
+  - Vite
 ---
-
 
 ## **初始化 Vue2 项目**
 
@@ -58,11 +57,11 @@ yarn add vite-plugin-vue2
 在 `vite.config.js` 里输入以下代码。
 
 ```js
-import { createVuePlugin } from 'vite-plugin-vue2'
+import { createVuePlugin } from "vite-plugin-vue2";
 
 export default {
-  plugins: [createVuePlugin()]
-}
+  plugins: [createVuePlugin()],
+};
 ```
 
 引入 `vite-plugin-vue2` 插件，并用 `Vite` 提供的插件注册方法来注册。
@@ -100,18 +99,17 @@ yarn add vue@2.7 vue-template-compiler
     <div>Hello Vite Vue2</div>
   </template>
   ```
-  
+
 - 修改 src/main.js
-   这一步的代码就有点像使用 vue-cli 创建的项目里的 main.js 的操作了。
-   
-   ```js
-   import Vue from 'vue'
-   import App from './App.vue'
-   
-   new Vue({
-     render: h => h(App)
-   }).$mount('#app')
-   ```
+  这一步的代码就有点像使用 vue-cli 创建的项目里的 main.js 的操作了。
+  ```js
+  import Vue from "vue";
+  import App from "./App.vue";
+
+  new Vue({
+    render: (h) => h(App),
+  }).$mount("#app");
+  ```
 - 启动项目
   ```shell
   yarn dev
@@ -134,12 +132,11 @@ yarn create vite my-vue-app --template vue
 |        [lit](https://vite.new/lit)        |     [lit-ts](https://vite.new/lit-ts)     |
 |     [svelte](https://vite.new/svelte)     |  [svelte-ts](https://vite.new/svelte-ts)  |
 
-
 <br/>
 <hr />
 
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
+⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
 
-✿✿ヽ(°▽°)ノ✿
+✿✿ ヽ(°▽°)ノ ✿
 
 撒花 🌸🌸🌸🌸🌸🌸

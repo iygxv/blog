@@ -35,7 +35,7 @@ function traverseFolder(folderPath) {
     capitalizedFolderName = folderName.charAt(0).toUpperCase() + folderName.slice(1);
   }
   const indexPath = path.join(folderPath, 'index.md');
-  let indexContent = `---\nhidden: true\n---\n\n## ${capitalizedFolderName}\n`;
+  let indexContent = `---\nhidden: true\n---\n\n## ${capitalizedFolderName}\n\n`;
 
   fs.readdir(folderPath, (err, files) => {
     if (err) {
