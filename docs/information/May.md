@@ -168,9 +168,9 @@ Missing dependencies
 
 ## width:100% 与 width:auto 有什么区别呢?
 
-- width:100% : `子元素的 content 撑满父元素的 content，如果子元素还有 padding、border等属性，或者是在父元素上设置了边距和填充，都有可能会造成子元素区域溢出显示`
+- width:100% : 子元素的 content 撑满父元素的 content，如果子元素还有 padding、border等属性，或者是在父元素上设置了边距和填充，都有可能会造成子元素区域溢出显示
 
-- width:auto : `子元素的 content + padding + border + margin 等撑满父元素的 content 区域`
+- width:auto : 子元素的 content + padding + border + margin 等撑满父元素的 content 区域
 
 ## line-height:1 是什么意思呢?
 

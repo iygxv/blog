@@ -6,8 +6,10 @@ sidebar:
 title: 部署vue项目
 tags:
   - 运维
+  - 项目
 categories:
   - 运维
+  - 项目
 ---
 
 # 部署 vue 项目
@@ -50,7 +52,7 @@ server {
       charset utf-8;
       location / {
       root /www/server/web/deploy/modules;
-          try_files $uri $uri/ /index.html;
+          try_files $uri $uri/ @router;
           index  index.html index.htm;
       }
 
@@ -136,7 +138,7 @@ export default router;
 
       location /activity {
            alias /www/server/web/deploy/activity;
-   				 try_files $uri $uri/ /applet/index.html;
+   				 try_files $uri $uri/ @router;
            index  index.html index.htm;
       }
       # nginx配置中的location块，
@@ -164,7 +166,7 @@ export default router;
 ```shell
 location /activity {
     alias /www/server/web/deploy/activity;
-    try_files $uri $uri/ /applet/index.html;
+    try_files $uri $uri/ /index.html;
     index  index.html index.htm;
 }
 ```
@@ -177,6 +179,57 @@ location /activity {
 
 - 单一部署项目时，可以直接通过根路径直接指定文件目录
 - 多个项目部署时，第一个项目使用根路径，其他项目使用别名 `alias` 来指定文件目录，另外其他项目的`公共基础路径`和`路由基本路径 base`也需要修改
+
+## 扩展
+
+```shell
+server {
+    listen 1006;
+    charset utf-8;
+    location / {
+        root /www/server/web/deploy/modules;
+        try_files $uri $uri/ /index.html;
+        index index.html index.htm;
+    }
+
+}
+```
+
+- **try_files**: 在这个配置中，`try_files` 尝试按顺序查找 `$uri`、`$uri/`，如果都找不到，则直接返回 `/index.html`。
+- 也就是说，如果请求的文件或目录不存在，它会直接返回 `index.html`
+
+```shell
+server {
+    listen 1006;
+    charset utf-8;
+    location / {
+        root /www/server/web/deploy/modules;
+        try_files $uri $uri/ @router;
+        index index.html index.htm;
+    }
+
+    location @router {
+        rewrite ^.*$ /index.html last;
+    }
+}
+```
+
+- **try_files**: 在这个配置中，`try_files` 也是尝试查找 `$uri` 和 `$uri/`，但是如果都找不到，它会通过内部重定向到 `@router`，然后执行 `@router` 块中的重写规则。
+- 这意味着，在找不到文件时，它会先进入 `@router` 位置，然后再重写到 `/index.html`。
+
+### 主要区别总结：
+
+1. **重定向的方式**:
+   - 第一个配置直接返回 `/index.html`。
+   - 第二个配置通过内部重定向到 `@router`，然后再重写到 `/index.html`。
+2. **行为**:
+   - 第一个配置更直接且简单，当请求的文件或目录不存在时，直接返回 `index.html`。
+   - 第二个配置则使用了内部重定向机制，虽然在大多数情况下效果是相同的，但在某些情况下可能会对性能和请求处理有细微的影响。
+
+### 选择建议：
+
+- 如果你的应用是一个单页面应用（SPA），且希望所有未知路径都返回 `index.html`，两个配置都可以实现，但第二个配置更符合使用内部重定向的逻辑。
+- 如果你希望配置更简洁，可以选择第一个配置。
 
 <br/>
 <hr />
