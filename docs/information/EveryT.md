@@ -14,6 +14,63 @@ categories:
 
 # EveryT
 
+## 每日 3 问（2024-9-14）
+
+### img 标签产生的空白间隙怎么处理？
+
+`img` 标签在 HTML 中经常会产生一些不期望的空白间隙（也称为“底部间隙”），这主要是由于 HTML 中行内元素（包括 `img`）的基线对齐方式导致的。默认情况下，图片会与其基线对齐，这可能会导致图片下方出现一些额外的空间。要处理这个问题，有几种方法可以尝试：
+
+**解决方案**
+
+- `vertical-align` 属性可以用来改变元素的垂直对齐方式。将 `img` 标签的 `vertical-align` 设置为 `top`、`middle`、`bottom` 可以消除或调整这个间隙
+- 将 `img` 设置为块级元素，消除基线对齐的影响
+- 设置 font-size: 0，去除 HTML 代码中的空白字符;
+
+### Vue3 中动态引入本地图片在，怎么引入呢？
+
+可以通过 `new URL('xxx.png', import.meta.url).href` 来 获取图片的绝对路径
+
+`new URL('xxx.png', import.meta.url)` 是 ES Modules 中用于获取资源的绝对路径的一种方式。以下是对这个语法的详细解析：
+
+#### new URL()
+
+`URL` 是一个内置的 JavaScript 构造函数，用于创建 URL 对象。可以使用它来解析和构建 URL。
+
+#### 语法
+
+```javascript
+new URL(relative, base);
+```
+
+- **relative**: 这是要解析的相对 URL。
+- **base**: 这是用作基础 URL 的字符串。通常是一个完整的 URL。
+
+#### import.meta.url
+
+`import.meta` 是一个包含有关当前模块的元信息的对象。在 ES Modules 中，`import.meta.url` 返回当前模块的完整 URL。这意味着它提供了当前 JavaScript 文件的绝对路径。
+
+### Vue3 API defineExpose 了解吗？
+
+使用 `<script setup>` 的组件是**默认关闭**的——即通过模板引用或者 `$parent` 链获取到的组件的公开实例，**不会**暴露任何在 `<script setup>` 中声明的绑定。
+
+可以通过 `defineExpose` 编译器宏来显式指定在 `<script setup>` 组件中要暴露出去的属性：
+
+```vue
+<script setup>
+import { ref } from "vue";
+
+const a = 1;
+const b = ref(2);
+
+defineExpose({
+  a,
+  b,
+});
+</script>
+```
+
+当父组件通过模板引用的方式获取到当前组件的实例，获取到的实例会像这样 `{ a: number, b: number }` (ref 会和在普通实例中一样被自动解包)
+
 ## 每日 3 问（2024-9-13）
 
 ### 在页面中添加水印可以通过控制台移除，那么怎么样才能避免用户移除水印呢?
