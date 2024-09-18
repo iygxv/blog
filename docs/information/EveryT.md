@@ -14,6 +14,10 @@ categories:
 
 # EveryT
 
+## H5 页面跳转小程序的 3 种实现方式（2024-9-18）
+
+[H5 页面跳转小程序的 3 种实现方式）](https://icodehub.top/blog/project/H5页面跳转小程序的3种实现方式.html)
+
 ## 每日 3 问（2024-9-17）
 
 ### 对 SPA 单页面的理解，它的优缺点分别是什么？
@@ -52,7 +56,7 @@ SPA（ single-page application ）仅在 Web 页面初始化时加载相应的 H
 - **props / $emit**
 - **$parent** ($children 被移除)
 - **$refs**
-- **Event Bus **（Vue 3 官方没有直接提供 Event Bus 的实现，但可以使用第三方库如 mitt 来模拟。mitt 是一个简单而强大的事件总线库，可以在 Vue 3 项目中使用）
+- **Event Bus**（Vue 3 官方没有直接提供 Event Bus 的实现，但可以使用第三方库如 mitt 来模拟。mitt 是一个简单而强大的事件总线库，可以在 Vue 3 项目中使用）
 - **Vuex**
 - **Pinia**
 - **$attrs** ($listeners 被移除)
@@ -97,7 +101,7 @@ SPA（ single-page application ）仅在 Web 页面初始化时加载相应的 H
 
 值得注意的是，`tree shaking` 基于静态代码分析，因此只能消除那些静态分析阶段能够确定为未引用的代码，对于动态引用的代码无法进行处理。在实际开发中，通常与模块打包工具（如 Webpack、Rollup 等）结合使用，通过 `ES6 模块的静态特性`实现未引用代码的消除。
 
-## babel 原理是什么？
+### babel 原理是什么？
 
 `babel`是一个工具链，主要用于旧浏览器或者缓解中将 ECMAScript 2015+代码转换为向后兼容版本的 JavaScript
 
