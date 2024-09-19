@@ -56,6 +56,8 @@ categories:
 
 2024.9.18（复习）：https://icodehub.top/blog/project/H5页面跳转小程序的3种实现方式.html
 
+2024.9.19：https://icodehub.top/blog/vite/vite-env-cross-orign.html
+
 ## 8 月
 
 2024.8.31：https://www.icodehub.top/EveryT/2024.8.31.png

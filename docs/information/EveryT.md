@@ -14,9 +14,13 @@ categories:
 
 # EveryT
 
+## Vite 环境配置与跨域配置（2024-9-19）
+
+[Vite 环境配置与跨域配置](https://icodehub.top/blog/vite/vite-env-cross-orign.html)
+
 ## H5 页面跳转小程序的 3 种实现方式（2024-9-18）
 
-[H5 页面跳转小程序的 3 种实现方式）](https://icodehub.top/blog/project/H5页面跳转小程序的3种实现方式.html)
+[H5 页面跳转小程序的 3 种实现方式](https://icodehub.top/blog/project/H5页面跳转小程序的3种实现方式.html)
 
 ## 每日 3 问（2024-9-17）
 

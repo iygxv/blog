@@ -27,7 +27,7 @@ categories:
 }
 ```
 
-## vue3 在 vite.config 中无法使用 import.meta.env.\*的解决办法
+## vue3 在 vite.config.ts 中无法使用 import.meta.env.xxx的解决办法
 
 ```ts
 import { loadEnv } from "vite";

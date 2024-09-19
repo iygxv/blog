@@ -10,6 +10,8 @@ categories:
   - Vite
 ---
 
+# vite 创建 vue2 项目
+
 ## **初始化 Vue2 项目**
 
 因为`Vite` 默认没提供 `Vue2` 项目创建的选项。
@@ -102,6 +104,7 @@ yarn add vue@2.7 vue-template-compiler
 
 - 修改 src/main.js
   这一步的代码就有点像使用 vue-cli 创建的项目里的 main.js 的操作了。
+
   ```js
   import Vue from "vue";
   import App from "./App.vue";
@@ -110,6 +113,7 @@ yarn add vue@2.7 vue-template-compiler
     render: (h) => h(App),
   }).$mount("#app");
   ```
+
 - 启动项目
   ```shell
   yarn dev
