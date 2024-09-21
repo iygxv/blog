@@ -58,6 +58,8 @@ categories:
 
 2024.9.19：https://icodehub.top/blog/vite/vite-env-cross-orign.html
 
+暂停更新 - EveryT 页面看
+
 ## 8 月
 
 2024.8.31：https://www.icodehub.top/EveryT/2024.8.31.png

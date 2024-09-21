@@ -14,6 +14,74 @@ categories:
 
 # EveryT
 
+## 认识 HTTP 5 中传输方式（2024-9-20）
+
+对于前端来说，后端主要是提供 http 接口来传输数据，而这种数据传输的方式主要有 5 种：
+
+- url param
+- query
+- form-urlencoded
+- form-data
+- json
+
+前面 2 种是通过 url 传递数据，而后面 3 种则是通过请求体传递数据。
+
+### url param
+
+我们可以把参数写在 url 中，比如：
+
+```arduino
+https://icodehub.top/blog/1111
+```
+
+这里的 1111 就是路径中的参数（url param），服务端框架或者单页应用的路由都支持从 url 中取出参数。
+
+### query
+
+通过 url 中 ？后面的用 & 分隔的字符串传递数据，比如：
+
+```arduino
+http://icodehub.top/blog?name=sy&age=18
+```
+
+这里的 name 和 age 就是 query 传递的数据。
+
+### form-urlencoded
+
+直接用 form 表单提交数据就是这种，它和 query 字符串的方式的区别只是放在了 body 里，然后指定下 content-type 是 application/x-www-form-urlencoded。
+
+### form-data
+
+form data 不再是通过 & 分隔数据，而是用 --------- + 一串数字做为 boundary 分隔符。因为不是 url 的方式了，自然也不用再做 url encode。
+
+form-data 需要指定 Content-Type 为 multipart/form-data，然后指定 boundary 也就是分割线。
+
+body 里面就是用 boundary 分隔符分割的内容。
+
+很明显，这种方式适合传输文件，而且可以传输多个文件。
+
+但是毕竟多了一些只是用来分隔的 boundary，所以请求体会增大。
+
+`一般用于文件传输`
+
+### json
+
+form-urlencoded 需要对内容做 url encode，而 form data 则需要加很长的 boundary，两种方式都有一些缺点。如果只是传输 json 数据的话，不需要用这两种。
+
+可以直接指定 Content-Type 为 application/json 就行：
+
+我们平时传输 json 数据基本用的是这种。
+
+### Content-Type 的介绍
+
+Content-Type 是一个 HTTP 标头，用于指示请求体或响应体的媒体类型。它告诉服务器实际发送的数据类型是什么，以便服务器能够正确处理和解析响应体。
+
+常见的 Content-Type 值包括：
+
+- `application/json`：表示请求体或响应体是一个 JSON 格式的数据。
+- `application/x-www-form-urlencoded`：表示请求体或响应体是一个 URL 编码的表单数据。
+- `multipart/form-data`：表示请求体或响应体是一个多部分表单数据，通常用于文件上传。
+
 ## Vite 环境配置与跨域配置（2024-9-19）
 
 [Vite 环境配置与跨域配置](https://icodehub.top/blog/vite/vite-env-cross-orign.html)
