@@ -56,14 +56,14 @@ export default defineConfig({
         ]
       },
       { 
-        text: '⛲ 每月记录',
+        text: '⛲ 记录',
         items: [
-          { text: '🕎 三月记', link: '/information/March.md' },
-          { text: '🔯 四月记', link: '/information/April.md' },
-          { text: '☪️  五月记', link: '/information/May.md' },
-          { text: '⛎ 六月记', link: '/information/June.md' },
-          { text: '⛎ 七月记', link: '/information/July.md' },
-          { text: '♓️  八月记', link: '/information/August.md' },
+          // { text: '🕎 三月记', link: '/information/March.md' },
+          // { text: '🔯 四月记', link: '/information/April.md' },
+          // { text: '☪️  五月记', link: '/information/May.md' },
+          // { text: '⛎ 六月记', link: '/information/June.md' },
+          // { text: '⛎ 七月记', link: '/information/July.md' },
+          // { text: '♓️  八月记', link: '/information/August.md' },
           // 💟 ☮️ ✝️ ☪️ 🕉 ☸️ ✡️ 🔯 🕎 ☯️ ☦️ 🛐 ⛎ ♈️ ♉️ ♊️ ♋️ ♌️ ♍️ ♎️ ♏️ ♐️ ♑️ ♒️ ♓️ 🆔 ⚛️
           { text: '🛐 实战技巧', link: '/information/PracticalSkills.md' },
           { text: '♑️  EveryT', link: '/information/EveryT.md' },
