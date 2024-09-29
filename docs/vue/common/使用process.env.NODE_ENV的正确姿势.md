@@ -112,7 +112,7 @@ module.exports = {
 
 有一个项目，简单的项目结构如下：
 
-```arduino
+```txt
 ├── env
    ├── .env.dev
    ├── .env.test

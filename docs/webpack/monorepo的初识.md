@@ -5,9 +5,9 @@ sidebar:
   isTimeLine: true
 title: pnpm workspace构建monorepo仓库
 tags:
-  - 其他
+  - 工程化
 categories:
-  - 其他
+  - 工程化
 ---
 
 ## 什么是 Monorepo？什么是 pnpm？

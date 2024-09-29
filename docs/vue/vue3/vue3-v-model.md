@@ -1,16 +1,16 @@
 ---
 sidebar:
-  title: vue3 易忽略知识
+  title: v-model 详解
   step: 1
   isTimeLine: true
-title: vue3 易忽略知识
+title: v-model 详解
 tags:
   - Vue3
 categories:
   - Vue3
 ---
 
-# vue3 易忽略知识
+# v-model 详解
 
 ## 组件上使用 v-model
 

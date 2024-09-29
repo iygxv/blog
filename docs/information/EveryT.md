@@ -14,6 +14,148 @@ categories:
 
 # EveryT
 
+## 如何修改 node_modules 包代码呢？（2024-9-29）
+
+使用`patch-package`，这是一个专门用来修改`node_modules`中包的代码的工具
+
+**如何操作呢？**
+
+- 修改包里面源代码
+- 执行`yarn patch-package packageName`或者`npx patch-package packageName` ，它会生成一个`patches`目录，里面有一个`packageName+ .patch`文件
+- 然后在 package.json 中添加命令 `"postinstall": "patch-package"`
+- 当你的同事去执行`yarn`的时候，会自动执行`yarn postinstall`这个命令，也就是执行`patch-package`，这时候就回去读取刚刚的`patches`目录，并将那些补丁达到对应的包里
+
+## 运行 npm run xxx 的时候发生了什么？（2024-9-28）
+
+- 运行`npm run xxx`的时候，npm 会先在当前目录的 `node_modules/.bin` 查找要执行的程序，如果找到则运行
+- 没有找到则从全局的 node_modules/.bin 中查找
+- 如果全局目录还是没找到，那么就从 path 环境变量中查找有没有其他同名的可执行程序
+
+[去学习](https://blog.51cto.com/u_15077533/4531157)
+
+## Vue3.5 新增特性（2024-9-27）
+
+[Vue3.5 新增特性](https://icodehub.top/blog/vue/vue3/vue3-3.5.html)
+
+## Vue3.4 新增特性（2024-9-26）
+
+[Vue3.4 新增特性](https://icodehub.top/blog/vue/vue3/vue3-3.4.html)
+
+## Vue3.3 新增特性（2024-9-25）
+
+[Vue3.3 新增特性](https://icodehub.top/blog/vue/vue3/vue3-3.3.html)
+
+## Vue3.2 新增特性（2024-9-24）
+
+[Vue3.2 新增特性](https://icodehub.top/blog/vue/vue3/vue3-3.2.html)
+
+## ref 与 reactive 使用时的一些注意事项（2024-9-23）
+
+### Vue3 ref 在哪些情况下会丢失响应式？
+
+<br/>
+
+#### 整体赋值会丢失响应式
+
+对于 ref 定义的对象，如果直接整体赋值（如`count = ref({...})`），会丢失响应性。应该通过修改`.value`的属性来保持响应性。
+
+```js
+const count = ref(0);
+
+// 这样子会导致 count 丢失响应式
+count = ref(66);
+
+// 这样就不会丢失响应式了
+count.value = 66;
+```
+
+### Vue3 reactive 在哪些情况下会丢失响应式？
+
+<br/>
+
+#### 整体赋值会丢失响应式
+
+由于 Vue 的响应式跟踪是通过属性访问实现的，因此我们必须始终保持对响应式对象的相同引用。这意味着我们不能轻易地“替换”响应式对象，因为这样的话与第一个引用的响应性连接将丢失：
+
+```js
+let state = reactive({ count: 0 });
+
+// 上面的 ({ count: 0 }) 引用将不再被追踪
+// (响应性连接已丢失！)
+state = reactive({ count: 1 });
+// 或者 这样子也会导致丢失响应式
+state = { count: 2 };
+```
+
+#### 解构也会丢失响应式
+
+当我们将响应式对象的原始类型属性解构为本地变量时，或者将该属性传递给函数时，我们将丢失响应性连接：
+
+```js
+const state = reactive({ count: 0 });
+
+// 当解构时，count 已经与 state.count 断开连接
+let { count } = state;
+// 不会影响原始的 state
+count++;
+
+// 该函数接收到的是一个普通的数字
+// 并且无法追踪 state.count 的变化
+// 我们必须传入整个对象以保持响应性
+callSomeFunction(state.count);
+```
+
+由于这些限制，建议使用 ref() 作为声明响应式状态的主要 API。
+
+#### Vue3 在模板中解包的注意事项
+
+在模板渲染上下文中，只有顶级的 ref 属性才会被解包。
+
+在下面的例子中，`count` 和 `object` 是顶级属性，但 `object.id` 不是：
+
+```js
+const count = ref(0);
+const object = { id: ref(1) };
+```
+
+因此，这个表达式按预期工作：
+
+```vue
+{{ count + 1 }}
+```
+
+但这个**不会**：
+
+```vue
+{{ object.id + 1 }}
+```
+
+渲染的结果将是 `[object Object]1`，因为在计算表达式时 `object.id` 没有被解包，仍然是一个 ref 对象。为了解决这个问题，我们可以将 `id` 解构为一个顶级属性：
+
+```js
+const { id } = object;
+```
+
+```vue
+{{ id + 1 }}
+```
+
+现在渲染的结果将是 `2`。
+
+另一个需要注意的点是，如果 ref 是文本插值的最终计算值 (即 `{{ }}` 标签)，那么它将被解包，因此以下内容将渲染为 `1`：
+
+```vue
+{{ object.id }}
+```
+
+该特性仅仅是文本插值的一个便利特性，等价于。
+
+```vue
+{{ object.id.value }}
+```
+
+[响应式基础 - 去看看](https://cn.vuejs.org/guide/essentials/reactivity-fundamentals.html#reactive-variables-with-ref)
+
 ## 每日 3 问（2024-9-22）
 
 ### Vue3 中的 Teleport 是什么？它的作用是什么？
@@ -186,7 +328,7 @@ Vue3.0 选择使用 Proxy API 替代 defineProperty API，主要基于以下几�
 
 我们可以把参数写在 url 中，比如：
 
-```arduino
+```txt
 https://icodehub.top/blog/1111
 ```
 
@@ -196,7 +338,7 @@ https://icodehub.top/blog/1111
 
 通过 url 中 ？后面的用 & 分隔的字符串传递数据，比如：
 
-```arduino
+```txt
 http://icodehub.top/blog?name=sy&age=18
 ```
 

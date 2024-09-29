@@ -61,7 +61,7 @@ const slots = useSlots();
 defineExpose({
     name: '随缘'
     someMethod(){
-        console.log("暴露子组件的方法")
+        console.log('暴露子组件的方法')
     }
 })
 ```
@@ -239,8 +239,6 @@ export default defineConfig({
 模板编译器优化
 
 - 创建元素 VNodes 速度提升约 `200%`
-
-看这数据是真的吊
 
 ## 参考
 

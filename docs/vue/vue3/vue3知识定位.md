@@ -16,15 +16,19 @@ categories:
 
 专门用于定位 vue3 官方文档知识
 
+## 基本使用
+
+[`基本使用`](https://cn.vuejs.org/guide/introduction.html)
+
 ## API 参考
 
 [`API 参考`](https://cn.vuejs.org/api/)
 
-## script setup
+## 常阅览
+
+[`响应式-核心`](https://cn.vuejs.org/api/reactivity-core.html#ref)（）
 
 [`script setup`](https://cn.vuejs.org/api/sfc-script-setup.html)
-
-## 常阅览
 
 [`defineExpose`](https://cn.vuejs.org/api/sfc-script-setup.html#defineexpose)
 

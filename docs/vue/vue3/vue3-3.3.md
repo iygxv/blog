@@ -48,7 +48,7 @@ Vue 3.3 的这次发布主要是为了改进 DX （开发者体验），新增�
   import type { Props } from "./foo";
 
   // 使用导入的类型 + 交集类型（导入类型基础上增加一个字段）
-  defineProps<Props & { extraProp?: string }>(); //在vue3.3之前不支持使用import导入的类型
+  defineProps<Props & { extraProp?: string }>(); // 在vue3.3之前不支持使用import导入的类型
 </script>
 ```
 
