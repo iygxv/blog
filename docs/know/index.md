@@ -4,7 +4,6 @@ hidden: true
 
 ## Know
 
-- [monorepo 的初识](./monorepo的初识.md)
 - [vscode 插件开发](./vscode插件开发.md)
 - [vscode 相关](./vscode相关.md)
 - [前端调试技能](./前端调试技能.md)

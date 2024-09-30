@@ -2,17 +2,24 @@
 top: 1
 sticky: 1000
 sidebar:
-  title: EveryT
+  title: EveryT - 开始
   step: 5
   isTimeLine: true
-title: EveryT
+title: EveryT - 开始
 tags:
   - 笔记
 categories:
   - 笔记
 ---
 
-# EveryT
+# EveryT - 开始
+
+## Git 中本地项目连接远程仓库，怎么操作呢？（2024-9-30）
+- 首先在本地创建一个项目，然后执行`git init`初始化仓库
+- 然后执行`git remote add origin 远程仓库地址`，将本地项目与远程仓库关联
+- 执行`git add .`，将所有文件添加到暂存区
+- 执行`git commit -m "提交信息"`，将暂存区的内容提交到本地仓库
+- 执行`git push -u origin master`，将本地仓库的内容推送到远程仓库
 
 ## 如何修改 node_modules 包代码呢？（2024-9-29）
 
@@ -156,7 +163,7 @@ const { id } = object;
 
 [响应式基础 - 去看看](https://cn.vuejs.org/guide/essentials/reactivity-fundamentals.html#reactive-variables-with-ref)
 
-## 每日 3 问（2024-9-22）
+## 日常 3 问（2024-9-22）
 
 ### Vue3 中的 Teleport 是什么？它的作用是什么？
 
@@ -261,7 +268,7 @@ Vue 3 中提供了多种性能优化措施，这些措施旨在提升应用的�
 
 综上所述，Vue 3 通过多种性能优化措施，使得开发者能够构建出更快、更高效、更易于维护的 Web 应用。
 
-## 每日 3 问（2024-9-21）
+## 日常 3 问（2024-9-21）
 
 ### script setup 是干什么的？
 
@@ -388,7 +395,7 @@ Content-Type 是一个 HTTP 标头，用于指示请求体或响应体的媒体�
 
 [H5 页面跳转小程序的 3 种实现方式](https://icodehub.top/blog/project/H5页面跳转小程序的3种实现方式.html)
 
-## 每日 3 问（2024-9-17）
+## 日常 3 问（2024-9-17）
 
 ### 对 SPA 单页面的理解，它的优缺点分别是什么？
 
@@ -438,7 +445,7 @@ SPA（ single-page application ）仅在 Web 页面初始化时加载相应的 H
 
 所有的 prop 都使得其父子之间形成了一个`单向下行绑定`：父级 prop 的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外变更父级组件的状态，从而导致你的应用的数据流向难以理解。另外，每次父级组件发生变更时，子组件中所有的 prop 都将会刷新为最新的值。这意味着你不应该在一个子组件内部改变 prop。如果你这样做了，Vue 会在浏览器控制台中发出警告。
 
-## 每日 3 问（2024-9-16）
+## 日常 3 问（2024-9-16）
 
 ### HMR 热更新原理是什么？
 
@@ -493,7 +500,7 @@ Babel 的工作原理主要涉及三个主要步骤：**解析（Parse）**、**
    - 在转换过程完成后，Babel 将转换后的 AST 重新生成为可执行的 JavaScript 代码。这个过程将 AST 转换回 JavaScript 代码的字符串形式。
    - 最终生成的代码将包含所有必要的转换，以确保它可以在旧版浏览器或环境中运行。
 
-## 每日 3 问（2024-9-15）
+## 日常 3 问（2024-9-15）
 
 ### js 如何控制一次只加载一张图片，如何控制加载完成后再加载下一张呢？
 
@@ -553,7 +560,7 @@ loadImg();
 
 小程序没有提供像 Web 开发中那样的 `document.querySelector` 或 `document.getElementById` 等 DOM 查询方法，但小程序提供了一些类似的 API 来查询页面上的元素。例如，在微信小程序中，你可以使用 `wx.createSelectorQuery()`来创建一个选择器查询对象，并通过它来查询页面上的元素。不过，这种查询通常用于获取元素的布局位置、大小等信息，而不是用于直接操作元素。
 
-## 每日 3 问（2024-9-14）
+## 日常 3 问（2024-9-14）
 
 ### img 标签产生的空白间隙怎么处理？
 
@@ -610,7 +617,7 @@ defineExpose({
 
 当父组件通过模板引用的方式获取到当前组件的实例，获取到的实例会像这样 `{ a: number, b: number }` (ref 会和在普通实例中一样被自动解包)
 
-## 每日 3 问（2024-9-13）
+## 日常 3 问（2024-9-13）
 
 ### 在页面中添加水印可以通过控制台移除，那么怎么样才能避免用户移除水印呢?
 
@@ -711,7 +718,7 @@ export default watermark;
 没有找到则从全局的 node_modules/.bin 中查找
 如果全局目录还是没找到，那么就从 path 环境变量中查找有没有其他同名的可执行程序
 
-## 每日 3 问（2024-9-12）
+## 日常 3 问（2024-9-12）
 
 ### ES 如何实现 let 和 const 呢？
 
@@ -801,7 +808,7 @@ class RefImpl {
 
 [npm、yarn、pnpm 的区别？](https://icodehub.top/blog/engineering/npm%E3%80%81yarn%E3%80%81pnpm%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F.html)
 
-## 每日 3 问（2024-9-10）
+## 日常 3 问（2024-9-10）
 
 ### Javascript 本地存储的方式有哪些，有什么区别，及有哪些应用场景？
 
@@ -929,7 +936,7 @@ const io = new IntersectionObserver((ioes) => {
 - 通过 getBoundingClientRect 方法
 - 通过 IntersectionObserver 方法
 
-## 每日 3 问（2024-9-9）
+## 日常 3 问（2024-9-9）
 
 ### vue 中怎么缓存当前的组件？缓存后怎么更新？
 
@@ -962,7 +969,7 @@ vue3 中结合 vue-router 时变化较大，之前是 keep-alive 包裹 router-v
 
 所以`www.baidu.com/a`、`www.baidu.com/b` 可以共享，但是和`www.qq.com` 不共享。
 
-## 每日 3 问（2024-9-8）
+## 日常 3 问（2024-9-8）
 
 ### vue3 中 watch 和 watchEffect 的区别？
 
@@ -1030,7 +1037,7 @@ state.array.push(4); // 触发更新
 count.value++; // 触发更新
 ```
 
-## 每日 3 问（2024-9-7）
+## 日常 3 问（2024-9-7）
 
 ### reactive 和 ref 的区别, ref 可以定义响应式对象吗?
 
@@ -1102,7 +1109,7 @@ $event.target.value 就是当前dom的value值;
 - 使用 `model `选项 可以定义 prop 和 emit
 - 使用了 sync 修饰符, 就不用再父组件中接受子组件发射的事件
 
-## 每日 3 问（2024-9-6）
+## 日常 3 问（2024-9-6）
 
 ### forEach 中 return 有效果吗？如何中断 forEach 循环？
 
@@ -1134,7 +1141,7 @@ arr.forEach((item, index) => {
 
 `Array(100)` 将会创建一个稀疏数组 (sparse array)，即不存在真实元素，节省内存空间。在控制台上显示为`[empty]`，正因为没有元素，所以它也不会有 `map`操作，所以`Array(100).map(x => 1)`仍然返回为 `[empty]`
 
-## 每日 3 问（2024-9-5）
+## 日常 3 问（2024-9-5）
 
 ### flex:1 代表啥?
 
@@ -1381,7 +1388,7 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 
 **减少潜在的冲突**： 预检请求还可以用于避免一些潜在的冲突，如浏览器缓存问题，从而确保请求的顺利进行。
 
-## 每日 3 问（2024-9-2）
+## 日常 3 问（2024-9-2）
 
 ### 隐藏元素的方法有哪些?
 
@@ -1446,7 +1453,7 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 **注意：**
 由于上面的三个属性都是 CSS3 的属性，没有浏览器可以兼容，所以要在前面加一个`-webkit-` 来兼容一部分浏览器。
 
-## 每日 3 问（2024-9-1）
+## 日常 3 问（2024-9-1）
 
 ### img 标签的 title 和 alt 有什么作用呢？
 
@@ -1552,7 +1559,7 @@ webpack 提供服务器的工具是 webpack-dev-server，**只适用于开发阶
 - `noindex`：文件将不被检索；
 - `nofollow`：页面上的链接不可以被查询。
 
-## 每日 3 问（2024-8-31）
+## 日常 3 问（2024-8-31）
 
 ### vue 中的 key 有什么作用呢？
 
