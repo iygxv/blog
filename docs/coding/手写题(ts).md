@@ -12,9 +12,39 @@ categories:
 
 # 手写题(ts)
 
-## 手写的要求
+## Playground
 
-有自己的思考
+[TS Playground](https://www.typescriptlang.org/play/)
+
+## 实现基于 Promise 的请求的重试
+
+```typescript
+/**
+ *
+ * @param task  返回一个promise的异步任务
+ * @param count 需要重试的次数
+ * @param time  每次重试间隔多久
+ * @returns 返回一个新promise
+ */
+const retry = (task: () => Promise<any>, count = 5, time = 3 * 1000) => {
+  return new Promise((resolve, reject) => {
+    let errorCount = 0;
+    const run = () => {
+      task()
+        .then((res) => resolve(res))
+        .catch((err) => {
+          errorCount++;
+          if (errorCount < count) {
+            setTimeout(run, time);
+          } else {
+            reject(err);
+          }
+        });
+    };
+    run();
+  });
+};
+```
 
 ## 防抖节流
 

@@ -1,6 +1,6 @@
 ---
-top: 1
-sticky: 1000
+top: 2
+sticky: 9999
 sidebar:
   title: EveryT - 开始
   step: 5
@@ -13,6 +13,9 @@ categories:
 ---
 
 # EveryT - 开始
+
+## 十月
+[十月移至此处](https://icodehub.top/blog/information/EveryT-Oct.html)
 
 ## Git 中本地项目连接远程仓库，怎么操作呢？（2024-9-30）
 - 首先在本地创建一个项目，然后执行`git init`初始化仓库
@@ -720,7 +723,7 @@ export default watermark;
 
 ## 日常 3 问（2024-9-12）
 
-### ES 如何实现 let 和 const 呢？
+### ES5 如何实现 let 和 const 呢？
 
 **let 的特性**
 

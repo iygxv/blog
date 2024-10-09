@@ -1,9 +1,9 @@
 ---
 sidebar:
-  title: 使用 process.env.NODE_ENV 的正确姿势
+  title: process.env.NODE_ENV 的理解
   step: 1
   isTimeLine: true
-title: 使用 process.env.NODE_ENV 的正确姿势
+title: process.env.NODE_ENV 的理解
 tags:
   - 项目
   - Vue2
@@ -14,10 +14,7 @@ categories:
   - Vue3
 ---
 
-# 使用 process.env.NODE_ENV 的正确姿势
-
-> 作者：文小雄
-> <br/>链接：https://juejin.cn/post/7070347341282148365#heading-3 ><br/>来源：稀土掘金
+# process.env.NODE_ENV 的理解
 
 ## 什么是 process.env.NODE_ENV
 
