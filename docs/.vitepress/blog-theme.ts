@@ -53,13 +53,6 @@ const blogTheme = getThemeConfig({
 
   // 友链
   friend: [
-    // {
-    //   nickname: 'HLP',
-    //   des: 'HLP的博客',
-    //   avatar:
-    //     'https://www.icodehub.top/hlp/avatar.png',
-    //   url: 'https://hlp.icodehub.top',
-    // },
     {
       nickname: '冴羽',
       des: '冴羽的JavaScript博客',
@@ -80,7 +73,13 @@ const blogTheme = getThemeConfig({
       avatar:
         'https://codemy.top/upload/2022/06/WechatIMG102.jpeg',
       url: 'https://codemy.top',
-    }
+    },
+    {
+      nickname: '茂茂物语',
+      des: '茂茂的成长之路，包含前端常用知识、源码阅读笔记、各种奇淫技巧、日常提效工具等',
+      url: 'https://notes.fe-mm.com',
+      avatar: 'https://notes.fe-mm.com/logo.png'
+    },
   ],
   // 看板娘
   // oml2d: {
@@ -91,6 +90,7 @@ const blogTheme = getThemeConfig({
   //       "position": [0, 60],
   //       "scale": 0.08,
   //       "stageStyle": {
+  //         "width": 350,
   //         "height": 350
   //       }
   //     }
