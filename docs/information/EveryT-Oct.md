@@ -14,6 +14,8 @@ categories:
 
 # EveryT - 十月
 
+## Nest.js 学习（2024-10-15 - 2025）
+
 ## :nth-of-type 和:nth-child（2024-10-14）
 
 - `:nth-child` 伪类根据元素在父元素的子元素列表中的索引来选择元素。换言之，:nth-child() 选择器根据父元素内的所有`兄弟元素`的位置来选择子元素。
@@ -47,7 +49,7 @@ categories:
      ```css
      /* 选择所有具有 "data-info" 属性的元素 */
      [data-info] {
-         background-color: yellow;
+       background-color: yellow;
      }
      ```
 
@@ -62,7 +64,7 @@ categories:
      ```css
      /* 选择所有具有 "type" 属性且值为 "text" 的输入框 */
      input[type="text"] {
-         border: 2px solid blue;
+       border: 2px solid blue;
      }
      ```
 
@@ -77,7 +79,7 @@ categories:
      ```css
      /* 选择所有 class 属性包含 "highlight" 的元素 */
      [class~="highlight"] {
-         color: red;
+       color: red;
      }
      ```
 
@@ -91,8 +93,9 @@ categories:
 
      ```css
      /* 选择所有 src 属性以 "https://" 开头的图像 */
-     img[src^="https://"] {
-         border: 1px solid green;
+     img[src^="https://"]
+     {
+       border: 1px solid green;
      }
      ```
 
@@ -107,7 +110,7 @@ categories:
      ```css
      /* 选择所有 href 属性以 ".pdf" 结尾的链接 */
      a[href$=".pdf"] {
-         font-weight: bold;
+       font-weight: bold;
      }
      ```
 
@@ -122,7 +125,7 @@ categories:
      ```css
      /* 选择所有 lang 属性为 "en" 或 "en-US" 的元素 */
      [lang|="en"] {
-         background-color: lightblue;
+       background-color: lightblue;
      }
      ```
 
@@ -133,29 +136,29 @@ categories:
 ```html
 <a href="https://example.com" target="_blank" class="external">External Link</a>
 <a href="https://example.com/file.pdf" class="document">PDF Document</a>
-<input type="text" placeholder="Enter your name">
-<input type="button" value="Click Me">
+<input type="text" placeholder="Enter your name" />
+<input type="button" value="Click Me" />
 ```
 
 ```css
 /* 选择所有有 target 属性的链接 */
 a[target] {
-    color: green;
+  color: green;
 }
 
 /* 选择所有 href 属性以 ".pdf" 结尾的链接 */
 a[href$=".pdf"] {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* 选择所有 class 包含 "external" 的链接 */
 a[class~="external"] {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /* 选择所有类型为 "text" 的输入框 */
 input[type="text"] {
-    border: 1px solid blue;
+  border: 1px solid blue;
 }
 ```
 
@@ -221,9 +224,9 @@ input[type="text"] {
 
   ```css
   @media (max-width: 600px) {
-      body {
-          background-color: lightblue;
-      }
+    body {
+      background-color: lightblue;
+    }
   }
   ```
 
@@ -233,10 +236,10 @@ input[type="text"] {
 
   ```css
   :root {
-      --main-color: #3498db;
+    --main-color: #3498db;
   }
   .element {
-      color: var(--main-color);
+    color: var(--main-color);
   }
   ```
 
