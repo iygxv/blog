@@ -1872,6 +1872,23 @@ service.interceptors.response.use(
 - **原理**：当资源的副本过期或浏览器的缓存被清除时，浏览器会向服务器发送请求，询问该资源是否有更新。服务器会根据资源的最后修改时间或 `ETag`（实体标签）来判断资源是否有更新。
 - **实现方式**：主要依赖于 HTTP 请求头中的 `If-Modified-Since` 和 `If-None-Match` 字段，以及 HTTP 响应头中的 `Last-Modified` 和 `ETag` 字段。服务器会比较请求头中的时间戳或 ETag 值与资源当前的状态，如果资源未修改，则返回 304 Not Modified 响应，告知浏览器直接使用本地缓存。
 
+#### 协商缓存中的 `If-Modified-Since` 和 `If-None-Match` 说明
+协商缓存中的 `If-Modified-Since` 和 `If-None-Match` 是用于优化 HTTP 请求的头部字段，帮助减少不必要的数据传输。
+
+- `If-Modified-Since`
+  - 作用: 通过时间戳判断资源是否被修改。
+  - 工作原理: 客户端在请求头中发送 `If-Modified-Since`，服务器检查资源的最后修改时间。如果资源自该时间以来未被修改，服务器返回 304 Not Modified，客户端使用缓存资源。
+  - 使用场景: 适用于资源更新频率较低的情况。
+- `If-None-Match`
+  - 作用: 通过 ETag（实体标签）判断资源是否被修改。
+  - 工作原理: 客户端在请求头中发送 `If-None-Match`，服务器检查资源的 ETag。如果 ETag 未改变，服务器返回 304 Not Modified，客户端使用缓存资源。
+    - 使用场景: 适用于资源更新频率较高或内容变化不明显的情况。
+
+总结
+- `If-Modified-Since`: 基于时间戳，简单但不够精确。 
+- `If-None-Match`: 基于 ETag，更精确，适合频繁变化的资源。
+- 这两个头部字段帮助减少带宽消耗和服务器负载，提高应用性能。
+
 ### Service Worker 缓存 （了解即可）
 
 - **原理**：Service Worker 是一种在浏览器后台运行的脚本，可以拦截网络请求并返回缓存的响应。通过 Service Worker，开发者可以自定义缓存策略，实现更灵活、更高效的缓存机制。
