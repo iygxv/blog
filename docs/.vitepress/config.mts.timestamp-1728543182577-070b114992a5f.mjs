@@ -170,10 +170,10 @@ var config_default = defineConfig({
         text: " \u{1F301} \u7EBF\u4E0A\u4F5C\u54C1",
         items: [
           // ⌚️ 📱 📲 💻 ⌨️ 🖥 🖨 🖱
-          { text: "\u231A\uFE0F \u56FE\u5E8A", link: "https://icodehub.top/imageBed/" },
+          { text: "\u231A\uFE0F \u56FE\u5E8A", link: "http://icodehub.top/imageBed/" },
           { text: "\u{1F4F1} Fast Log", link: "https://github.com/iygxv/fast-log" },
-          { text: "\u{1F5A8} Ts Transform", link: "https://icodehub.top/transform/" }
-          // { text: '💻 Vue Next Admin', link: 'https://icodehub.top/vue-next-admin/' },
+          { text: "\u{1F5A8} Ts Transform", link: "http://icodehub.top/transform/" }
+          // { text: '💻 Vue Next Admin', link: 'http://icodehub.top/vue-next-admin/' },
         ]
       }
     ],

@@ -55,7 +55,7 @@ doc.save("a4.pdf");
 const doc = new jsPDF();
 
 doc.addImage(
-  "https://www.icodehub.top/seeking-wd/test.png",
+  "http://www.icodehub.top/seeking-wd/test.png",
   "JPEG",
   40,
   10,

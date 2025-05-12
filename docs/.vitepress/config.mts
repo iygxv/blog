@@ -16,11 +16,11 @@ export default defineConfig({
   // 详见：https://vitepress.dev/reference/site-config#head
   head: [
     // 配置网站的图标（显示在浏览器的 tab 上）
-    ['link', { rel: 'icon',  href: 'https://www.icodehub.top/blob/logo.ico' }]
+    ['link', { rel: 'icon',  href: 'http://www.icodehub.top/blob/logo.ico' }]
   ],
   themeConfig: {
     lastUpdatedText: '上次更新于',
-    logo: 'https://www.icodehub.top/blob/logo.png',
+    logo: 'http://www.icodehub.top/blob/logo.png',
     nav: [
       // emoji 大全： https://remeins.com/index/app/emojilist
       { text: '🏰 首页', link: '/' },
@@ -79,10 +79,10 @@ export default defineConfig({
         text: ' 🌁 线上作品',
         items: [
           // ⌚️ 📱 📲 💻 ⌨️ 🖥 🖨 🖱
-          { text: '⌚️ 图床', link: 'https://icodehub.top/imageBed/' },
+          { text: '⌚️ 图床', link: 'http://icodehub.top/imageBed/' },
           { text: '📱 Fast Log', link: 'https://github.com/iygxv/fast-log' },
-          { text: '🖨 Ts Transform', link: 'https://icodehub.top/transform/' },
-          // { text: '💻 Vue Next Admin', link: 'https://icodehub.top/vue-next-admin/' },
+          { text: '🖨 Ts Transform', link: 'http://icodehub.top/transform/' },
+          // { text: '💻 Vue Next Admin', link: 'http://icodehub.top/vue-next-admin/' },
         ]
       }
     ],

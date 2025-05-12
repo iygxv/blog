@@ -1,6 +1,4 @@
 ---
-top: 1
-sticky: 10000
 sidebar:
   title: EveryT - 十月
   step: 5

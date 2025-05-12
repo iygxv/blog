@@ -1,6 +1,4 @@
 ---
-top: 2
-sticky: 9999
 sidebar:
   title: EveryT - 开始
   step: 5
@@ -896,13 +894,13 @@ class RefImpl {
 
 然后判断 ②-③<① 是否成立，如果成立，元素就在可视区域内。
 
-<img class="question-img"  src="https://www.icodehub.top/seeking-wd/assets/js-view-methods-1.png" alt="image" style="zoom:50%;" />
+<img class="question-img"  src="http://www.icodehub.top/seeking-wd/assets/js-view-methods-1.png" alt="image" style="zoom:50%;" />
 
 **方法二：通过 getBoundingClientRect 方法**
 通过 getBoundingClientRect()方法来获取元素的大小以及位置，MDN 上是这样描述的：
 `Element.getBoundingClientRect() 方法返回一个 DOMRect 对象，其提供了元素的大小及其相对于视口的位置。`
 
-<img class="question-img"  src="https://www.icodehub.top/seeking-wd/assets/element-box-diagram.png" alt="image" style="zoom:70%;" />
+<img class="question-img"  src="http://www.icodehub.top/seeking-wd/assets/element-box-diagram.png" alt="image" style="zoom:70%;" />
 
 我们这样判断：
 

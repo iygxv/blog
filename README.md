@@ -1,3 +1,3 @@
 # 随缘
 
-[博客地址](https://icodehub.top/blog/)
+[博客地址](http://icodehub.top/blog/)
