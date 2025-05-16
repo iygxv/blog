@@ -101,7 +101,7 @@ function generateEnding(themeName = null) {
   
   // 创建美观的HTML结尾
   const html = `
-
+<!-- ARTICLE_BEAUTIFIER_START -->
 <br/>
 <div style="position: relative; margin: 2em 0; padding: 1.5em 1em; border-radius: 8px; overflow: hidden; ${
   color.includes('gradient') ? 
@@ -110,26 +110,19 @@ function generateEnding(themeName = null) {
 }">
   ${
     color.includes('gradient') ?
-    `<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: ${color}; opacity: 0.1;"></div>` :
+    `<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #fff; opacity: 0.75; z-index: 1;"></div>` :
     ``
   }
-  <div style="position: relative; text-align: center;">
-    <div style="font-size: ${fontSize}px; letter-spacing: ${spacing}px; margin-bottom: 10px; ${
-      color.includes('gradient') ? 
-      `background: ${color}; -webkit-background-clip: text; -webkit-text-fill-color: transparent;` : 
-      `color: ${color};`
-    }">
+  <div style="position: relative; text-align: center; z-index: 2;">
+    <div style="font-size: ${fontSize}px; letter-spacing: ${spacing}px; margin-bottom: 10px; color: #222; font-weight: bold;">
       ${separator}
     </div>
-    <div style="font-size: 1.1em; font-weight: 500; margin-bottom: 8px; ${
-      color.includes('gradient') ? 
-      `color: #333;` : 
-      `color: ${color};`
-    }">
+    <div style="font-size: 1.1em; font-weight: 500; margin-bottom: 8px; color: #222;">
       ${message}
     </div>
   </div>
 </div>
+<!-- ARTICLE_BEAUTIFIER_END -->
 `;
 
   return {
