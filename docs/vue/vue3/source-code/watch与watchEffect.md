@@ -392,12 +392,3 @@ export function watchEffect(
 ## 参考链接
 
 [vue3文档](https://staging-cn.vuejs.org/api/reactivity-core.html#watch)
-
-<br/>
-<hr />
-
-⭐️⭐️⭐️好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ヽ(°▽°)ノ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

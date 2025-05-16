@@ -135,12 +135,3 @@ yarn create vite my-vue-app --template vue
 |     [preact](https://vite.new/preact)     |  [preact-ts](https://vite.new/preact-ts)  |
 |        [lit](https://vite.new/lit)        |     [lit-ts](https://vite.new/lit-ts)     |
 |     [svelte](https://vite.new/svelte)     |  [svelte-ts](https://vite.new/svelte-ts)  |
-
-<br/>
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

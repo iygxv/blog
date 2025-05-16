@@ -113,12 +113,3 @@ yo code
 打包插件并上传到 Visual Studio Marketplace，等待审核通过后，插件的头像就会显示在插件详情页面和搜索结果中
 
 注意：上传的头像文件必须符合 Visual Studio Marketplace 的规定，具体要求可以参考[官方文档](https://docs.microsoft.com/en-us/visualstudio/marketplace/publish/branding-guidelines?view=vs-2019)。
-
-<br/>
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

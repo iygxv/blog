@@ -349,13 +349,3 @@ vue3 的方式也差不多一样
 只不过 vue3 是使用 createApp 来创建实例， 具体可以看 demo 项目
 
 https://github.com/iygxv/demo/tree/main/vue3-message-demo
-
-<br/>
-
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

@@ -294,12 +294,3 @@ window.onunhandledrejection = (event) => {
   console.warn(`UNHANDLED PROMISE REJECTION: ${event.reason}`);
 };
 ```
-
-<br/>
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

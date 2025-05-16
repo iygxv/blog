@@ -507,13 +507,3 @@ interface TransitionProps {
 - `@appear-cancelled`
 
 - [`参考指南`](https://cn.vuejs.org/guide/built-ins/transition.html)
-
-<br/>
-
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

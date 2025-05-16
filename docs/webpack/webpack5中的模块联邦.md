@@ -164,13 +164,3 @@ ReactDOM.render(<App />, document.getElementById("root"));
 Webpack 5 的模块联邦为微前端架构提供了灵活的解决方案，支持动态加载和共享模块，促进了应用的模块化和独立性。它与 Monorepo 的区别在于实现方式和适用场景，开发者可以根据项目需求选择合适的策略。
 
 通过模块联邦，团队可以更高效地进行开发、部署和维护，同时保持代码的清晰和可维护性。希望本文能够帮助你更深入地理解和使用 Webpack 5 的模块联邦特性。如需进一步了解，请查阅 [Webpack 官方文档](https://webpack.docschina.org/concepts/module-federation/)。
-
-<br/>
-
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

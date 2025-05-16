@@ -189,13 +189,3 @@ function loadEnv(
 **相关内容：** [`.env` Files](https://cn.vitejs.dev/guide/env-and-mode.html#env-files)
 
 加载 `envDir` 中的 `.env` 文件。默认情况下只有前缀为 `VITE_` 会被加载，除非更改了 `prefixes` 配置。
-
-<br/>
-
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

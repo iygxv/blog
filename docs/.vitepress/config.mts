@@ -23,66 +23,69 @@ export default defineConfig({
     logo: 'http://www.icodehub.top/blob/logo.png',
     nav: [
       // emoji 大全： https://remeins.com/index/app/emojilist
-      { text: '🏰 首页', link: '/' },
-      { text: '🕋 资源导航', link: '/source/资源导航.md' },
-      { text: '🏚 升阶试炼场', items: [
-          { text: ' 🛩 试炼资源', link: '/interview/source.md' },
-          { text: ' 🛫 CSS 试炼', link: '/interview/CSS.md' },
-          { text: ' 🛬 HTML 试炼', link: '/interview/HTML.md' },
-          { text: ' 🪂 Vue 试炼', link: '/interview/Vue.md' },
-          { text: ' 🚟 Vue3 试炼', link: '/interview/Vue3.md' },
-          { text: ' 💺 TypeScript 试炼', link: '/interview/TypeScript.md' },
-          { text: ' 🚁 JavaScript 试炼', link: '/interview/JavaScript.md' },
-          { text: ' 🚠 性能优化 试炼', link: '/interview/性能优化.md' },
-          { text: ' 🛰️ 代码手写 试炼', link: '/interview/代码手写.md' },
-          { text: ' 🛸 浏览器原理 试炼', link: '/interview/浏览器原理.md' },
-          { text: ' 🛥️ 计算机网络 试炼', link: '/interview/计算机网络.md' },
+      { text: '首页', link: '/' },
+      { text: '资源导航', link: '/source/资源导航.md' },
+      { text: '面试资源', items: [
+          { text: '面试资源导航', link: '/interview/source.md' },
+          { text: 'CSS 面试', link: '/interview/CSS.md' },
+          { text: 'HTML 面试', link: '/interview/HTML.md' },
+          { text: 'Vue 面试', link: '/interview/Vue.md' },
+          { text: 'Vue3 面试', link: '/interview/Vue3.md' },
+          { text: 'TypeScript 面试', link: '/interview/TypeScript.md' },
+          { text: 'JavaScript 面试', link: '/interview/JavaScript.md' },
+          { text: '性能优化 面试', link: '/interview/性能优化.md' },
+          { text: '代码手写 面试', link: '/interview/代码手写.md' },
+          { text: '浏览器原理 面试', link: '/interview/浏览器原理.md' },
+          { text: '计算机网络 面试', link: '/interview/计算机网络.md' },
         ] 
       },
       { 
-        text: '⛪技术领域',
+        text: '前端技术',
         items: [
-          { text: '🎇 CSS', link: '/css/' },
-          { text: '🏝 JavaScript', link: '/javascript/' },
-          { text: '🌟 TypeScript', link: '/ts/' },
-          { text: '🌈 Vue2', link: '/vue/vue2/' },
-          { text: '🔰 Vue3', link: '/vue/vue3/' },
-          { text: ' ✨ React', link: '/react/' },
-          { text: '💠 Uniapp', link: '/uniapp/' },
-          { text: '🏞 Vite', link: '/vite/' },
-          { text: '🚀 Webpack', link: '/webpack/' },
-          { text: '🪂 Git', link: '/git/' },
-          { text: '🎆 正则', link: '/regex/' },
+          { text: 'CSS', link: '/css/' },
+          { text: 'JavaScript', link: '/javascript/' },
+          { text: 'TypeScript', link: '/ts/' },
+          { text: 'Vue2', link: '/vue/vue2/' },
+          { text: 'Vue3', link: '/vue/vue3/' },
+          { text: 'React', link: '/react/' },
+          { text: 'Uniapp', link: '/uniapp/' },
+          { text: 'Vite', link: '/vite/' },
+          { text: 'Webpack', link: '/webpack/' },
+          { text: 'Git', link: '/git/' },
+          { text: '正则', link: '/regex/' },
+        ]
+      },
+      // { 
+      //   text: '记录',
+      //   items: [
+      //     { text: '实战技巧', link: '/information/PracticalSkills.md' },
+      //     { text: 'EveryT', link: '/information/EveryT.md' },
+      //     { text: 'EveryT - 十月', link: '/information/EveryT-Oct.md' },
+      //   ]
+      // },
+      {
+        text: '编程代码',
+        items: [
+          { text: 'JS 基本编程', link: '/coding/手写题.md' },
+          { text: 'TS 基本编程', link: '/coding/手写题(ts).md' },
+          { text: 'async await 实现', link: '/coding/async-await.md' },
+          { text: 'axios 实现', link: '/coding/axios的基本实现.md' },
+          { text: 'PromiseA+ 实现', link: '/coding/PromiseA+.md' },
+          { text: 'Promise 其他方法实现', link: '/coding/Promise其他方法.md' },
         ]
       },
       { 
-        text: '⛲ 记录',
+        text: '项目',
         items: [
-          // 💟 ☮️ ✝️ ☪️ 🕉 ☸️ ✡️ 🔯 🕎 ☯️ ☦️ 🛐 ⛎ ♈️ ♉️ ♊️ ♋️ ♌️ ♍️ ♎️ ♏️ ♐️ ♑️ ♒️ ♓️ 🆔 ⚛️
-          { text: '🛐 实战技巧', link: '/information/PracticalSkills.md' },
-          { text: '♑️  EveryT', link: '/information/EveryT.md' },
-          { text: '✡️  EveryT - 十月', link: '/information/EveryT-Oct.md' },
+          { text: '图床', link: 'http://icodehub.top/imageBed/' },
+          { text: 'Ts Transform', link: 'http://icodehub.top/transform/' },
+          // { text: 'Vue Next Admin', link: 'http://icodehub.top/vue-next-admin/' },
         ]
       },
       {
-        text: '⛺ 编程代码',
+        text: '插件',
         items: [
-          { text: '🛫 JS 基本编程', link: '/coding/手写题.md' },
-          { text: '🛬 TS 基本编程', link: '/coding/手写题(ts).md' },
-          { text: '🛩 async await 实现', link: '/coding/async-await.md' },
-          { text: '💺 axios 实现', link: '/coding/axios的基本实现.md' },
-          { text: '🛰 PromiseA+ 实现', link: '/coding/PromiseA+.md' },
-          { text: '🛸 Promise 其他方法实现', link: '/coding/Promise其他方法.md' },
-        ]
-      },
-      { 
-        text: ' 🌁 线上作品',
-        items: [
-          // ⌚️ 📱 📲 💻 ⌨️ 🖥 🖨 🖱
-          { text: '⌚️ 图床', link: 'http://icodehub.top/imageBed/' },
-          { text: '📱 Fast Log', link: 'https://github.com/iygxv/fast-log' },
-          { text: '🖨 Ts Transform', link: 'http://icodehub.top/transform/' },
-          // { text: '💻 Vue Next Admin', link: 'http://icodehub.top/vue-next-admin/' },
+          { text: 'Fast Log', link: 'https://github.com/iygxv/fast-log' },
         ]
       }
     ],

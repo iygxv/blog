@@ -354,12 +354,3 @@ applyPluginsAsyncSeries(name: string, args: any..., callback: (err: Error, resul
 applyPluginsParallel(name: string, args: any..., callback: (err?: Error) -> void)
 applyPluginsParallelBailResult(name: string, args: any..., callback: (err: Error, result: any) -> void)
 ```
-
-<br/>
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

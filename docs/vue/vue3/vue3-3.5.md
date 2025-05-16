@@ -347,12 +347,3 @@ https://mp.weixin.qq.com/s/X-N0q2BK9ONN8iz-oWW4-A
 Vue Macros: 由 Vue 团队成员维护的一个 超前版 Vue
 
 [Vue Macros](https://vue-macros.dev/zh-CN/)
-
-<br/>
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

@@ -218,12 +218,3 @@ let [a, b, c] = { a: 1, b: 2, c: 3 };
 这样子能解构成功, 是因为在对象原型上添加数组迭代器
 
 [去了解迭代器](https://github.com/iygxv/practice/tree/main/JavaScript/%E8%BF%AD%E4%BB%A3%E5%99%A8)
-
-<br/>
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

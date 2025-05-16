@@ -169,12 +169,3 @@ https://juejin.cn/post/7329280514627256361?searchId=20240628151722FE01B126E05E63
 Vue Macros: 由 Vue 团队成员维护的一个 超前版 Vue
 
 [Vue Macros](https://vue-macros.dev/zh-CN/)
-
-<br/>
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

@@ -166,12 +166,3 @@ INSERT INTO user (id, name, age, sex) VALUES (1, '随缘', 20, '男'), (2, '王�
   -- 其他函数：nullif、coalesce、greatest、least
   SELECT nullif(xxx, xxx), coalesce(xxx, xxx), greatest(xxx, xxx), least(xxx, xxx) FROM user;
   ```
-
-<br/>
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

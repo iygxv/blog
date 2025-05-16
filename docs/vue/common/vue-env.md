@@ -53,12 +53,3 @@ categories:
 总的来说，`.env` 文件是 `Vue` 项目中非常重要的一个配置文件，它允许开发者为不同的环境设置不同的配置信息，并通过 `process.env` 在项目的任何位置访问这些配置。
 
 Vue cli 可以加载.env 文件，详情可查看：[Vue cli-环境变量和模式](https://cli.vuejs.org/zh/guide/mode-and-env.html#%E6%A8%A1%E5%BC%8F)
-
-<br/>
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

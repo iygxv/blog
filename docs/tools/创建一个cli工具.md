@@ -298,12 +298,3 @@ vitim create app
 操作命令行 [sindresorhus/ansi-escapes](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fsindresorhus%2Fansi-escapes)
 
 输出截断 [sindresorhus/cli-truncate](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fsindresorhus%2Fcli-truncate)
-
-<br/>
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

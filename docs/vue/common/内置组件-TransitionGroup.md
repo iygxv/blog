@@ -141,13 +141,3 @@ interface TransitionGroupProps extends Omit<TransitionProps, "mode"> {
 ```
 
 - **参考**[指南 - TransitionGroup](https://cn.vuejs.org/guide/built-ins/transition-group.html)
-
-<br/>
-
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸

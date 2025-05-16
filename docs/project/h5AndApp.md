@@ -113,12 +113,3 @@ function callMethod(methodName, methodParam = null, androidJsObj = "appSdk") {
 
 let ret = callMethod("double", 4); // 这样调起来就行了
 ```
-
-<br/>
-<hr />
-
-⭐️⭐️⭐️ 好啦！！！本文章到这里就结束啦。⭐️⭐️⭐️
-
-✿✿ ヽ(°▽°)ノ ✿
-
-撒花 🌸🌸🌸🌸🌸🌸
