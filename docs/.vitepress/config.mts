@@ -10,7 +10,7 @@ export default defineConfig({
   // 继承博客主题(@sugarat/theme)
   extends: blogTheme,
   lang: 'zh-cn',
-  title: '随缘',
+  title: '1111111随缘',
   description: '随缘的博客主题，基于 vitepress 实现',
   lastUpdated: true,
   // 详见：https://vitepress.dev/reference/site-config#head
