@@ -14,10 +14,6 @@ categories:
 
 # 为什么 vue:deep、/deep/、>>> 样式能穿透到子组件
 
-> 原文：[掘金](https://juejin.cn/post/7397285315822632997) ><br/> 作者：[前端下饭菜](https://juejin.cn/user/906414209122200/posts)
-
-## 为什么 vue:deep、/deep/、>>> 样式能穿透到子组件
-
 在 scoped 标记的 style 中，只要涉及三方组件，那 deep 符号会经常被使用，用来修改外部组件的样式。
 
 ## 小试牛刀

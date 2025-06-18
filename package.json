@@ -16,7 +16,7 @@
     "@sugarat/theme": "^0.3.0",
     "element-plus": "^2.3.8",
     "pagefind": "^1.1.0",
-    "sharp": "^0.33.2",
+    "sharp": "^0.34.2",
     "vue": "3.3.13"
   },
   "directories": {
@@ -26,5 +26,6 @@
     "sass": "1.32.13",
     "typescript": "^5.1.6",
     "vitepress": "1.0.0-rc.32"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

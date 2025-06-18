@@ -13,6 +13,37 @@ export default defineConfig({
   title: '随缘',
   description: '随缘的博客主题，基于 vitepress 实现',
   lastUpdated: true,
+  
+  // Vite 性能优化配置
+  vite: {
+    // 依赖预构建优化
+    optimizeDeps: {
+      include: [
+        'vue',
+        'element-plus',
+        '@element-plus/icons-vue'
+      ],
+      // 排除一些不需要预构建的依赖
+      exclude: [
+        '@sugarat/theme'
+      ]
+    },
+    // 开发服务器配置
+    server: {
+      fs: {
+        // 允许为项目根目录的上一级提供服务
+        allow: ['..']
+      }
+    },
+    // 构建优化 - 移除 manualChunks 避免与 VitePress 外部依赖冲突
+    build: {
+      chunkSizeWarningLimit: 1000, // 增加chunk大小警告阈值
+      rollupOptions: {
+        // 不设置 manualChunks，让 VitePress 自己处理
+      }
+    }
+  },
+  
   // 详见：https://vitepress.dev/reference/site-config#head
   head: [
     // 配置网站的图标（显示在浏览器的 tab 上）
@@ -86,6 +117,14 @@ export default defineConfig({
         text: '插件',
         items: [
           { text: 'Fast Log', link: 'https://github.com/iygxv/fast-log' },
+        ]
+      },
+      // Java
+      {
+        text: 'Java',
+        items: [
+          { text: 'Java数据类型指南', link: '/java/1.Java数据类型指南.md' },
+          { text: 'Java注解技术指南', link: '/java/2.Java注解技术指南.md' },
         ]
       }
     ],

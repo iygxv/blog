@@ -4,3 +4,9 @@ cache
 .temp
 .DS_Store
 docs/.DS_Store
+
+# VitePress
+docs/.vitepress/dist
+docs/.vitepress/cache
+docs/.vitepress/.temp
+docs/.vitepress/config.mts.timestamp-*
