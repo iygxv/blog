@@ -57,7 +57,7 @@ devServer: {
 
 环境变量设置 可以访问下面的链接
 
-[环境变量设置](https://icodehub.top/uniapp/uniapp%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE.html)
+[环境变量设置](http://icodehub.top/uniapp/uniapp%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE.html)
 
 ## 其他兼容
 

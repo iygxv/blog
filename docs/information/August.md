@@ -50,7 +50,7 @@ local-web-server 可以设置代理
 
 ## 为什么 vue:deep、/deep/、>>> 样式能穿透到子组件
 
-[为什么 vue:deep、/deep/、>>> 样式能穿透到子组件](https://icodehub.top/blog/vue/vue3/deep-style-penetrate.html)
+[为什么 vue:deep、/deep/、>>> 样式能穿透到子组件](http://icodehub.top/blog/vue/vue3/deep-style-penetrate.html)
 
 ## vite-plugin-inspect 源码分析 插件
 

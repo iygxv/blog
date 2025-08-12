@@ -54,7 +54,7 @@ categories:
 - url params
 
   ```js
-  https://icodehub.top/api/list/1
+  http://icodehub.top/api/list/1
   ```
 
   这里的 1 就是路径中的参数（url param）
@@ -62,7 +62,7 @@ categories:
 - query
 
   ```js
-  https://icodehub.top/api/list?page=1
+  http://icodehub.top/api/list?page=1
   ```
 
   这里的 page 就是 query 传递的数据。

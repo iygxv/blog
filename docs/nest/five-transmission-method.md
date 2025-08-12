@@ -27,7 +27,7 @@ categories:
 我们可以把参数写在 url 中，比如：
 
 ```js
-https://icodehub.top/api/list/1
+http://icodehub.top/api/list/1
 ```
 
 这里的 1 就是路径中的参数（url param），服务端框架或者单页应用的路由都支持从 url 中取出参数。
@@ -47,7 +47,7 @@ urlParam();
 query 是 通过 url 中 ？后面的用 & 分隔的字符串传递数据。比如：
 
 ```js
-https://icodehub.top/api/list?name=sy&age=16
+http://icodehub.top/api/list?name=sy&age=16
 ```
 
 这里的 name 和 age 就是 query 传递的数据。

@@ -13,7 +13,7 @@ categories:
 # EveryT - 开始
 
 ## 十月
-[十月移至此处](https://icodehub.top/blog/information/EveryT-Oct.html)
+[十月移至此处](http://icodehub.top/blog/information/EveryT-Oct.html)
 
 ## Git 中本地项目连接远程仓库，怎么操作呢？（2024-9-30）
 - 首先在本地创建一个项目，然后执行`git init`初始化仓库
@@ -43,19 +43,19 @@ categories:
 
 ## Vue3.5 新增特性（2024-9-27）
 
-[Vue3.5 新增特性](https://icodehub.top/blog/vue/vue3/vue3-3.5.html)
+[Vue3.5 新增特性](http://icodehub.top/blog/vue/vue3/vue3-3.5.html)
 
 ## Vue3.4 新增特性（2024-9-26）
 
-[Vue3.4 新增特性](https://icodehub.top/blog/vue/vue3/vue3-3.4.html)
+[Vue3.4 新增特性](http://icodehub.top/blog/vue/vue3/vue3-3.4.html)
 
 ## Vue3.3 新增特性（2024-9-25）
 
-[Vue3.3 新增特性](https://icodehub.top/blog/vue/vue3/vue3-3.3.html)
+[Vue3.3 新增特性](http://icodehub.top/blog/vue/vue3/vue3-3.3.html)
 
 ## Vue3.2 新增特性（2024-9-24）
 
-[Vue3.2 新增特性](https://icodehub.top/blog/vue/vue3/vue3-3.2.html)
+[Vue3.2 新增特性](http://icodehub.top/blog/vue/vue3/vue3-3.2.html)
 
 ## ref 与 reactive 使用时的一些注意事项（2024-9-23）
 
@@ -337,7 +337,7 @@ Vue3.0 选择使用 Proxy API 替代 defineProperty API，主要基于以下几�
 我们可以把参数写在 url 中，比如：
 
 ```txt
-https://icodehub.top/blog/1111
+http://icodehub.top/blog/1111
 ```
 
 这里的 1111 就是路径中的参数（url param），服务端框架或者单页应用的路由都支持从 url 中取出参数。
@@ -390,11 +390,11 @@ Content-Type 是一个 HTTP 标头，用于指示请求体或响应体的媒体�
 
 ## Vite 环境配置与跨域配置（2024-9-19）
 
-[Vite 环境配置与跨域配置](https://icodehub.top/blog/vite/vite-env-cross-orign.html)
+[Vite 环境配置与跨域配置](http://icodehub.top/blog/vite/vite-env-cross-orign.html)
 
 ## H5 页面跳转小程序的 3 种实现方式（2024-9-18）
 
-[H5 页面跳转小程序的 3 种实现方式](https://icodehub.top/blog/project/H5页面跳转小程序的3种实现方式.html)
+[H5 页面跳转小程序的 3 种实现方式](http://icodehub.top/blog/project/H5页面跳转小程序的3种实现方式.html)
 
 ## 日常 3 问（2024-9-17）
 
@@ -807,7 +807,7 @@ class RefImpl {
 
 ## npm、yarn、pnpm 的区别？（2024-9-11）
 
-[npm、yarn、pnpm 的区别？](https://icodehub.top/blog/engineering/npm%E3%80%81yarn%E3%80%81pnpm%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F.html)
+[npm、yarn、pnpm 的区别？](http://icodehub.top/blog/engineering/npm%E3%80%81yarn%E3%80%81pnpm%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F.html)
 
 ## 日常 3 问（2024-9-10）
 
