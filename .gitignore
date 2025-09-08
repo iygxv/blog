@@ -10,3 +10,6 @@ docs/.vitepress/dist
 docs/.vitepress/cache
 docs/.vitepress/.temp
 docs/.vitepress/config.mts.timestamp-*
+
+
+*.conf

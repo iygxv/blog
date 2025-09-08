@@ -6,7 +6,7 @@ import { blogTheme } from './blog-theme'
 // Vitepress 默认配置
 // 详见文档：https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base:'/blog/',
+  // base:'/blog/',
   // 继承博客主题(@sugarat/theme)
   extends: blogTheme,
   lang: 'zh-cn',
@@ -47,11 +47,11 @@ export default defineConfig({
   // 详见：https://vitepress.dev/reference/site-config#head
   head: [
     // 配置网站的图标（显示在浏览器的 tab 上）
-    ['link', { rel: 'icon',  href: 'http://www.icodehub.top/blob/logo.ico' }]
+    ['link', { rel: 'icon',  href: 'http://images.icodehub.top/logo.ico' }]
   ],
   themeConfig: {
     lastUpdatedText: '上次更新于',
-    logo: 'http://www.icodehub.top/blob/logo.png',
+    logo: 'http://images.icodehub.top/logo.png',
     nav: [
       // emoji 大全： https://remeins.com/index/app/emojilist
       { text: '首页', link: '/' },
@@ -105,10 +105,17 @@ export default defineConfig({
           { text: 'Promise 其他方法实现', link: '/coding/Promise其他方法.md' },
         ]
       },
+      {
+        text: '后端技术',
+        items: [
+          { text: 'Java数据类型指南', link: '/java/1.Java数据类型指南.md' },
+          { text: 'Java注解技术指南', link: '/java/2.Java注解技术指南.md' },
+        ]
+      },
       { 
         text: '项目',
         items: [
-          { text: '图床', link: 'http://icodehub.top/imageBed/' },
+          // { text: '图床', link: 'http://icodehub.top/imageBed/' },
           { text: 'Ts Transform', link: 'http://icodehub.top/transform/' },
           // { text: 'Vue Next Admin', link: 'http://icodehub.top/vue-next-admin/' },
         ]
@@ -119,14 +126,6 @@ export default defineConfig({
           { text: 'Fast Log', link: 'https://github.com/iygxv/fast-log' },
         ]
       },
-      // Java
-      {
-        text: 'Java',
-        items: [
-          { text: 'Java数据类型指南', link: '/java/1.Java数据类型指南.md' },
-          { text: 'Java注解技术指南', link: '/java/2.Java注解技术指南.md' },
-        ]
-      }
     ],
     socialLinks: [
       {

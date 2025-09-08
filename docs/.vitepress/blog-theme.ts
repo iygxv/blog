@@ -67,19 +67,19 @@ const blogTheme = getThemeConfig({
         'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
       url: 'https://sugarat.top',
     },
-    {
-      nickname: '知行记',
-      des: '知行记的博客',
-      avatar:
-        'https://codemy.top/upload/2022/06/WechatIMG102.jpeg',
-      url: 'https://codemy.top',
-    },
-    {
-      nickname: '茂茂物语',
-      des: '茂茂的成长之路，包含前端常用知识、源码阅读笔记、各种奇淫技巧、日常提效工具等',
-      url: 'https://notes.fe-mm.com',
-      avatar: 'https://notes.fe-mm.com/logo.png'
-    },
+    // {
+    //   nickname: '知行记',
+    //   des: '知行记的博客',
+    //   avatar:
+    //     'https://codemy.top/upload/2022/06/WechatIMG102.jpeg',
+    //   url: 'https://codemy.top',
+    // },
+    // {
+    //   nickname: '茂茂物语',
+    //   des: '茂茂的成长之路，包含前端常用知识、源码阅读笔记、各种奇淫技巧、日常提效工具等',
+    //   url: 'https://notes.fe-mm.com',
+    //   avatar: 'https://notes.fe-mm.com/logo.png'
+    // },
   ],
   // 看板娘
   // oml2d: {
