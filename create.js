@@ -28,6 +28,10 @@ const foldersPath = [
 const folderNameWhite = ['css']
 
 function traverseFolder(folderPath) {
+  if (!fs.existsSync(folderPath)) {
+    console.warn(`文件夹不存在，已跳过：${folderPath}`);
+    return;
+  }
   let capitalizedFolderName = ''
   const folderName = path.basename(folderPath);
 
@@ -61,7 +65,7 @@ function traverseFolder(folderPath) {
           }
           if (stats.isDirectory()) {
             // traverseFolder(filePath); // 递归遍历子文件夹
-          } else if (path.extname(file) === '.md') {
+          } else if (path.extname(file) === '.md' && file !== 'index.md') {
             const fileName = path.basename(file, '.md');
             indexContent += `* [${fileName}](./${file})\n`;
           }
