@@ -21,6 +21,8 @@ const foldersPath = [
   `${ __dirname + '/docs/project'}`,
   `${ __dirname + '/docs/css'}`,
   `${ __dirname + '/docs/mysql'}`,
+  `${ __dirname + '/docs/java'}`,
+  `${ __dirname + '/docs/Ai'}`,
 ]
 
 const folderNameWhite = ['css']
